@@ -1,11 +1,14 @@
+
+/*
+gold:	#F8981C;
+grey:	#BCBBBB;
+green:	#747704;
+*/
+
 body {
 	font-family: 'Lato', sans-serif;
 	color: #747704;
 	font-weight: 300;
-}
-
-.text-muted {
-	color: #BCBBBB;
 }
 
 .text-thin {
@@ -18,8 +21,25 @@ body {
 
 .title-logo {
 	margin-top: 20px;
+	width: 100px;
 }
 
 hr {
 	border-width: 5px;
+}
+
+.border-gold {
+	border: 7px solid #F8981C;
+}
+
+.color-grey {
+	color: #BCBBBB;
+}
+
+.color-green {
+	color: #747704;
+}
+
+.center-image {
+	margin: 0 auto;
 }
