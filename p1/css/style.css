@@ -28,6 +28,10 @@ hr {
 	border-width: 5px;
 }
 
+img {
+	border: 1px solid red !important;
+}
+
 .border-gold {
 	border: 7px solid #F8981C;
 }
