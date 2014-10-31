@@ -29,7 +29,7 @@ hr {
 }
 
 img {
-	border: 1px solid red !important;
+        box-shadow: 0 0 5px 5px grey;
 }
 
 .border-gold {
