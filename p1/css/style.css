@@ -3,6 +3,9 @@
 gold:	#F8981C;
 grey:	#BCBBBB;
 green:	#747704;
+black:	#000000;
+purple: #3F0477;
+light-blue: #1CABF8;
 */
 
 body {
@@ -16,12 +19,24 @@ body {
 }
 
 .title-super {
-	font-size: 60px;
+	font-size: 5em;
 }
 
+.text-medium {
+	font-size: 1.25em;
+}
+
+.text-normal {
+	font-size: 1em;
+}
+
+.text-small {
+	font-size: .8em;
+}
 .title-logo {
-	margin-top: 20px;
+	margin-top: 30px;
 	width: 100px;
+	border: 7px solid #F8981C;
 }
 
 hr {
@@ -31,9 +46,8 @@ hr {
 img {
         box-shadow: 0 0 5px 5px grey;
 }
-
-.border-gold {
-	border: 7px solid #F8981C;
+.center-image {
+	margin: 0 auto;
 }
 
 .color-grey {
@@ -44,6 +58,18 @@ img {
 	color: #747704;
 }
 
-.center-image {
-	margin: 0 auto;
+.color-black {
+	color: black;
+}
+
+.color-purple {
+	color: #3F0477;
+}
+
+.color-light-blue {
+	color: #1CABF8;
+}
+
+.color-gold {
+	color: #F8981C;
 }

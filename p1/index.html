@@ -1,145 +1,193 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=windows-1252">
-	<link href="images/favicon.ico" rel="icon" type="image/x-icon" />
-	<link href="http://fonts.googleapis.com/css?family=Lato:400,100,300" rel="stylesheet" type="text/css">
-	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<!--
+		Front End Web Developer
+		Project 1
 
-	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <title>Project 1</title>
-</head>
-<body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
-                            <img class="title-logo border-gold img-circle" src="images/skull.jpg" alt="logo image">
-			</div>
-			<div class="col-md-6 text-uppercase text-right color-green">
-				<h1 class="title-super text-thin">Chris Tirpak</h1>
-				<h4>Code Guru</h4>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<hr class="color-grey">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-                            <img src="images/matrix.jpg" class="img-responsive" alt="header image">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<h2 class="color-grey">Featured Work</h2>
-                                <p>Click each picture below to learn more</p>
-			</div>
-		</div>
-		<div class="row text-center color-green">
-			<div class="col-md-4">
-                            <img src="images/moul4.jpg" class="img-responsive center-image" data-toggle="modal" data-target="#moul-info" alt="MYST image">
-				<h3 class="text-uppercase">MO:UL</h3>
-				<h5><a href="http://mystonline.com/en/">MYST Online: URU Live</a></h5>
-			</div>
-			<div class="col-md-4">
-                            <img src="images/electric-sheep3.jpg" class="img-responsive center-image"  data-toggle="modal" data-target="#electric-sheep-info" alt="electric sheep image">
-				<h3 class="text-uppercase">Electric Sheep</h3>
-				<h5><a href="http://www.electricsheep.org/">Electric Sheep</a></h5>
-			</div>
-			<div class="col-md-4">
-                            <img src="images/povray.jpg" class="img-responsive center-image" data-toggle="modal" data-target="#povray-info" alt="POV RAY image">
-				<h3 class="text-uppercase">POV-RAY</h3>
-				<h5><a href="http://www.povray.org/">Persistence of Vision Raytracer</a></h5>
-			</div>
-		</div>
-		<div class="row text-center">
-			<div class="col-md-4">
-                            <img src="images/mame.jpg" class="img-responsive center-image"  data-toggle="modal" data-target="#mame-info" alt="MAME image">
-				<h3 class="text-uppercase">MAME</h3>
-				<h5><a href="http://www.mamedev.org/">Multiple Arcade Machine Emulator</a></h5>
-			</div>
-		</div>
-	</div>
+		Chris Tirpak
 
-	<!-- Modal -->
-	<div class="modal fade" id="mame-info" tabindex="-1" role="dialog" aria-labelledby="mamelabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h2 class="modal-title" id="mamelabel">MAME</h2>
+	-->
+
+	<head>
+		<title>Chris Tirpak | Code Guru</title>
+		<link href="images/favicon.ico" rel="shortcut icon">
+
+		<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+
+		<link href="http://fonts.googleapis.com/css?family=Lato:400,100,300" rel="stylesheet" type="text/css">
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<div class="row">
+					<div class="col-md-6">
+						<img class="title-logo img-circle" src="images/skull.jpg" alt="logo image">
+					</div>
+					<div class="col-md-6 text-uppercase text-right color-green">
+						<h1 class="title-super text-thin">Chris Tirpak</h1>
+						<h4>Code Guru</h4>
+					</div>
 				</div>
-				<div class="modal-body">
-                                    <img class="img-responsive" src="images/mame2.jpg" alt="MAME image">
-					<h4>MAME stands for Multiple Arcade Machine Emulator. When used in conjunction with images of the original arcade game's ROM and disk data, MAME attempts to reproduce that game as faithfully as possible on a more modern general-purpose computer. MAME can currently emulate several thousand different classic arcade video games from the late 1970s through the modern era.</h4>
-					<h4>Click <a href="http://www.mamedev.org/">here</a> to learn more.</h4>
+				<div class="row">
+					<div class="col-md-12">
+						<hr class="color-grey">
+					</div>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</header>
+			
+			<main>
+				<div class="row">
+					<div class="col-md-12">
+						<img src="images/matrix.jpg" class="img-responsive" alt="header image">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="color-grey">Featured Work</h2>
+						<p class="h4">Click each picture below to learn more</p>
+						<br>
+					</div>
+				</div>
+				<div class="row text-center color-green">
+					<div class="col-md-4">
+						<img src="images/moul4.jpg" class="img-responsive center-image" data-toggle="modal" data-target="#moul-info" alt="MYST image">
+						<h3 class="text-uppercase">MO:UL</h3>
+						<h5><a href="http://mystonline.com/en/">MYST Online: URU Live</a></h5>
+						<br>
+					</div>
+					<div class="col-md-4">
+						<img src="images/electric-sheep3.jpg" class="img-responsive center-image"  data-toggle="modal" data-target="#electric-sheep-info" alt="electric sheep image">
+						<h3 class="text-uppercase">Electric Sheep</h3>
+						<h5><a href="http://www.electricsheep.org/">Electric Sheep</a></h5>
+						<br>
+					</div>
+					<div class="col-md-4">
+						<img src="images/povray.jpg" class="img-responsive center-image" data-toggle="modal" data-target="#povray-info" alt="POV RAY image">
+						<h3 class="text-uppercase">POV-RAY</h3>
+						<h5><a href="http://www.povray.org/">Persistence of Vision Raytracer</a></h5>
+						<br>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-md-4">
+						<img src="images/mame.jpg" class="img-responsive center-image"  data-toggle="modal" data-target="#mame-info" alt="MAME image">
+						<h3 class="text-uppercase">MAME</h3>
+						<h5><a href="http://www.mamedev.org/">Multiple Arcade Machine Emulator</a></h5>
+						<br>
+					</div>
+				</div>
+			</main>
+
+			<footer>
+				<div class="row">
+					<div class="col-md-12">
+						<hr class="color-grey">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<p class="h5">Note that these projects are not my own work. They were created by many talented people and I would like to be part of any ongoing development of these projects in the future.</p>
+					</div>
+				</div>
+			</footer>
+
+		</div>
+
+		<!--
+			********************************************************************
+			Modal content starts here
+			********************************************************************
+		-->
+		
+		<!-- Modal -->
+		<div class="modal fade" id="mame-info" tabindex="-1" role="dialog" aria-labelledby="mamelabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title color-gold" id="mamelabel">MAME</h2>
+					</div>
+					<div class="modal-body">
+						<img class="img-responsive" src="images/mame2.jpg" alt="MAME image">
+						<br>
+						<p class="text-medium color-purple">MAME stands for Multiple Arcade Machine Emulator. When used in conjunction with images of the original arcade game's ROM and disk data, MAME attempts to reproduce that game as faithfully as possible on a more modern general-purpose computer. MAME can currently emulate several thousand different classic arcade video games from the late 1970s through the modern era.</p>
+						<br>
+						<h4 class="color-gold">Click <a href="http://www.mamedev.org/">here</a> to learn more.</h4>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary color-black" data-dismiss="modal">Close</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- Modal -->
-	<div class="modal fade" id="povray-info" tabindex="-1" role="dialog" aria-labelledby="povraylabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h2 class="modal-title" id="povraylabel">POV-RAY</h2>
-				</div>
-				<div class="modal-body">
-                                    <img class="img-responsive" src="images/povray2.jpg" alt="POV RAY image">
-					<h4>The Persistence of Vision Raytracer is a high-quality, Free Software tool for creating stunning three-dimensional graphics. The source code is available for those wanting to do their own ports. </h4>
-					<h4>Click <a href="http://www.povray.org/">here</a> to learn more.</h4>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<!-- Modal -->
+		<div class="modal fade" id="povray-info" tabindex="-1" role="dialog" aria-labelledby="povraylabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title color-gold" id="povraylabel">POV-RAY</h2>
+					</div>
+					<div class="modal-body">
+						<img class="img-responsive" src="images/povray2.jpg" alt="POV RAY image">
+						<br>
+						<p class="text-medium color-purple">The Persistence of Vision Raytracer is a high-quality, Free Software tool for creating stunning three-dimensional graphics. The source code is available for those wanting to do their own ports. </p>
+						<br>
+						<h4 class="color-gold">Click <a href="http://www.povray.org/">here</a> to learn more.</h4>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary color-black" data-dismiss="modal">Close</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- Modal -->
-	<div class="modal fade" id="electric-sheep-info" tabindex="-1" role="dialog" aria-labelledby="electricsheeplabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h2 class="modal-title" id="electricsheeplabel">Electric Sheep</h2>
-				</div>
-				<div class="modal-body">
-                                    <img class="img-responsive" src="images/electric-sheep2.jpg" alt="Electric Sheep image">
-					<h4>Electric Sheep is a collaborative abstract artwork founded by Scott Draves. It's run by thousands of people all over the world, and can be installed on any ordinary PC, Mac, Android, or iPad. When these computers "sleep", the Electric Sheep comes on and the computers communicate with each other by the internet to share the work of creating morphing abstract animations known as "sheep".</h4>
-					<h4>Click <a href="http://www.electricsheep.org/">here</a> to learn more.</h4>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<!-- Modal -->
+		<div class="modal fade" id="electric-sheep-info" tabindex="-1" role="dialog" aria-labelledby="electricsheeplabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title color-gold" id="electricsheeplabel">Electric Sheep</h2>
+					</div>
+					<div class="modal-body">
+						<img class="img-responsive" src="images/electric-sheep2.jpg" alt="Electric Sheep image">
+						<br>
+						<p class="text-medium color-purple">Electric Sheep is a collaborative abstract artwork founded by Scott Draves. It's run by thousands of people all over the world, and can be installed on any ordinary PC, Mac, Android, or iPad. When these computers "sleep", the Electric Sheep comes on and the computers communicate with each other by the internet to share the work of creating morphing abstract animations known as "sheep".</p>
+						<br>
+						<h4 class="color-gold">Click <a href="http://www.electricsheep.org/">here</a> to learn more.</h4>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary color-black" data-dismiss="modal">Close</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- Modal -->
-	<div class="modal fade" id="moul-info" tabindex="-1" role="dialog" aria-labelledby="mystlabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h2 class="modal-title" id="mystlabel">MYST Online: URU Live</h2>
-				</div>
-				<div class="modal-body">
-                                    <img class="img-responsive" src="images/moul2.jpg" alt="MYST image">
-					<h4>Myst Online: Uru Live is a massive multiplayer online game (MMOG) unlike anything else. Instead of repetitive kill/take/buy gameplay of other MMOGs, the very essence of Myst Online is to explore vast, fantastic worlds; savoring and uncovering new areas and new information at every turn. Exploring in Myst Online is an extraordinary experience, where immersing yourself in the environment gives you insight into how to move forward, and what went on before. You can explore alone, or share the journey with a select group friends or family from anywhere in the world. Create an online avatar and chat via text and voice, share images and clues, and explore the Ages of Myst Online together. You’ll rediscover, restore and rebuild the ancient city of D’ni and learn about the history of its fallen civilization.</h4>
-					<h4>Click <a href="http://mystonline.com/en/">here</a> to learn more.</h4>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<!-- Modal -->
+		<div class="modal fade" id="moul-info" tabindex="-1" role="dialog" aria-labelledby="mystlabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title color-gold" id="mystlabel">MYST Online: URU Live</h2>
+					</div>
+					<div class="modal-body">
+						<img class="img-responsive" src="images/moul2.jpg" alt="MYST image">
+						<br>
+						<p class="text-medium color-purple">Myst Online: Uru Live is a massive multiplayer online game (MMOG) unlike anything else. Instead of repetitive kill/take/buy gameplay of other MMOGs, the very essence of Myst Online is to explore vast, fantastic worlds; savoring and uncovering new areas and new information at every turn. Exploring in Myst Online is an extraordinary experience, where immersing yourself in the environment gives you insight into how to move forward, and what went on before. You can explore alone, or share the journey with a select group friends or family from anywhere in the world. Create an online avatar and chat via text and voice, share images and clues, and explore the Ages of Myst Online together. You'll rediscover, restore and rebuild the ancient city of D'ni and learn about the history of its fallen civilization.</p>
+						<br>
+						<h4 class="color-gold">Click <a href="http://mystonline.com/en/">here</a> to learn more.</h4>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary color-black" data-dismiss="modal">Close</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-</body>
+	</body>
 </html>
