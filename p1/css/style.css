@@ -3,7 +3,6 @@
 gold:	#F8981C;
 grey:	#BCBBBB;
 green:	#747704;
-black:	#000000;
 purple: #3F0477;
 light-blue: #1CABF8;
 */
@@ -12,7 +11,16 @@ body {
 	font-family: 'Lato', sans-serif;
 	color: #747704;
 	font-weight: 300;
-	background-image: url('../images/background.jpg');
+	background-image: url(../images/background2.jpg);
+	background-attachment: fixed;
+}
+
+hr {
+	border-width: 5px;
+}
+
+img {
+	box-shadow: 0 0 5px 5px grey;
 }
 
 .text-thin {
@@ -40,13 +48,6 @@ body {
 	border: 7px solid #F8981C;
 }
 
-hr {
-	border-width: 5px;
-}
-
-img {
-        box-shadow: 0 0 5px 5px grey;
-}
 .center-image {
 	margin: 0 auto;
 }
