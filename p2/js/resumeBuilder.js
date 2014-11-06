@@ -1,15 +1,16 @@
 var bio = {
 	"name" : "Chris Tirpak",
 	"role" : "Web Developer",
-	"contact" : "ctirpak1@gmail.com",
+	"contacts" : {
 	"mobile" : "908-512-6356",
-	"email" : "ctirpak1@gmail.com",
+	"email" : "<a href='mailto:ctirpak1@gmail.com?Subject=About%20your%20resume...'>ctirpak1@gmail.com</a>",
 	"twitter" : "<a href='https://twitter.com/c_tirpak'>@c_tirpak</a>",
 	"github" : "<a href='https://github.com/ctirpak' alt='bio picture'>https://github.com/ctirpak</a>",
-	"location" : "Apex, NC",
-	"pictureURL" : "images/skull.jpg",
+	"location" : "Apex, NC"
+	},
 	"welcomeMsg" : "Welcome to my resume",
-	"skills" : ["HTML5", "JavaScript", "jQuery", "SQL Server", "ASP.NET", "VBA"]
+	"skills" : ["HTML5", "JavaScript", "jQuery", "SQL Server", "ASP.NET", "VBA"],
+	"pictureURL" : "images/skull.jpg"
 };
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
