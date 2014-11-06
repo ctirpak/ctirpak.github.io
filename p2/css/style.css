@@ -143,9 +143,11 @@ ul {
 
 .biopic {
   float: left;
-  padding: 10px;
+  padding: 0px;
   width: 200px;
   display: none;
+  border-radius:50%;
+  border: 7px solid #F8981C;
 }
 
 img {

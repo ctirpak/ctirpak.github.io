@@ -21,7 +21,7 @@ var formattedTwitter = HTMLtwitter.replace("%data%", bio.twitter);
 var formattedGithub = HTMLgithub.replace("%data%", bio.github);
 var formattedLocation = HTMLlocation.replace("%data%", bio.location);
 var bioPic = HTMLbioPic.replace("%data%",bio.pictureURL);
-var formattedWelcomeMsg = HTMLbioPicHTMLWelcomeMsg.replace("%data%",bio.welcomeMsg);
+var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMsg);
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
