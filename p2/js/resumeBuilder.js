@@ -1,6 +1,6 @@
 var bio = {
 	"name": "Chris Tirpak",
-	"role": "Web Developer",
+	"role": "Web Application Developer",
 	"contacts": {
 		"mobile": "908-512-6356",
 		"email": "<a href='mailto:ctirpak1@gmail.com?Subject=About%20your%20resume...'>ctirpak1@gmail.com</a>",
@@ -17,9 +17,16 @@ var work = {
 		{
 			"employer": "AT&T",
 			"position": "Manager",
-			"years": "1990 to present",
+			"years": "2004 to present",
 			"city": "Raleigh, NC",
-			"description": "Application developer. Design and build applications for a user base of 500+ employees. Applications are built using HTML, JavaScript, jQuery, ASP.NET, Excel VBA, SQL Server."
+			"description": "Application developer. Design and build applications for a user base of 500+ employees. Applications built using HTML, JavaScript, jQuery, ASP.NET, Excel VBA, SQL Server."
+		},
+		{
+			"employer": "AT&T",
+			"position": "Manager",
+			"years": "1990 to 2003",
+			"city": "Raleigh, NC",
+			"description": "Budget Analysist. Manage $1.1B budget. Manage budgets and expenses for 1,200 Local Exchange Companies (LECs) to aid in contract negotiations."
 		},
 		{
 			"employer": "Alston School Photography",
