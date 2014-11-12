@@ -123,6 +123,28 @@ a {
   background-color: #484848;
 }
 
+.proj-img {
+  border: 1px red;
+  box-shadow: 0 0 5px 5px gray;
+  background: white;
+  margin: 5px;
+}
+
+.img-zoom {
+    width: 100px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+}
+ 
+.transition {
+    -webkit-transform: scale(3) translateX(20%); 
+    -moz-transform: scale(3) translateX(20%);
+    -o-transform: scale(3) translateX(20%);
+    transform: scale(3) translateX(20%);
+}
+
 .flex-box {
   display: -webkit-flex;
   display: flex;
@@ -238,7 +260,7 @@ span {
 }
 
 .content {
-  margin: 8px 24px;
+  margin:  8px 24px 8px 48px;
   padding: 15px;
   border: 1px solid #dedede;
   border-top: none;

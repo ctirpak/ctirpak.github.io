@@ -78,51 +78,31 @@ var projects = {
 	  "title": "BPE Front Door",
 	  "dates": "2009 to present",
 	  "description": "Sharepoint 2010 site used as a work intake tool for projects. Extensive use of Workflows, JavaScript, jQuery. Also includes fucntionality to query SQL Server databases.",
-	  "images": [
-		{
-		  "imgLink": null
-		}
-	  ]
+	  "images": ["images/fd1.jpeg", "images/fd2.jpeg"]
 	},
 	{
 	  "title": "RASL",
 	  "dates": "2011 to present",
 	  "description": "Excel VBA application used for the creation of project related artifacts: scope documentation, requirements, business scenarios, test cases and change requests. VBA code makes use of SQL Server database to be used to 'push' code patches to 500+ user community.",
-	  "images": [
-		{
-		  "imgLink": null
-		}
-	  ]
+	  "images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]
 	},
 	{
 	  "title": "DASL",
 	  "dates": "2013 to present",
 	  "description": "Excel VBA application used in conjuction with RASL. Implementation of project artifact library which is the conduit between RASL and a SQL Server database. Allows users to 'reuse' project artifacts as a starting point for new project work.",
-	  "images": [
-		{
-		  "imgLink": null
-		}
-	  ]
+	  "images": ["images/dasl1.jpeg", "images/dasl2.jpeg"]
 	},
 	{
 	  "title": "Project Voltage",
 	  "dates": "2014 to present",
 	  "description": "ASP.NET web application. User form provides data to SQL Server stored procedure which auto generates a range of codes used for order processing. Database keeps track of codes issued by user.",
-	  "images": [
-		{
-		  "imgLink": null
-		}
-	  ]
+	  "images": ["images/voltage1.jpeg", "images/voltage2.jpeg"]
 	},
 	{
 	  "title": "HEART",
 	  "dates": "2014 to present",
 	  "description": "Excel VBA application which provides status and search functionality for projects. Creates an interface between Excel and SQL Server.",
-	  "images": [
-		{
-		  "imgLink": null
-		}
-	  ]
+	  "images": ["images/heart1.jpeg", "images/heart2.jpeg"]
 	}
 
 
@@ -217,16 +197,15 @@ if (projects.project.length > 0) {
 	formattedProjDates = HTMLprojectDates.replace("%data%", projects.project[proj].dates);
 	formattedProjDesc = HTMLprojectDescription.replace("%data%", projects.project[proj].description);
 
-	for (img in projects.project[proj].images) {
-	  formattedProjImg = formattedProjImg + HTMLprojectImage.replace("%data%", projects.project[proj].images[img].imgLink);
-
-	}
 	$(".project-entry:last").append(formattedProjTitle);
 	$(".project-entry:last").append(formattedProjDates);
 	$(".project-entry:last").append(formattedProjDesc);
-	$(".project-entry:last").append(formattedProjImg);
-	
-	formattedProjImg="";
+
+	for (img in projects.project[proj].images) {
+	  formattedProjImg = HTMLprojectImage.replace("%data%", projects.project[proj].images[img]);
+	  $(".project-entry:last").append(formattedProjImg);
+
+	}
   }
 }
 
