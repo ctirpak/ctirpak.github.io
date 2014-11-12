@@ -74,12 +74,6 @@ $(document).ready(function () {
   }, function () {
 	$(this).removeClass('transition');
   });
-  $('.img-zoom').click(function () {
-	$(this).addClass('transition');
-
-  }, function () {
-	$(this).removeClass('transition');
-  });
 });
 
 
