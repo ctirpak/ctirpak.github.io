@@ -40,14 +40,14 @@ var HTMLprojectStart = "<div class='project-entry'></div>";
 var HTMLprojectTitle = "<a href='#'>%data%</a>";
 var HTMLprojectDates = "<div class='date-text'>%data%</div>";
 var HTMLprojectDescription = "<p><br>%data%</p>";
-var HTMLprojectImage = "<img class='proj-img img-zoom' src='%data%'>";
+var HTMLprojectImage = "<img class='proj-img img-zoom' alt='project picture' src='%data%'>";
 
 var HTMLschoolStart = "<div class='education-entry'></div>";
 var HTMLschoolName = "<a href='#'>%data%";
 var HTMLschoolDegree = " -- %data%</a>";
 var HTMLschoolDates = "<div class='date-text'>%data%</div>";
 var HTMLschoolLocation = "<div class='location-text'>%data%</div>";
-var HTMLschoolMajor = "<em><br>Major: %data%</em>"
+var HTMLschoolMajor = "<em><br>Major: %data%</em>";
 
 var HTMLonlineClasses = "<h3>Online Classes</h3>";
 var HTMLonlineTitle = "<a href='#'>%data%";
@@ -196,8 +196,8 @@ function initializeMap() {
    If so, it creates a new map marker for that location.
    */
   function callback(results, status) {
-	if (status == google.maps.places.PlacesServiceStatus.OK) {
-	  createMapMarker(results[0])
+	if (status === google.maps.places.PlacesServiceStatus.OK) {
+	  createMapMarker(results[0]);
 	}
   }
 
@@ -217,7 +217,7 @@ function initializeMap() {
 	  // the search request object
 	  var request = {
 		query: locations[place]
-	  }
+	  };
 
 	  // Actually searches the Google Maps API for location data and runs the callback 
 	  // function with the search results after each search.
@@ -243,11 +243,11 @@ function initializeMap() {
  */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window 
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function (e) {
 // Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+  map.fitBounds(mapBounds);
+});
