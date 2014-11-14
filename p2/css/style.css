@@ -1,11 +1,30 @@
+/*
+Front End Web Developer
+Project 2 - Interactive Resume
+
+Chris Tirpak
+
+*/
+
 *{
   padding:0;
   margin:0;
   font-family: 'Roboto', sans-serif;
 }
 
+body {
+	font-family: 'Lato', sans-serif;
+	color: #747704;
+	font-weight: 300;
+	background-image: url(../images/background2.jpg);
+	background-attachment: fixed;
+}
 
-
+.info-window {
+	 line-height:1.35;
+	 overflow:hidden;
+	 white-space:nowrap;
+}
 .education-entry, .work-entry, .project-entry {
   padding-left: 5%;
   padding-right: 5%;
@@ -15,7 +34,7 @@
 h1 {
 
   font-size: 40px;
-  color: #F5A623;
+  color: #00769d;
   line-height: 48px;
   display: inline;
 }
@@ -82,12 +101,12 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #F3F3F3;
+  color: #9d0000;
   line-height: 28px;
 }
 
 #skillsH3 {
-  color: #F5AE23;
+  color: #00769d;
   display: none;
 }
 
@@ -105,7 +124,7 @@ a {
 
 .white-text {
   font-weight: bold;
-  color: #FFFFFF;
+  color: #000000;
 }
 
 .gray {
@@ -120,7 +139,8 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  //background-color: #484848;
+  background-image: url("../images/background4.jpg");
 }
 
 .proj-img {
@@ -169,7 +189,7 @@ ul {
   width: 200px;
   display: none;
   border-radius:50%;
-  border: 7px solid #F8981C;
+  border: 7px solid #00769d;
 }
 
 img {
