@@ -169,16 +169,21 @@ bio.display = function () {
 };
 
 education.display = function () {
+	var formattedSchool;
+	var formattedDegree;
+	var formattedDates;
+	var formattedLocation;
+	
 	for (school in education.schools) {
 		$("#education").append(HTMLschoolStart);
-		var formattedSchool = HTMLschoolName.replace("%data%", education.schools[school].name);
-		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].Degree);
-		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].years);
-		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+		formattedSchool = HTMLschoolName.replace("%data%", education.schools[school].name);
+		formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].Degree);
+		formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].years);
+		formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 
-		$(".education-entry").append(formattedSchool + formattedDegree);
-		$(".education-entry").append(formattedDates);
-		$(".education-entry").append(formattedLocation);
+		$(".education-entry:last").append(formattedSchool + formattedDegree);
+		$(".education-entry:last").append(formattedDates);
+		$(".education-entry:last").append(formattedLocation);
 	}
 };
 

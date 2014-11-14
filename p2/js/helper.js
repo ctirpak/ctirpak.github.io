@@ -204,7 +204,6 @@ function initializeMap() {
 			}
 		}
 		locInfo=locInfo + "</div>";
-		console.log(locInfo);
 
 		var infoWindow = new google.maps.InfoWindow({
 			content: locInfo,
