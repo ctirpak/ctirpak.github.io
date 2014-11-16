@@ -25,7 +25,7 @@ body {
 	 overflow:hidden;
 	 white-space:nowrap;
 }
-.education-entry, .work-entry, .project-entry {
+.education-entry, .work-entry, .project-entry, .skills-entry {
   padding-left: 5%;
   padding-right: 5%;
 }
@@ -112,6 +112,7 @@ a {
 
 #skills {
   display: none;
+  background-color: #bbb;
 }
 
 .orange {
