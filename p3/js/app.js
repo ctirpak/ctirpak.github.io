@@ -16,11 +16,23 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+	this.x = (this.x) + ((200  - (Math.floor((Math.random() * 200) + 1)) ) * dt);
+	if(this.x > canvas.width) {
+	  this.x = 0 - Resources.get(this.sprite).width;
+	}
+	this.y = this.y + ((50 - (Math.floor((Math.random() * 100) + 1)) ) * dt);
 }
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
+// Set the position. This is only used to set the starting position.
+// Movement is handled in the update() method
+Enemy.prototype.setPos = function(r, c) {
+  this.x=c;
+  this.y=r;
 }
 
 // Now write your own player class
@@ -54,12 +66,28 @@ player.prototype.handleInput = function() {
   
 }
 
+// Set the position. This is only used to set the starting position.
+// Movement is handled in the update() method
+player.prototype.setPos = function(r, c) {
+  this.x=c;
+  this.y=r;
+}
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-var allEnemies = new Enemy();
+var allEnemies = [];
+var oneEnemy;
+
+for (var x =0;x<5;x++){
+  oneEnemy=new Enemy();
+  oneEnemy.setPos( ((x % 3) + 1) * 83, x * 101 );
+  
+  allEnemies.push(oneEnemy);
+}
+
 player = new player();
+player.setPos(5 * 83, 101 * 2);
 
 
 // This listens for key presses and sends the keys to your
