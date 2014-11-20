@@ -1,3 +1,31 @@
+// Superclass of objects in game (e.g. enemy, player)
+var Entity = function(s,r,c) {
+    // The image/sprite for our entity, this uses
+    // a helper we've provided to easily load images
+    this.sprite = s;
+	this.x=c;
+	this.y=r;
+}
+
+// Update the entity's position, required method for game
+// Parameter: dt, a time delta between ticks
+Entity.prototype.update = function(dt) {
+    // You should multiply any movement by the dt parameter
+    // which will ensure the game runs at the same speed for
+    // all computers.
+	this.x = (this.x) + ((200  - (Math.floor((Math.random() * 200) + 1)) ) * dt);
+	if(this.x > canvas.width) {
+	  this.x = 0 - Resources.get(this.sprite).width;
+	}
+	this.y = this.y + ((50 - (Math.floor((Math.random() * 100) + 1)) ) * dt);
+}
+
+// Draw the entity on the screen, required method for game
+Entity.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
+
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
