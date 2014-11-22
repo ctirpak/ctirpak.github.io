@@ -44,15 +44,15 @@ enemy.constructor = enemy;
 // a handleInput() method.
 // 
 // Player our enemies will kill
-var plyr = function(s,r,c) {
+var Player = function(s,r,c) {
     // player is a sub class of Entity
 	// It does not have any additional methods
     Entity.call(this, s, r, c);
 }
 
 // Need to set up prototype and constructor
-plyr.prototype = Object.create(Entity.prototype);
-plyr.constructor = plyr;
+Player.prototype = Object.create(Entity.prototype);
+Player.constructor = PlayerPlayer;
 /*
 // Handle input to move player
 plyr.prototype.handleInput = function() {
@@ -71,7 +71,7 @@ for (var x =0;x<5;x++){
   allEnemies.push(oneEnemy);
 }
 
-var player = new plyr('images/char-boy.png', 5 * 83, 101 * 2);
+var player = new Player('images/char-boy.png', 5 * 83, 101 * 2);
 
 /*
 // This listens for key presses and sends the keys to your

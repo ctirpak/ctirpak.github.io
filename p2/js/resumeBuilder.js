@@ -19,7 +19,7 @@ var work = {
 			"position": "Sr Consultant Sys Integration - Business Solutions Group",
 			"years": "2008 - Present",
 			"location": "Raleigh, NC",
-			"description": "Operational Effectiveness. Identify, analyze and improve organizational value by providing both new and enhanced solutions that help increase and optimize productivity, efficiency and effectiveness. Responsible for analysis and creation of processes and custom applications to help improve organizational productivity. Software used includes: HTML5, JavaScript, JQuery, SQL Server, ASP.NET, Visual Basic for Applications (VBA) for Microsoft Office, SharePoint Designer, Microsoft Access, Microsoft Excel, Visual Basic"
+			"description": "Operational Effectiveness. Identify, analyze and improve organizational value by providing both new and enhanced solutions that help increase and optimize productivity, efficiency and effectiveness. Analyze and modify existing processes and create custom applications to improve organizational productivity. Applications developed using: HTML5, JavaScript, JQuery, SQL Server, ASP.NET, Visual Basic for Applications (VBA), SharePoint 2010, SharePoint Designer, Microsoft Access, Microsoft Excel, Visual Basic"
 		},
 		{
 			"employer": "AT&T",
