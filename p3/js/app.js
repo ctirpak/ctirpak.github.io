@@ -1,18 +1,18 @@
 // Superclass of objects in game (e.g. enemy, player)
 var Entity = function (s, r, c) {
-	// The image/sprite for our entity, this uses
-	// a helper we've provided to easily load images
-	this.sprite = s;
-	this.x = c;
-	this.y = r;
+  // The image/sprite for our entity, this uses
+  // a helper we've provided to easily load images
+  this.sprite = s;
+  this.x = c;
+  this.y = r;
 }
 
 // Update the entity's position, required method for game
 // Parameter: dt, a time delta between ticks
 Entity.prototype.update = function (dt) {
-	// You should multiply any movement by the dt parameter
-	// which will ensure the game runs at the same speed for
-	// all computers.
+  // You should multiply any movement by the dt parameter
+  // which will ensure the game runs at the same speed for
+  // all computers.
 //	this.x = (this.x) + ((200 - (Math.floor((Math.random() * 200) + 1))) * dt);
 //	if (this.x > canvas.width) {
 //		this.x = 0 - Resources.get(this.sprite).width;
@@ -22,45 +22,34 @@ Entity.prototype.update = function (dt) {
 
 // Draw the entity on the screen, required method for game
 Entity.prototype.render = function () {
-	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
 
 // Enemies our player must avoid
-var Enemy = function () {
-	// Variables applied to each of our instances go here,
-	// we've provided one for you to get started
+var Enemy = function (s, r, c) {
+  // Variables applied to each of our instances go here,
+  // we've provided one for you to get started
 
-	// The image/sprite for our enemies, this uses
-	// a helper we've provided to easily load images
-	this.sprite = 'images/enemy-bug.png';
-	this.x = 0;
-	this.y = 0;
+  // The image/sprite for our enemies, this uses
+  // a helper we've provided to easily load images
+  Entity.call(this, s, r, c);
 }
+// Need to set up prototype and constructor
+Enemy.prototype = Object.create(Entity.prototype);
+Enemy.constructor = Enemy;
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function (dt) {
-	// You should multiply any movement by the dt parameter
-	// which will ensure the game runs at the same speed for
-	// all computers.
-	this.x = (this.x) + ((200 - (Math.floor((Math.random() * 200) + 1))) * dt);
-	if (this.x > canvas.width) {
-		this.x = 0 - Resources.get(this.sprite).width;
-	}
-	this.y = this.y + ((50 - (Math.floor((Math.random() * 100) + 1))) * dt);
-}
-
-// Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function () {
-	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-}
-
-// Set the position. This is only used to set the starting position.
-// Movement is handled in the update() method
-Enemy.prototype.setPos = function (r, c) {
-	this.x = c;
-	this.y = r;
+  // You should multiply any movement by the dt parameter
+  // which will ensure the game runs at the same speed for
+  // all computers.
+  this.x = (this.x) + ((200 - (Math.floor((Math.random() * 200) + 1))) * dt);
+  if (this.x > canvas.width) {
+	this.x = 0 - Resources.get(this.sprite).width;
+  }
+  this.y = this.y + ((50 - (Math.floor((Math.random() * 100) + 1))) * dt);
 }
 
 // Now write your own player class
@@ -69,19 +58,33 @@ Enemy.prototype.setPos = function (r, c) {
 // 
 // Player our enemies will kill
 var player = function (s, r, c) {
-	// player is a sub class of Entity
-	// It does not have any additional methods
-	Entity.call(this, s, r, c);
+  // player is a sub class of Entity
+  // It does not have any additional methods
+  Entity.call(this, s, r, c);
 }
 
 // Need to set up prototype and constructor
 player.prototype = Object.create(Entity.prototype);
 player.constructor = player;
 // Handle input to move player
-player.prototype.handleInput = function () {
-
+player.prototype.handleInput = function (key) {
+  //console.log(key);
+  
+  switch (key) {
+	case "up":
+	  this.y -= ySpacing;
+	  break;
+	case "down":
+	  this.y += ySpacing;
+	  break;
+	case "left":
+	  this.x -= xSpacing;
+	  break;
+	case "right":
+	  this.x += xSpacing;
+	  break;
+  }
 }
-
 /*
  // Now write your own player class
  // This class requires an update(), render() and
@@ -130,31 +133,32 @@ player.prototype.handleInput = function () {
 
 var allEnemies = [];
 var oneEnemy;
-var x = 0;
-var y = 0;
+var xSpacing = 101;
+var ySpacing = 83;
 
 for (var x = 0; x < 5; x++) {
-	oneEnemy = new Enemy();
-	oneEnemy.setPos(((x % 3) + 1) * 83, x * 101);
-
-	allEnemies.push(oneEnemy);
+  oneEnemy = new Enemy('images/enemy-bug.png', ((x % 3) + 1) * ySpacing, x * xSpacing);
+  allEnemies.push(oneEnemy);
 }
-x2 = 5;
-y2 = 2;
 
-player = new player('images/char-boy.png', x2*83, y2*101);
+var player = new player('images/char-boy.png', 5 * ySpacing, 2 * xSpacing);
 //player.setPos(5 * 83, 101 * 2);
 
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function (e) {
-	var allowedKeys = {
-		37: 'left',
-		38: 'up',
-		39: 'right',
-		40: 'down'
-	};
+document.addEventListener('keydown', function (e) {
+  var allowedKeys = {
+	37: 'left', //arrow keys
+	38: 'up', //arrow keys
+	39: 'right', //arrow keys
+	40: 'down', //arrow keys
+	87: 'up', //w
+	83: 'down', //a
+	65: 'left', //s
+	68: 'right'	//d
 
-	player.handleInput(allowedKeys[e.keyCode]);
+  };
+
+  player.handleInput(allowedKeys[e.keyCode]);
 });
