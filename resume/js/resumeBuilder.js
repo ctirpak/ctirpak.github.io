@@ -2,14 +2,15 @@ var bio = {
 	"name": "Chris Tirpak",
 	"role": "Web Application Developer",
 	"contacts": {
-		"mobile": "xxx-xxx-xxxx",
+		"mobile": "<a href=''>908-512-6356</a>",
 		"email": "<a href='mailto:ctirpak1@gmail.com?Subject=About%20your%20resume...'>ctirpak1@gmail.com</a>",
 		"twitter": "<a href='https://twitter.com/c_tirpak'>@c_tirpak</a>",
-		"github": "<a href='https://github.com/ctirpak' alt='bio picture'>https://github.com/ctirpak</a>",
+		"LinkedIn": "<a href='http://www.linkedin.com/in/christirpak'>Chris Tirpak</a>",
+		"github": "<a href='https://github.com/ctirpak'>github.com/ctirpak</a>",
 		"location": "Apex, NC"
 	},
-	"welcomeMsg": "Welcome to my resume",
-	"skills": ["HTML5/JavaScript/jQuery", "SQL Server", "ASP.NET", "VBA"],
+	"welcomeMsg": "8+ years of experience managing IT projects and building custom applications and tools that increase productivity and efficiency by eliminating manual processes and provide innovative, intuitive and effortless solutions.",
+	"skills": ["HTML5", "JavaScript", "jQuery", "SharePoint", "MS SQL Server", "ASP.NET", "Visual Basic for Applications (VBA)", "Git"],
 	"pictureURL": "images/skull.jpg"
 };
 var work = {
@@ -19,87 +20,66 @@ var work = {
 			"position": "Sr Consultant Sys Integration - Business Solutions Group",
 			"years": "2008 - Present",
 			"location": "Raleigh, NC",
-			"description": "Operational Effectiveness. Identify, analyze and improve organizational value by providing both new and enhanced solutions that help increase and optimize productivity, efficiency and effectiveness. Analyze and modify existing processes and create custom applications to improve organizational productivity. Applications developed using: HTML5, JavaScript, JQuery, SQL Server, ASP.NET, Visual Basic for Applications (VBA), SharePoint 2010, SharePoint Designer, Microsoft Access, Microsoft Excel, Visual Basic"
+			"description": "Operational Effectiveness. Analyze existing organizational processes, identify areas for improvement and provide solutions that increase productivity, efficiency and effectiveness. Collaborate with and manage development team to create custom applications for organization of 500+ employees. Utilize SDLC methodologies to manage project through each phase: requirements and analysis, design, coding, testing, deployment and maintenance. Use of HTML5, JavaScript, JQuery, SQL Server, SharePoint Designer, ASP.NET, VBA, Microsoft Access, Microsoft Excel, Visual Basic"
 		},
 		{
 			"employer": "AT&T",
 			"position": "Manager - Business Marketing - Wireless",
 			"years": "2006 - 2007",
 			"location": "Piscataway, NJ",
-			"description": "Wireless and VoIP management.  Includes budget development, financial tracking and results reporting to management, inventory management, purchase order tracking.  Gather data and develop forecasts based on trending, business assumptions, and sales data.  Advanced use of Microsoft Office (Excel, Access, PowerPoint, and Outlook) by using Visual Basic for Applications (VBA) to automate database updates and report generation.  Develop VBA front-end interfaces for Excel and Access to allow user input, real-time data manipulation, and report generation (either printed or exported to other applications)."
+			"description": "Management of wireless devices and Voice over IP (VoIP) inventory for business customers.  Includes budget development, inventory management and forecasting, purchase order tracking and payment. Software applications developed using VBA to automate database updates and automatically generate inventory trending reports."
 		},
 		{
 			"employer": "AT&T",
-			"position": "Staff Manager - Consumer Operations Solutions and Transformation (COS&T)",
-			"years": "2000 - 2006",
+			"position": "Staff Manager - Consumer Operations Solutions and Transformation",
+			"years": "1998 - 2006",
 			"location": "Piscataway, NJ",
-			"description": "Manage financial budgets and outlooks within COS&T.  Develop budgets and provide business units with financial results.  Incorporate volume forecasts, conversion strategies and cost saving initiatives into budget and track monthly results to ascertain actual savings. Develop unit costs and board packages to determine financial impact of contractual changes.  Create monthly outlooks based on actual expenses, initiatives and conversion changes.  Analyze monthly actuals to explain variances against budget and outlook, prepare monthly financial results package for directorate. Advanced use of Excel (pivot tables, macros, charts) and Access (relational databases, SQL queries, reporting), OBATS (TSO/MVS system) used for budget development, actuals management, financial reporting and data transfer.  Supervision of two employees."
-		},
-		{
-			"employer": "AT&T",
-			"position": "Associate Manager - Billing Solutions and Services",
-			"years": "1998 - 2000",
-			"location": "Somerset, NJ",
-			"description": "Manage financial budgets and outlooks within BS&S.  Develop budgets and provide business units with financial results.  Incorporate volume forecasts, conversion strategies and cost saving initiatives into budget and track monthly results to ascertain actual savings. Develop unit cost and board packages to determine financial impact of contractual changes.  Create monthly outlooks based on actual expenses, initiatives and conversion changes.  Analyze monthly actuals to explain variances against budget and outlook, prepare monthly financial results package for directorate. Hold monthly results and outlook meetings with VP, Division managers and CFO.  Advanced use of Excel (pivot tables, macros, charts) and Access (relational databases, SQL queries, reporting), OBATS (TSO/MVS system) used for budget development, actuals management, financial reporting and data transfer."
+			"description": "Budgeting and expense management. Supervision of three employees. Incorporate business strategy into budget, track monthly results, determine root cause of variances, prepare financial results and hold meetings with upper management. Analyze unit cost and determine financial impact of contractual changes."
 		},
 		{
 			"employer": "AT&T",
 			"position": "Associate Manager - Local Service End-to-End Architecture",
 			"years": "1997 - 1998",
 			"location": "Piscataway, NJ",
-			"description": "Analyze local systems architecture to determine capacity thresholds and pinch points using ProcessModel simulation software.  Identify problem areas within the current process and recommend alternative solutions to improve system response time and increase capacity.  Determine headcount requirements and system utilization based on current forecasts from BLS, CLS and ADL for local market entry.  Develop requirements for Resource Planning Model (an Excel-based planning tool) and work with programmers to implement changes.  Perform ‘what-if’ analysis with RPM and determine the impact of business strategies.  Prepare written documentation of systems procedures, simulation analysis and presentations. Software used: Excel, Access, Word, PowerPoint, ProcessModel, and Windows95."
+			"description": "Analyze systems architecture and determine resource capacity thresholds using Process Model simulation software. Recommend alternative solutions to improve system response time and capacity. Create forecast for employee and system utilization needs based on business strategy.  Manage team of developers to implement changes for capacity application software."
 		},
 		{
 			"employer": "AT&T",
 			"position": "Associate Manager - LEC Billing Financial Management",
-			"years": "1993 - 1997",
+			"years": "1987 - 1997",
 			"location": "Somerset, NJ",
-			"description": "Responsible for the input and maintenance of financial budgets within LBFM systems.  Developed requirements for the allocation and assignment of LEC budget expenses to the BUs and SBUs.  Managed budget and actual variance, accruals and unit costs per bill, message and minute, applied conversion strategies to the budget and determined the financial impacts of cost saving initiatives. Created specifications for system enhancements, automated system processes through the use of macros.  Software and systems: Lotus, Approach, TSO, and Focus."
-		},
-		{
-			"employer": "AT&T",
-			"position": "Reports Clerk - LEC Billing Financial Management",
-			"years": "1987 - 1993",
-			"location": "East Brunswick, NJ",
-			"description": "Accountable for the accurate input and processing of LEC B&C bills for payment by AT&T.  Generated financial reports and budget forecasts based on actual expenses.  Analyzed monthly costs to determine billing problems and resolved discrepancies with the LECs.  Software and systems: Lotus, Dbase, VM/CMS, and Relay."
-		},
-		{
-			"employer": "Alston School Photography",
-			"position": "Film Technician",
-			"years": "1984 to 1987",
-			"location": "Edison, NJ",
-			"description": "Film editor. Duties include editing film and printing pictures for school photography studio."
+			"description": "Associate Manager (1993 to 1997) – LEC Billing Financial Management. Manage budgets for 1,100 Local Exchange Companies (LECs) and Independent Companies (ICOs) for telecom services. Reports Clerk (1987 to 1993) – Responsible for input and payment of 25 LEC bills."
 		}
 	]
 };
 var projects = {
 	"project": [
 		{
-			"title": "BPE Front Door",
+			"title": "Work Intake Front Door",
 			"dates": "2009 to present",
-			"description": "Sharepoint 2010 site used as a work intake tool for projects. Extensive use of Workflows, JavaScript, jQuery. Also includes fucntionality to query SQL Server databases.",
+			"description": "SharePoint 2010 site used as a client-facing tool for the submission of IT related work requests. Extensive use of workflows, JavaScript, jQuery, VBScript and SQL Server.",
 			"images": ["images/fd1.jpeg", "images/fd2.jpeg"]
 		},
 		{
-			"title": "RASL",
+			"title": "Project Tool",
 			"dates": "2011 to present",
-			"description": "Excel VBA application used for the creation of project related artifacts: scope documentation, requirements, business scenarios, test cases and change requests. VBA code makes use of SQL Server database to be used to 'push' code patches to 500+ user community.",
+			"description": "Excel VBA application used for the creation of IT project artifacts such as scope documentation, system requirements, business scenarios, test cases, and change requests (CRs). Uses VBA and SQL Server to push software updates to 500+ user base.",
 			"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]
 		},
 		{
-			"title": "DASL",
-			"dates": "2013 to present",
-			"description": "Excel VBA application used in conjuction with RASL. Implementation of project artifact library which is the conduit between RASL and a SQL Server database. Allows users to 'reuse' project artifacts as a starting point for new project work.",
+			"title": "Project Repository",
+			"dates": "2011 to present",
+			"description": "Excel VBA application used in conjunction with Project Tool. Provides database to store and re-use output from Project Tool. Use of VBA and SQL Server.",
 			"images": ["images/dasl1.jpeg", "images/dasl2.jpeg"]
 		},
 		{
-			"title": "Project Voltage",
+			"title": "Code Calculator",
 			"dates": "2014 to present",
-			"description": "ASP.NET web application. User form provides data to SQL Server stored procedure which auto generates a range of codes used for order processing. Database keeps track of codes issued by user.",
+			"description": "ASP.NET web application generates unique product tracking codes for sales orders. Includes data validation, HTML5, jQuery, SQL Server stored procedures.",
 			"images": ["images/voltage1.jpeg", "images/voltage2.jpeg"]
 		},
 		{
-			"title": "HEART",
+			"title": "Project Status",
 			"dates": "2014 to present",
 			"description": "Excel VBA application which provides status and search functionality for projects. Creates an interface between Excel and SQL Server.",
 			"images": ["images/heart1.jpeg", "images/heart2.jpeg"]
@@ -115,14 +95,14 @@ var education = {
 		{
 			"name": "Udacity",
 			"Degree": "Front End Web Developer Nanodegree",
-			"years": "2014 to present",
+			"years": "2015 (expected)",
 			"location": "Mountain View, CA"
 		},
 		{
 			"name": "University of Phoenix",
 			"Degree": "BS-Informatoin Technology",
 			"years": "2009",
-			"location": "Tempe, AZ"
+			"location": "Phoenix, AZ"
 		},
 		{
 			"name": "Raritan Valley Community College",
@@ -143,18 +123,20 @@ bio.display = function () {
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	var formattedLinkedIn = HTMLlinkedIn.replace("%data%", bio.contacts.LinkedIn);
 	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 	var bioPic = HTMLbioPic.replace("%data%", bio.pictureURL);
 	var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMsg);
 
-	$("#header").prepend(formattedRole);
+	//$("#header").prepend(formattedRole);
 	$("#header").prepend(formattedName);
-	$("#header").prepend(bioPic);
+	//$("#header").prepend(bioPic);
 	$("#header").append(formattedWelcomeMsg);
 	$("#footerContacts").append(formattedMobile);
 	$("#footerContacts").append(formattedEmail);
-	$("#footerContacts").append(formattedTwitter);
+	//$("#footerContacts").append(formattedTwitter);
+	$("#footerContacts").append(formattedLinkedIn);
 	$("#footerContacts").append(formattedGithub);
 
 	if (bio.skills.length > 0) {
