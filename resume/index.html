@@ -16,7 +16,9 @@
 		<meta name="viewport" content="width=device-width">
 
 		<title>Interactive Resume | Chris Tirpak</title>
+		<!--
 		<link href="images/favicon.ico" rel="shortcut icon">
+		-->
 
 		<link href="css/style.css" rel="stylesheet" type="text/css">
 
@@ -38,24 +40,6 @@
 			</div>
 			<div style='clear: both;'></div>
 
-			<h2 class = "heading" onclick="document.querySelector('#collapse1').toggle();">Work Experience</h2>
-			<core-collapse id="collapse1">
-				<div id="workExperience" class='gray content'>
-				</div>
-			</core-collapse>
-
-			<h2 class = "heading" onclick="document.querySelector('#collapse2').toggle();">Project Highlights</h2>
-			<core-collapse id="collapse2">
-				<div id="projects" class='gray content'>
-				</div>
-			</core-collapse>
-
-			<h2 class = "heading" onclick="document.querySelector('#collapse3').toggle();">Education</h2>
-			<core-collapse id="collapse3">
-				<div id="education" class='gray content'>
-				</div>
-			</core-collapse>
-
 			<h2 id="skillsCharHeading" class = "heading" onclick="document.querySelector('#collapse4').toggle();">Skills Chart</h2>
 			<core-collapse id="collapse4">
 				<div class="skills-entry">
@@ -75,6 +59,25 @@
 					</div>
 				</div>
 			</core-collapse>
+
+			<h2 class = "heading" onclick="document.querySelector('#collapse2').toggle();">Project Highlights</h2>
+			<core-collapse id="collapse2">
+				<div id="projects" class='gray content'>
+				</div>
+			</core-collapse>
+
+			<h2 class = "heading" onclick="document.querySelector('#collapse1').toggle();">Work Experience</h2>
+			<core-collapse id="collapse1">
+				<div id="workExperience" class='gray content'>
+				</div>
+			</core-collapse>
+
+			<h2 class = "heading" onclick="document.querySelector('#collapse3').toggle();">Education</h2>
+			<core-collapse id="collapse3">
+				<div id="education" class='gray content'>
+				</div>
+			</core-collapse>
+
 
 			<h2 class = "heading">Where I've Lived, Worked and Learned</h2>
 			<div id="mapDiv" class='gray content'>

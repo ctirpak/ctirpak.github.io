@@ -4,7 +4,7 @@
 }
 #skillmap .skills-sunburst {
   float: left;
-  width: 500px;
+  width: 350px;
   margin-left: -40px;
 }
 #skillmap .skills-sunburst svg {

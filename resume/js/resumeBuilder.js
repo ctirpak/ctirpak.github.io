@@ -2,7 +2,7 @@ var bio = {
 	"name": "Chris Tirpak",
 	"role": "Web Application Developer",
 	"contacts": {
-		"mobile": "<a href=''>908-512-6356</a>",
+		"mobile": "<a href='#'>908-512-6356</a>",
 		"email": "<a href='mailto:ctirpak1@gmail.com?Subject=About%20your%20resume...'>ctirpak1@gmail.com</a>",
 		"twitter": "<a href='https://twitter.com/c_tirpak'>@c_tirpak</a>",
 		"LinkedIn": "<a href='http://www.linkedin.com/in/christirpak'>Chris Tirpak</a>",
@@ -10,7 +10,7 @@ var bio = {
 		"location": "Apex, NC"
 	},
 	"welcomeMsg": "8+ years of experience managing IT projects and building custom applications and tools that increase productivity and efficiency by eliminating manual processes and provide innovative, intuitive and effortless solutions.",
-	"skills": ["HTML5", "JavaScript", "jQuery", "SharePoint", "MS SQL Server", "ASP.NET", "Visual Basic for Applications (VBA)", "Git"],
+	"skills": ["HTML5", "JavaScript", "jQuery", "SharePoint", "MS SQL Server", "ASP.NET", "Visual Basic for Applications (VBA)", "Git", "Java", "C/C++", "Visual Basic"],
 	"pictureURL": "images/skull.jpg"
 };
 var work = {
@@ -20,35 +20,35 @@ var work = {
 			"position": "Sr Consultant Sys Integration - Business Solutions Group",
 			"years": "2008 - Present",
 			"location": "Raleigh, NC",
-			"description": "Operational Effectiveness. Analyze existing organizational processes, identify areas for improvement and provide solutions that increase productivity, efficiency and effectiveness. Collaborate with and manage development team to create custom applications for organization of 500+ employees. Utilize SDLC methodologies to manage project through each phase: requirements and analysis, design, coding, testing, deployment and maintenance. Use of HTML5, JavaScript, JQuery, SQL Server, SharePoint Designer, ASP.NET, VBA, Microsoft Access, Microsoft Excel, Visual Basic"
+			"description": "Operational Effectiveness. Analyze existing organizational processes, identify areas for improvement and provide solutions that increase productivity, efficiency and effectiveness. Collaborate with and manage development team to create custom applications for organization of 500+ employees. Utilize SDLC methodologies to manage each phase of project. Use of HTML5, JavaScript, JQuery, SQL Server, SharePoint Designer, ASP.NET, VBA, Microsoft Access, Microsoft Excel, Visual Basic"
 		},
 		{
 			"employer": "AT&T",
 			"position": "Manager - Business Marketing - Wireless",
 			"years": "2006 - 2007",
 			"location": "Piscataway, NJ",
-			"description": "Management of wireless devices and Voice over IP (VoIP) inventory for business customers.  Includes budget development, inventory management and forecasting, purchase order tracking and payment. Software applications developed using VBA to automate database updates and automatically generate inventory trending reports."
+			"description": "Management of wireless devices and Voice over IP (VoIP) inventory for business customers.  Includes budget development, inventory management and forecasting, purchase order tracking and invoice payment. Developed software applications using VBA to automate database updates and generate inventory trending reports."
 		},
 		{
 			"employer": "AT&T",
 			"position": "Staff Manager - Consumer Operations Solutions and Transformation",
 			"years": "1998 - 2006",
 			"location": "Piscataway, NJ",
-			"description": "Budgeting and expense management. Supervision of three employees. Incorporate business strategy into budget, track monthly results, determine root cause of variances, prepare financial results and hold meetings with upper management. Analyze unit cost and determine financial impact of contractual changes."
+			"description": "Budget and expense management. Supervision of three employees. Incorporate business strategy into budget, track monthly results, determine root cause of variances, prepare financial results and hold meetings with upper management. Analyze unit costs to determine financial impact of contractual changes."
 		},
 		{
 			"employer": "AT&T",
 			"position": "Associate Manager - Local Service End-to-End Architecture",
 			"years": "1997 - 1998",
 			"location": "Piscataway, NJ",
-			"description": "Analyze systems architecture and determine resource capacity thresholds using Process Model simulation software. Recommend alternative solutions to improve system response time and capacity. Create forecast for employee and system utilization needs based on business strategy.  Manage team of developers to implement changes for capacity application software."
+			"description": "Analyze system architecture to establish resource capacity thresholds using Process Model simulation software. Recommend solutions to improve system response time and capacity. Create forecasts for employee and system utilization needs based on business strategy.  Manage team of developers to implement changes for custom application software."
 		},
 		{
 			"employer": "AT&T",
 			"position": "Associate Manager - LEC Billing Financial Management",
 			"years": "1987 - 1997",
 			"location": "Somerset, NJ",
-			"description": "Associate Manager (1993 to 1997) – LEC Billing Financial Management. Manage budgets for 1,100 Local Exchange Companies (LECs) and Independent Companies (ICOs) for telecom services. Reports Clerk (1987 to 1993) – Responsible for input and payment of 25 LEC bills."
+			"description": "Associate Manager (1993 to 1997) – LEC Billing Financial Management. Manage budgets for 1,100 Local Exchange Companies (LECs) and Independent Companies (ICOs) for telecom services. Reports Clerk (1987 to 1993) – Responsible for input and payment of 25 monthly LEC bills."
 		}
 	]
 };
@@ -96,19 +96,22 @@ var education = {
 			"name": "Udacity",
 			"Degree": "Front End Web Developer Nanodegree",
 			"years": "2015 (expected)",
-			"location": "Mountain View, CA"
+			"location": "Mountain View, CA",
+			"description": "HTML5, CSS3, JavaScript, jQuery, Bootstrap, d3.js components, Responsive Web Design."
 		},
 		{
 			"name": "University of Phoenix",
 			"Degree": "BS-Informatoin Technology",
 			"years": "2009",
-			"location": "Phoenix, AZ"
+			"location": "Phoenix, AZ",
+			"description": "C++, Java, JavaScript, HTML, SQL Server, Database Management, Project Management"
 		},
 		{
 			"name": "Raritan Valley Community College",
 			"Degree": "AAS in Computer Programming",
 			"years": "2002",
-			"location": "Branchburg, NJ"
+			"location": "Branchburg, NJ",
+			"description": "C, C++, Java, Visual Basic and Web page design.  Graduated with highest honors."
 		}
 	]
 };
@@ -155,6 +158,7 @@ education.display = function () {
 	var formattedDegree;
 	var formattedDates;
 	var formattedLocation;
+	var formattedDescpription;
 	
 	for (school in education.schools) {
 		$("#education").append(HTMLschoolStart);
@@ -162,10 +166,12 @@ education.display = function () {
 		formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].Degree);
 		formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].years);
 		formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+		formattedDescription = HTMLschoolDescription.replace("%data%", education.schools[school].description);
 
 		$(".education-entry:last").append(formattedSchool + formattedDegree);
 		$(".education-entry:last").append(formattedDates);
 		$(".education-entry:last").append(formattedLocation);
+		$(".education-entry:last").append(formattedDescription);
 	}
 };
 

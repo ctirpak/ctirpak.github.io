@@ -176,15 +176,15 @@ var chart = function (d3) {
 				left: 50
 			},
 	g = 500 - rect.left - rect.right,
-			h = 500 - rect.top - rect.bottom,
-			i = [1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013],
+			h = 300 - rect.top - rect.bottom,
+			i = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
 			j = d3.scale.linear().range([0, g]),
 			k = d3.scale.linear().range([h, 0]),
 			bottomtick = d3
 			.svg
 			.axis()
 			.scale(j)
-			.tickValues([1999, 2004, 2009, 2013])
+			.tickValues([2000, 2004, 2009, 2014])
 			.tickFormat(d3.format(".0f"))
 			.tickPadding(10)
 			.tickSize(0)
