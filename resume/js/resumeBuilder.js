@@ -20,35 +20,35 @@ var work = {
 			"position": "Sr Consultant Sys Integration - Business Solutions Group",
 			"years": "2008 - Present",
 			"location": "Raleigh, NC",
-			"description": "Operational Effectiveness. Analyze existing organizational processes, identify areas for improvement and provide solutions that increase productivity, efficiency and effectiveness. Collaborate with and manage development team to create custom applications for organization of 500+ employees. Utilize SDLC methodologies to manage each phase of project. Use of HTML5, JavaScript, JQuery, SQL Server, SharePoint Designer, ASP.NET, VBA, Microsoft Access, Microsoft Excel, Visual Basic"
+			"description": "Operational Effectiveness. Analyze existing organizational processes, identify areas for improvement and provide solutions that increase productivity and grow revenue for organization of 500+ employees. Deployed seven applications over the past five years which reduced project cycle time by 25%, resulting in faster revenue realization. New versions of three applications are released each quarter. Collaborate with users to gather requirements, create and maintain project timelines, share coding responsibilities with three developers, and follow SDLC methodologies for management of projects.  Use of HTML5, JavaScript, JQuery, SQL Server, SharePoint Designer, ASP.NET, VBA, Microsoft Access, Microsoft Excel, Visual Basic."
 		},
 		{
 			"employer": "AT&T",
 			"position": "Manager - Business Marketing - Wireless",
 			"years": "2006 - 2007",
 			"location": "Piscataway, NJ",
-			"description": "Management of wireless devices and Voice over IP (VoIP) inventory for business customers.  Includes budget development, inventory management and forecasting, purchase order tracking and invoice payment. Developed software applications using VBA to automate database updates and generate inventory trending reports."
+			"description": "Maintain average monthly inventory levels of 3,000 wireless devices and 10,000 Voice over IP (VoIP) telephone adapters for customer sales.  Create budgets, manage inventory, validate purchase orders and pay invoices. Developed three VBA applications to automate weekly database updates and generate monthly reports."
 		},
 		{
 			"employer": "AT&T",
 			"position": "Staff Manager - Consumer Operations Solutions and Transformation",
 			"years": "1998 - 2006",
 			"location": "Piscataway, NJ",
-			"description": "Budget and expense management. Supervision of three employees. Incorporate business strategy into budget, track monthly results, determine root cause of variances, prepare financial results and hold meetings with upper management. Analyze unit costs to determine financial impact of contractual changes."
+			"description": "Manage $600M annual budget for telecom billing, and supervise three employees. Fine-tune budget based on business strategy, track monthly results and determine root cause of variances, prepare monthly financial packages and provide read out to upper management. Perform “what if” analysis to determine impact of contractual changes."
 		},
 		{
 			"employer": "AT&T",
 			"position": "Associate Manager - Local Service End-to-End Architecture",
 			"years": "1997 - 1998",
 			"location": "Piscataway, NJ",
-			"description": "Analyze system architecture to establish resource capacity thresholds using Process Model simulation software. Recommend solutions to improve system response time and capacity. Create forecasts for employee and system utilization needs based on business strategy.  Manage team of developers to implement changes for custom application software."
+			"description": "Analyze system architecture to determine system and resource capacity needs for rollout of local telephone service for approximately 15 million customers. Determine feasibility and provide appropriate guidance. Create monthly forecasts. Manage team of developers to implement changes for custom application software."
 		},
 		{
 			"employer": "AT&T",
 			"position": "Associate Manager - LEC Billing Financial Management",
 			"years": "1987 - 1997",
 			"location": "Somerset, NJ",
-			"description": "Associate Manager (1993 to 1997) – LEC Billing Financial Management. Manage budgets for 1,100 Local Exchange Companies (LECs) and Independent Companies (ICOs) for telecom services. Reports Clerk (1987 to 1993) – Responsible for input and payment of 25 monthly LEC bills."
+			"description": "Associate Manager (1993 to 1997) – LEC Billing Financial Management. Manage $1.1M annual budget for over 1,000 Local Exchange Companies (LECs) and Independent Companies (ICOs) for telecom services. Reports Clerk (1987 to 1993) – Responsible for input and payment of 25 monthly LEC bills."
 		}
 	]
 };
@@ -57,31 +57,31 @@ var projects = {
 		{
 			"title": "Work Intake Front Door",
 			"dates": "2009 to present",
-			"description": "SharePoint 2010 site used as a client-facing tool for the submission of IT related work requests. Extensive use of workflows, JavaScript, jQuery, VBScript and SQL Server.",
+			"description": "SharePoint 2010 site used as a client-facing tool for the submission of 125 monthly work requests, with a user base of 250+. Extensive use of workflows, JavaScript, jQuery, VBScript and SQL Server.",
 			"images": ["images/fd1.jpeg", "images/fd2.jpeg"]
 		},
 		{
 			"title": "Project Tool",
 			"dates": "2011 to present",
-			"description": "Excel VBA application used for the creation of IT project artifacts such as scope documentation, system requirements, business scenarios, test cases, and change requests (CRs). Uses VBA and SQL Server to push software updates to 500+ user base.",
+			"description": "Excel VBA application used to create project artifacts such as scope documentation, system requirements, business scenarios, test cases, and change requests. New versions released each quarter, automatically pushed to 500+ users. VBA and SQL Server.",
 			"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]
 		},
 		{
 			"title": "Project Repository",
 			"dates": "2011 to present",
-			"description": "Excel VBA application used in conjunction with Project Tool. Provides database to store and re-use output from Project Tool. Use of VBA and SQL Server.",
+			"description": "Excel VBA application used with the Project Tool application. Uses SQL database to store Project Tool components for re-use. 500+ users with 100+ components added per month.",
 			"images": ["images/dasl1.jpeg", "images/dasl2.jpeg"]
 		},
 		{
 			"title": "Code Calculator",
 			"dates": "2014 to present",
-			"description": "ASP.NET web application generates unique product tracking codes for sales orders. Includes data validation, HTML5, jQuery, SQL Server stored procedures.",
+			"description": "ASP.NET web application generates unique product tracking codes for 150 monthly sales orders. Includes data validation, HTML5, jQuery, SQL Server stored procedures.",
 			"images": ["images/voltage1.jpeg", "images/voltage2.jpeg"]
 		},
 		{
 			"title": "Project Status",
 			"dates": "2014 to present",
-			"description": "Excel VBA application which provides status and search functionality for projects. Creates an interface between Excel and SQL Server.",
+			"description": "Excel VBA application which provides status and search functionality for 300+ projects. Creates an interface between Excel and SQL Server.",
 			"images": ["images/heart1.jpeg", "images/heart2.jpeg"]
 		}
 
