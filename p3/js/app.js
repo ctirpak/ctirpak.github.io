@@ -10,14 +10,7 @@ var Entity = function (s, r, c) {
 // Update the entity's position, required method for game
 // Parameter: dt, a time delta between ticks
 Entity.prototype.update = function (dt) {
-  // You should multiply any movement by the dt parameter
-  // which will ensure the game runs at the same speed for
-  // all computers.
-//	this.x = (this.x) + ((200 - (Math.floor((Math.random() * 200) + 1))) * dt);
-//	if (this.x > canvas.width) {
-//		this.x = 0 - Resources.get(this.sprite).width;
-//	}
-//	this.y = this.y + ((50 - (Math.floor((Math.random() * 100) + 1))) * dt);
+
 }
 
 // Draw the entity on the screen, required method for game
@@ -33,6 +26,12 @@ var Enemy = function (s, r, c) {
 
   // The image/sprite for our enemies, this uses
   // a helper we've provided to easily load images
+  this.minSpeed = 50;
+  this.speed = (200 - (Math.floor((Math.random() * 200) + 1))) + this.minSpeed;
+  this.item = '';
+  this.itemVisible = false;
+  this.itemX = 0;
+  this.itemY = 0;
   Entity.call(this, s, r, c);
 }
 // Need to set up prototype and constructor
@@ -45,11 +44,14 @@ Enemy.prototype.update = function (dt) {
   // You should multiply any movement by the dt parameter
   // which will ensure the game runs at the same speed for
   // all computers.
-  this.x = (this.x) + ((200 - (Math.floor((Math.random() * 200) + 1))) * dt);
+  this.x = (this.x) + (this.speed * dt);
   if (this.x > canvas.width) {
 	this.x = 0 - Resources.get(this.sprite).width;
+	//get new speed since
+	this.speed = (200 - (Math.floor((Math.random() * 200) + 1))) + this.minSpeed;
   }
-  this.y = this.y + ((50 - (Math.floor((Math.random() * 100) + 1))) * dt);
+  //causes verticle movement/jitter
+  //this.y = this.y + ((50 - (Math.floor((Math.random() * 100) + 1))) * dt);
 }
 
 // Now write your own player class
@@ -60,6 +62,13 @@ Enemy.prototype.update = function (dt) {
 var player = function (s, r, c) {
   // player is a sub class of Entity
   // It does not have any additional methods
+  this.hearts = 5;
+  this.keys = 0;
+  this.blueGems = 0;
+  this.greenGems = 0;
+  this.orangeGems = 0;
+  this.stars = 0;
+  this.score = 0;
   Entity.call(this, s, r, c);
 }
 
@@ -99,46 +108,6 @@ player.prototype.handleInput = function (key) {
 	  break;
   }
 }
-/*
- // Now write your own player class
- // This class requires an update(), render() and
- // a handleInput() method.
- // 
- // Player our enemies will kill
- var player = function() {
- // The image/sprite for our player, this uses
- // a helper we've provided to easily load images
- this.sprite = 'images/char-boy.png';
- this.x=0;
- this.y=0;
- }
- 
- // Update the player's position, required method for game
- // Parameter: dt, a time delta between ticks
- player.prototype.update = function(dt) {
- // You should multiply any movement by the dt parameter
- // which will ensure the game runs at the same speed for
- // all computers.
- }
- 
- // Draw the player on the screen, required method for game
- player.prototype.render = function() {
- ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
- }
- 
- // Handle input to move player
- player.prototype.handleInput = function() {
- 
- }
- 
- // Set the position. This is only used to set the starting position.
- // Movement is handled in the update() method
- player.prototype.setPos = function(r, c) {
- this.x=c;
- this.y=r;
- }
- 
- */
 
 
 // Now instantiate your objects.
@@ -150,8 +119,8 @@ var oneEnemy;
 var xSpacing = 101;
 var ySpacing = 83;
 
-for (var x = 0; x < 5; x++) {
-  oneEnemy = new Enemy('images/enemy-bug.png', ((x % 3) + 1) * ySpacing, x * xSpacing);
+for (var x = 0; x < 4; x++) {
+  oneEnemy = new Enemy('images/enemy-bug.png', (x + 1) * ySpacing, -101);
   allEnemies.push(oneEnemy);
 }
 

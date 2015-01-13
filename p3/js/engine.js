@@ -160,7 +160,15 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        // reset game data to start new game
+		player.hearts = 5;
+		player.keys = 0;
+		player.blueGems = 0;
+		player.greenGems = 0;
+		player.orangeGems = 0;
+		player.stars = 0;
+		player.score = 0;
+
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -172,7 +180,15 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+		'images/Gem Blue.png',
+        'images/Gem Green.png',
+        'images/Gem Orange.png',
+        'images/Heart.png',
+        'images/Key.png',
+        'images/Rock.png',
+        'images/Selector.png',
+        'images/Star.png'
     ]);
     Resources.onReady(init);
 
