@@ -68,20 +68,34 @@ player.prototype = Object.create(Entity.prototype);
 player.constructor = player;
 // Handle input to move player
 player.prototype.handleInput = function (key) {
-  //console.log(key);
+  console.log(key);
+  console.log(this.x);
+  console.log(this.y);
   
   switch (key) {
 	case "up":
 	  this.y -= ySpacing;
+	  if (this.y<0) {
+		  this.y += ySpacing;
+	  }
 	  break;
 	case "down":
 	  this.y += ySpacing;
+	  if (this.y>=(6*ySpacing)) {
+		  this.y -= ySpacing;
+	  }
 	  break;
 	case "left":
 	  this.x -= xSpacing;
+	  if (this.x<0) {
+		  this.x += xSpacing;
+	  }
 	  break;
 	case "right":
 	  this.x += xSpacing;
+	  if (this.x>=(5*xSpacing)) {
+		  this.x -= xSpacing;
+	  }
 	  break;
   }
 }
