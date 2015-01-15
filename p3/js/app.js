@@ -5,6 +5,7 @@ var Entity = function (s, r, c) {
   this.sprite = s;
   this.x = c;
   this.y = r;
+  this.visible = true;
 }
 
 // Update the entity's position, required method for game
@@ -15,9 +16,109 @@ Entity.prototype.update = function (dt) {
 
 // Draw the entity on the screen, required method for game
 Entity.prototype.render = function () {
-  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+	if (this.visible === true) {
+	  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+	}
 }
 
+// holds all the items that appear
+var Item = function (s, r, c) {
+  this.dateExpires = new Date();
+  this.dateNext = new Date(new Date().getTime() + 5 * 1000);  // wait before displaying the first item
+  this.collect = false;
+  Entity.call(this, s, r, c);
+}
+
+Item.prototype = Object.create(Entity.prototype);
+Item.constructor = Item;
+
+Item.prototype.update = function (dt) {
+	var secondsDelay = 0;  // number of seconds to wait before displaying a new item
+	var secondsDelay2 = 0;  // number of seconds to display a new item
+	var itemNum = 0;
+	//
+  // You should multiply any movement by the dt parameter
+  // which will ensure the game runs at the same speed for
+  // all computers.
+  
+  // check to see if the item should still be displayed
+	if (this.dateExpires < new Date()) {
+		this.visible = false;
+	}
+  
+	// if no item is visible, pick a random one
+	if (this.visible === false) {
+		//see if a new item should be displayed
+	  if (this.dateNext < new Date()) {
+		  // pick a random amount of time
+		  secondsDelay = Math.floor((Math.random() * 15));
+		  secondsDelay2 = Math.floor((Math.random() * 5));
+
+			// get time +10 seconds to remove object
+		  //this.dateExpires = new Date();
+		  this.dateExpires = new Date(new Date().getTime() + (3 + secondsDelay2) * 1000);
+		  
+		  // set time to wait to be able to display a new item
+		  //this.dateNext = new Date();
+		  this.dateNext = new Date(new Date().getTime() + (10 + secondsDelay) * 1000);
+
+			//pick a random item to display
+		  //itemNum = Math.floor((Math.random())*7);
+		  var ranNum = Math.random();
+		  // define frequency of each item based on random number
+		  switch (true) {
+			  case ranNum < .30:
+				  itemNum = 0;
+				  player.blueGems+=1;
+				  break;
+			  case ranNum < .60:
+				  itemNum = 1;
+				  player.greenGems+=1;
+				  break;
+			  case ranNum < .90:
+				  itemNum = 2;
+				  player.orangeGems+=1;
+				  break;
+			  case ranNum < .92:
+				  itemNum = 3;
+				  player.keys+=1;
+				  break;
+			  case ranNum < .94:
+				  itemNum = 4;
+				  player.hearts+=1;
+				  break;
+			  case ranNum < .97:
+				  itemNum = 5;
+				  player.stars+=1;
+				  break;
+			  case ranNum < 1:
+				  itemNum = 6;
+				  break;
+		  }
+		  
+		  // pick a random position
+		  var itemX = Math.floor((Math.random() * 5)) * 101;
+		  var itemY = Math.floor((Math.random() * 2) + 1) * 83;
+		  var items = [
+			'images/Gem Blue.png',
+			'images/Gem Green.png',
+			'images/Gem Orange.png',
+			'images/Key.png',
+			'images/Heart.png',
+			'images/Star.png',
+			'images/Rock.png'
+		  ];
+		  if (itemNum === 6) {
+			  this.collect = false;
+		  } else this.collect = true;
+		  this.sprite = items[itemNum];
+		  this.x = itemX;
+		  this.y = itemY;
+		// toggle the display of the item
+		this.visible = true;
+	  }
+  }
+}
 
 // Enemies our player must avoid
 var Enemy = function (s, r, c) {
@@ -28,10 +129,6 @@ var Enemy = function (s, r, c) {
   // a helper we've provided to easily load images
   this.minSpeed = 50;
   this.speed = (200 - (Math.floor((Math.random() * 200) + 1))) + this.minSpeed;
-  this.item = '';
-  this.itemVisible = false;
-  this.itemX = 0;
-  this.itemY = 0;
   Entity.call(this, s, r, c);
 }
 // Need to set up prototype and constructor
@@ -62,13 +159,13 @@ Enemy.prototype.update = function (dt) {
 var player = function (s, r, c) {
   // player is a sub class of Entity
   // It does not have any additional methods
+  this.score = 0;
   this.hearts = 5;
   this.keys = 0;
   this.blueGems = 0;
   this.greenGems = 0;
   this.orangeGems = 0;
   this.stars = 0;
-  this.score = 0;
   Entity.call(this, s, r, c);
 }
 
@@ -77,9 +174,7 @@ player.prototype = Object.create(Entity.prototype);
 player.constructor = player;
 // Handle input to move player
 player.prototype.handleInput = function (key) {
-  console.log(key);
-  console.log(this.x);
-  console.log(this.y);
+
   
   switch (key) {
 	case "up":
@@ -126,6 +221,10 @@ for (var x = 0; x < 4; x++) {
 
 var player = new player('images/char-boy.png', 5 * ySpacing, 2 * xSpacing);
 //player.setPos(5 * 83, 101 * 2);
+
+
+var item = new Item('images/star.png', 4 * ySpacing, 2 * xSpacing);
+item.visible = false;
 
 
 // This listens for key presses and sends the keys to your

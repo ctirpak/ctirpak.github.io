@@ -95,6 +95,7 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
+		item.update();
     }
 
     /* This function initially draws the "game level", it will then call
@@ -138,8 +139,18 @@ var Engine = (function(global) {
 
 
         renderEntities();
-    }
+		renderScore();
 
+    }
+	function renderScore () {
+	// Score
+		ctx.fillStyle = "rgb(250, 250, 250)";
+		ctx.font = "14px Helvetica";
+		ctx.textAlign = "left";
+		ctx.textBaseline = "top";
+		ctx.fillText("Hearts: " + player.hearts + "  Blue Gems: " + player.blueGems + "  Green Gems: " + player.greenGems + "  Orange Gems: " + player.orangeGems + "  Stars: " + player.stars + "  Keys: " + player.keys + "  Score: " + player.score, 0 * xSpacing, 6.75 * ySpacing);
+		
+	}
     /* This function is called by the render function and is called on each game
      * tick. It's purpose is to then call the render functions you have defined
      * on your enemy and player entities within app.js
@@ -153,6 +164,7 @@ var Engine = (function(global) {
         });
 
         player.render();
+		item.render();
     }
 
     /* This function does nothing but it could have been a good place to
@@ -168,6 +180,8 @@ var Engine = (function(global) {
 		player.orangeGems = 0;
 		player.stars = 0;
 		player.score = 0;
+		player.x = 2 * xSpacing;
+		player.y = 5 * ySpacing;
 
     }
 
@@ -184,11 +198,11 @@ var Engine = (function(global) {
 		'images/Gem Blue.png',
         'images/Gem Green.png',
         'images/Gem Orange.png',
-        'images/Heart.png',
         'images/Key.png',
+        'images/Heart.png',
+        'images/Star.png',
         'images/Rock.png',
-        'images/Selector.png',
-        'images/Star.png'
+        'images/Selector.png'
     ]);
     Resources.onReady(init);
 
