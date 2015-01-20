@@ -9,9 +9,8 @@
  */
 
 /**
- * Superclass of objects in game (enemy, player, item)
- * @class Generic game entity
- * @constructor
+ * @class Entity
+ * @description Generic game entity. Superclass of objects in game (enemy, player, item)
  * @param {string} s name of sprite
  * @param {number} r row number for location of sprite
  * @param {number} c column number for location of sprite
@@ -19,10 +18,11 @@
  * @property {number} x Horizontal position of sprite
  * @property {number} y Verticle position of sprite
  * @property {boolean} visible Identifies visibility of object
+ * @returns {Entity} Entity object
  */
 var Entity = function (s, r, c) {
   /**
-   * @lends Entity
+   * @memberOf Entity
    * Constructor of Entity<br><br>
    * Initialize all properties for generic game entity
    */
@@ -40,7 +40,7 @@ var Entity = function (s, r, c) {
  * 
  */
 Entity.prototype.update = function (dt) {
-  /** @lends Entity */
+  /** @memberOf Entity */
 
 }
 
@@ -50,16 +50,15 @@ Entity.prototype.update = function (dt) {
  * Uses Resources.get() method to return image object
  */
 Entity.prototype.render = function () {
-  /** @lends Entity */
+  /** @memberOf Entity */
   if (this.visible === true) {
 	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 }
 
 /**
- * Item objct. Subclass of Entity
- * @class Holds all the items that appear in the game
- * @constructor
+ * @class Item
+ * @description Item objct. Subclass of Entity. Holds all the items that appear in the game
  * @augments Entity
  * @param {string} s name of sprite
  * @param {number} r row number for location of sprite
@@ -67,23 +66,27 @@ Entity.prototype.render = function () {
  * @property {object} dateExpires Date (time) of when sprite is no longer visible
  * @property {object} dateNext Date (time) of when new sprite can appear
  * @property {boolean} collect Indicates if item can be collected
+ * @returns {Item} Item object
  */
 var Item = function (s, r, c) {
-  /** @lends Item */
+  /** 
+   * @memberOf Item
+   * update properties and call base class constructor
+   */
   this.dateExpires = new Date();
   this.dateNext = new Date(new Date().getTime() + 5 * 1000);  // wait before displaying the first item
   this.collect = false;
   Entity.call(this, s, r, c);
-}
+ }
 
 /** 
  * Set Prototype
- * @lends Item
+ * @memberOf Item
  */
 Item.prototype = Object.create(Entity.prototype);
 /**
  * Set Constructor
- * @lends Item
+ * @memberOf Item
  */
 Item.constructor = Item;
 
@@ -94,7 +97,7 @@ Item.constructor = Item;
  * at the same speed on all computers. Not applicable to the Item() object.
  */
 Item.prototype.update = function (dt) {
-  /** @lends Item
+  /** @memberOf Item
    */
   /** Number of seconds to wait before displaying a new Item */
   var secondsDelay = 0;
@@ -181,37 +184,44 @@ Item.prototype.update = function (dt) {
   }
 }
 /**
- * Enemy object. Subclass of Entity
- * @class Enemies that appear in the game
+ * @class Enemy
+ * @description Enemy object. Subclass of Entity. Enemies that appear in the game
  * @augments Entity
- * @constructor
  * @param {string} s name of sprite
  * @param {number} r row number for location of sprite
  * @param {number} c column number for location of sprite
  * @property {number} minSpeed Sets the minimum speed of the enemies
  * @property {number} speed Sets teh current speed of the enemies
+ * @returns {Enemy} Enemy object
  */
 var Enemy = function (s, r, c) {
-  /** @lends Enemy */
+  /** 
+   * @memberOf Enemy
+   * Updates speed and calls base class constructor
+   */
   this.minSpeed = 50;
   this.speed = (200 - (Math.floor((Math.random() * 200) + 1))) + this.minSpeed;	  // generate random number for speed
   Entity.call(this, s, r, c);
 };
-// Set prototype
+/**
+ * Set prototype
+ * @memberOf Enemy
+ */
 Enemy.prototype = Object.create(Entity.prototype);
-// Set constructor
+/**
+ * Set constructor
+ * @memberOf Enemy
+ */
 Enemy.constructor = Enemy;
 
 /**
  * Update the Enemy position. Generates a random number for the speed.
  * @param {number} dt Time delta since last update. Ensures game runs
  * at the same speed on all computers.
+ * @memberOf Enemy
  * 
  */
 Enemy.prototype.update = function (dt) {
-  /** 
-   * @lends Enemy
-   */
   // Multiply movement by the dt parameter to keep speed consistent
   this.x = (this.x) + (this.speed * dt);
   // check for out of bounds
@@ -227,24 +237,27 @@ Enemy.prototype.update = function (dt) {
 
 /**
  * Player object. Subclass of Entity
- * @class Player in the game
+ * @class Player
+ * @description Player object in the game
  * @augments Entity
- * @constructor
  * @param {string} s name of sprite
  * @param {number} r row number for location of sprite
  * @param {number} c column number for location of sprite
- * @property {number} score Player's score
- * @property {number} hearts Player's lives
+ * @property {number} score Player score
+ * @property {number} hearts Player lives
  * @property {number} keys Keys collected
  * @property {number} blueGems Blue gems collected
  * @property {number} greenGems Green gems collected
  * @property {number} orangeGems Orange gems collected
  * @property {number} stars Stars collected
+ * @returns {Player} Player object
+ * 
  */
 var Player = function (s, r, c) {
-  /** @lends Player */
-  // player is a sub class of Entity
-  // It does not have any additional methods
+  /** 
+   * @memberOf Player
+   * Updates properties and calls base class constructor
+   */
   this.score = 0;
   this.hearts = 5;
   this.keys = 0;
@@ -255,13 +268,20 @@ var Player = function (s, r, c) {
   Entity.call(this, s, r, c);
 }
 
-// Need to set up prototype and constructor
+/**
+ * Set prototype
+ * @memberOf Player
+ */
 Player.prototype = Object.create(Entity.prototype);
+/**
+ * Set constructor
+ * @memberOf Player
+ */
 Player.constructor = player;
 // Handle input to move player
 Player.prototype.handleInput = function (key) {
   /**
-   * @lends Player
+   * @memberOf Player
    */
   switch (key) {
 	case "up":
@@ -291,31 +311,66 @@ Player.prototype.handleInput = function (key) {
   }
 }
 
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
+/**
+ * 
+ * @type Array
+ * @description Holds all Enemy objects
+ */
 var allEnemies = [];
+/**
+ * 
+ * @type Enemy
+ * @description One Enemy object. Used to load allEnemies array.
+ */
 var oneEnemy;
+/**
+ * 
+ * @type Number
+ * @description Width (spacing) between each background tile
+ */
 var xSpacing = 101;
+/**
+ * 
+ * @type Number
+ * @description Height (spacing) between each background tile
+ */
 var ySpacing = 83;
 
+/**
+ * @type Number
+ * @description Loop variable
+ */
 for (var x = 0; x < 4; x++) {
   oneEnemy = new Enemy('images/enemy-bug.png', (x + 1) * ySpacing, -101);
   allEnemies.push(oneEnemy);
 }
 
+/**
+ * 
+ * @type Player
+ * @description Create player object
+ */
 var player = new Player('images/char-boy.png', 5 * ySpacing, 2 * xSpacing);
 //player.setPos(5 * 83, 101 * 2);
 
-
+/**
+ * 
+ * @type Item
+ * @description Create item object
+ */
 var item = new Item('images/star.png', 4 * ySpacing, 2 * xSpacing);
+/**
+ * Start with hidden object
+ */
 item.visible = false;
 
 
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+/**
+ * 
+ * @param {type} param1
+ * @param {type} param2
+ * @description Event listener for keydown even. Passes keys to player.handleInput()
+ */
 document.addEventListener('keydown', function (e) {
   var allowedKeys = {
 	37: 'left', //arrow keys
