@@ -363,7 +363,7 @@ var item = new Item('images/star.png', 4 * ySpacing, 2 * xSpacing);
  * Start with hidden object
  */
 item.visible = false;
-
+alert(player.sprite);
 
 /**
  * 

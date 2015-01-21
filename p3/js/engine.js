@@ -81,7 +81,7 @@ var Engine = (function (global) {
 	 */
 	function update(dt) {
 		updateEntities(dt);
-		//checkCollisions();
+		checkCollisions();
 	}
 
 	/* This is called by the update function  and loops through all of the
@@ -120,15 +120,23 @@ var Engine = (function (global) {
 	 * @returns {undefined}
 	 */
 	function checkCollisions() {
-		var playerRight = Resources.get(player.sprite).height;
-		var playerBottom = Resources.get(player.sprite).bottom;
-		var itemRight = Resources.get(item.sprite).height;
-		var itemBottom = Resources.get(item.sprite).bottom;
-		// check enemy collision
-		if (collides(player.x, player.y, playerRight, playerBottom, item.x, item.y, itemRight, itemBottom)) {
-			alert("colide");
+		var playerRight = player.x + Resources.get(player.sprite).width;
+		var playerBottom = player.y + Resources.get(player.sprite).height;
+		if(item.visible) {
+			itemRight = item.x + Resources.get(item.sprite).width;
+			itemBottom = item.y + Resources.get(item.sprite).height;
+			if(collides(player.x, player.y,playerRight,playerBottom,item.x, item.y, itemRight,itemBottom)) {
+				alert("You got a " + item.sprite);
+				alert(player.x + ", " + player.y + ", " + playerRight + ", " + playerBottom + "; " + item.x + ", " + item.y + ", " + itemRight + ", " + itemBottom)
+			};
+			//console.log(player.x + ", " + player.y + ", " + playerRight + ", " + playerBottom);
+			//console.log(item.x + ", " + item.y + ", " + itemRight + ", " + itemBottom);
+			//console.log(collides(player.x, player.y,playerRight,playerBottom,item.x, item.y, itemRight,itemBottom));
+			//console.log(collides(player.x, player.y,playerRight,playerBottom,item.x, item.y, itemRight,itemBottom));
+			//console.log(collides(player.x, player.y,playerRight,playerBottom,item.x, item.y, itemRight,itemBottom));
+			//console.log(collides(player.x, player.y,playerRight,playerBottom,item.x, item.y, itemRight,itemBottom));
+			
 		}
-
 	}
 	/* This function initially draws the "game level", it will then call
 	 * the renderEntities function. Remember, this function is called every
