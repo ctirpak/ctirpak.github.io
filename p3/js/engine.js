@@ -35,32 +35,32 @@ var Engine = (function (global) {
 	function main() {
 		// run loop only if game is not paused
 
-			/* Get our time delta information which is required if your game
-			 * requires smooth animation. Because everyone's computer processes
-			 * instructions at different speeds we need a constant value that
-			 * would be the same for everyone (regardless of how fast their
-			 * computer is) - hurray time!
-			 */
-			var now = Date.now(),
-					dt = (now - lastTime) / 1000.0;
+		/* Get our time delta information which is required if your game
+		 * requires smooth animation. Because everyone's computer processes
+		 * instructions at different speeds we need a constant value that
+		 * would be the same for everyone (regardless of how fast their
+		 * computer is) - hurray time!
+		 */
+		var now = Date.now(),
+				dt = (now - lastTime) / 1000.0;
 
-			/* Call our update/render functions, pass along the time delta to
-			 * our update function since it may be used for smooth animation.
-			 */
+		/* Call our update/render functions, pass along the time delta to
+		 * our update function since it may be used for smooth animation.
+		 */
 		if (!gamePaused) {
 			update(dt);
 		}
-			render();
+		render();
 
-			/* Set our lastTime variable which is used to determine the time delta
-			 * for the next time this function is called.
-			 */
-			lastTime = now;
+		/* Set our lastTime variable which is used to determine the time delta
+		 * for the next time this function is called.
+		 */
+		lastTime = now;
 
-			/* Use the browser's requestAnimationFrame function to call this
-			 * function again as soon as the browser is able to draw another frame.
-			 */
-			win.requestAnimationFrame(main);
+		/* Use the browser's requestAnimationFrame function to call this
+		 * function again as soon as the browser is able to draw another frame.
+		 */
+		win.requestAnimationFrame(main);
 	}
 	;
 
@@ -144,16 +144,20 @@ var Engine = (function (global) {
 						player.score += 125;
 						item.visible = false;
 						break;
+					case 6:
+						player.stones += 1;
+						player.score -= 125;
+						item.visible = false;
+						break;
 				}
 			}
-			;
 		}
 		// check to see if a player got hit by a bug
 		if ((player.visible === true) &&
 				player.tile !== -1) {
 			allEnemies.forEach(function (enemy) {
 				if (enemy.tile === player.tile) {
-				  alert(enemy.tile + ":" + player.tile + "::" + enemy.x + ":" + player.x);
+					alert(enemy.tile + ":" + player.tile + "::" + enemy.x + ":" + player.x);
 					player.y = 5 * ySpacing;
 					player.x = 2 * xSpacing;
 					if (player.hearts > 1) {
@@ -170,6 +174,7 @@ var Engine = (function (global) {
 				player.y = 5 * ySpacing;
 				player.x = 2 * xSpacing;
 				player.score += 100;
+				player.cross += 1;
 			}
 		}
 	}
@@ -218,13 +223,53 @@ var Engine = (function (global) {
 
 	}
 	function renderScore() {
+		var i; // index number of items
+		var y = (ySpacing * 6.7); // y locatino of score
+		var x = 0; // x locatino of score
+		var xGap = 53; // gap between score items
+		var textGap = 25; // gap between item and text
 		// Score
-		ctx.fillStyle = "rgb(250, 250, 250)";
+		ctx.fillStyle = "rgb(0, 0, 0)";
 		ctx.font = "13px Helvetica";
 		ctx.textAlign = "left";
 		ctx.textBaseline = "top";
-		ctx.fillText("Hearts: " + player.hearts + "  Gems: Blue " + player.blueGems + "  Green " + player.greenGems + "  Orange " + player.orangeGems + "  Stars: " + player.stars + "  Keys: " + player.keys + "  Score: " + player.score, 0 * xSpacing, 6.75 * ySpacing);
+		
+		// draw items
+		for (var i in items) {
+			ctx.drawImage(Resources.get(items[i]), x, y, ySpacing / 4, xSpacing / 4);
+			x += xGap;
+		}
+		// draw scores
+		x=0;
+		y+=8;
+		x+=textGap;
+		ctx.fillText(player.blueGems, x, y);
+		x+=xGap;
+		ctx.fillText(player.greenGems, x, y);
+		x+=xGap;
+		ctx.fillText(player.orangeGems, x, y);
+		x+=xGap;
+		ctx.fillText(player.keys, x, y);
+		x+=xGap;
+		ctx.fillText(player.hearts, x, y);
+		x+=xGap;
+		ctx.fillText(player.stars, x, y);
+		x+=xGap;
+		ctx.fillText(player.stones, x, y);
+		x = 0;
+		y -= 20;
+		ctx.fillText("SCORE: " + player.score, x, y);
+		x += xGap * 2;
+		ctx.fillText("Trips made: " + player.cross, x, y);
+		
 
+		/**
+		'images/Gem Green.png',
+				'images/Gem Orange.png',
+				'images/Key.png',
+				'images/Heart.png',
+				'images/Star.png',
+		*/
 	}
 	/* This function is called by the render function and is called on each game
 	 * tick. It's purpose is to then call the render functions you have defined
@@ -254,7 +299,9 @@ var Engine = (function (global) {
 		player.greenGems = 0;
 		player.orangeGems = 0;
 		player.stars = 0;
+		player.stones = 0;
 		player.score = 0;
+		player.cross = 0;
 		player.x = 2 * xSpacing;
 		player.y = 5 * ySpacing;
 
