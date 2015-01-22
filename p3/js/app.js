@@ -14,6 +14,7 @@
  * @param {string} s name of sprite
  * @param {number} r row number for location of sprite
  * @param {number} c column number for location of sprite
+ * @param {string} i name of object
  * @property {string} sprite Path to image file for this object
  * @property {number} itemNum Item number
  * @property {number} x Horizontal position of sprite
@@ -22,9 +23,10 @@
  * @property {number} xCenter Mid x coordinate. Used for collision detection.
  * @property {number} yCenter Mid y coordinate. Used for collision detection.
  * @property {number} tile Number of tile that center of sprite is in. Used for collision detection.
+ * @property {string} name Type of object
  * @returns {Entity} Entity object
  */
-var Entity = function (s, r, c) {
+var Entity = function (s, r, c, i) {
   /**
    * @memberOf Entity
    * Constructor of Entity<br><br>
@@ -38,6 +40,7 @@ var Entity = function (s, r, c) {
   this.xCenter = 0;
   this.yCenter = 0;
   this.tile = -1;
+  this.name = i;
 }
 
 /**
@@ -65,10 +68,12 @@ Entity.prototype.render = function () {
 	this.xCenter = this.x + ((Resources.get(this.sprite).width) / 2);
 	this.yCenter = this.y + ((Resources.get(this.sprite).height) / 2);
 	// calculate which row and column the center point of the sprite is in
-	this.tile = Math.floor(this.xCenter / xSpacing) + Math.floor((this.yCenter - ySpacing) / ySpacing) * 5;
-	//ctx.fillRect(this.xCenter, this.yCenter,5,5);
-	ctx.fillText(this.tile,this.xCenter,this.yCenter);
-	
+	if ((this.xCenter > canvas.width) ||
+		(this.x < 0)) {
+	  this.tile = -1;
+	} else {
+	  this.tile = Math.floor(this.xCenter / xSpacing) + Math.floor((this.yCenter - ySpacing) / ySpacing) * 5;
+	}
   }
 }
 
@@ -82,6 +87,7 @@ Entity.prototype.render = function () {
  * @property {object} dateExpires Date (time) of when sprite is no longer visible
  * @property {object} dateNext Date (time) of when new sprite can appear
  * @property {boolean} collect Indicates if item can be collected
+ * @param {number} timeLeft number of seconds left before item is no longer visible
  * @returns {Item} Item object
  */
 var Item = function (s, r, c) {
@@ -92,8 +98,9 @@ var Item = function (s, r, c) {
   this.dateExpires = new Date();
   this.dateNext = new Date(new Date().getTime() + 5 * 1000);  // wait before displaying the first item
   this.collect = false;
-  Entity.call(this, s, r, c);
- }
+  this.timeLeft = 0;
+  Entity.call(this, s, r, c, "item");
+}
 
 /** 
  * Set Prototype
@@ -139,6 +146,12 @@ Item.prototype.update = function (dt) {
   // check to see if the item should still be displayed
   if (this.dateExpires < new Date()) {
 	this.visible = false;	  // hide item
+  }
+  
+  //update number of seconds that item will be displayed for
+  if (this.visibile) {
+	var t1 = new Date();
+	this.timeLeft = Math.abs((this.dateExpires.getTime() - t1.getTime()) / 1000);
   }
 
   // if no item is visible
@@ -191,6 +204,13 @@ Item.prototype.update = function (dt) {
 	}
   }
 }
+Item.prototype.render =  function() {
+  //call the entity.render() function
+  Entity.prototype.render.call(this);
+  if (this.visible) {
+    ctx.fillText(this.timeLeft, this.xCenter, this.yCenter);
+  }
+}
 /**
  * @class Enemy
  * @description Enemy object. Subclass of Entity. Enemies that appear in the game
@@ -209,7 +229,7 @@ var Enemy = function (s, r, c) {
    */
   this.minSpeed = 50;
   this.speed = (200 - (Math.floor((Math.random() * 200) + 1))) + this.minSpeed;	  // generate random number for speed
-  Entity.call(this, s, r, c);
+  Entity.call(this, s, r, c, "enemy");
 };
 /**
  * Set prototype
@@ -273,7 +293,7 @@ var Player = function (s, r, c) {
   this.greenGems = 0;
   this.orangeGems = 0;
   this.stars = 0;
-  Entity.call(this, s, r, c);
+  Entity.call(this, s, r, c, "player");
 }
 
 /**
@@ -292,7 +312,7 @@ Player.prototype.handleInput = function (key) {
    * @memberOf Player
    */
   if (gamePaused && key !== "pause") {
-	  return;
+	return;
   }
   switch (key) {
 	case "up":
@@ -319,7 +339,7 @@ Player.prototype.handleInput = function (key) {
 		this.x -= xSpacing;
 	  }
 	  break;
-  case "pause":
+	case "pause":
 	  // toggle game paused state
 	  gamePaused = !gamePaused;
 	  break;
@@ -400,7 +420,7 @@ document.addEventListener('keydown', function (e) {
 	87: 'up', //w
 	83: 'down', //a
 	65: 'left', //s
-	68: 'right',//d
+	68: 'right', //d
 	80: 'pause' //p
 
   };

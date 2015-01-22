@@ -153,6 +153,7 @@ var Engine = (function (global) {
 				player.tile !== -1) {
 			allEnemies.forEach(function (enemy) {
 				if (enemy.tile === player.tile) {
+				  alert(enemy.tile + ":" + player.tile + "::" + enemy.x + ":" + player.x);
 					player.y = 5 * ySpacing;
 					player.x = 2 * xSpacing;
 					if (player.hearts > 1) {
