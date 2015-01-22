@@ -15,9 +15,13 @@
  * @param {number} r row number for location of sprite
  * @param {number} c column number for location of sprite
  * @property {string} sprite Path to image file for this object
+ * @property {number} itemNum Item number
  * @property {number} x Horizontal position of sprite
  * @property {number} y Verticle position of sprite
  * @property {boolean} visible Identifies visibility of object
+ * @property {number} xCenter Mid x coordinate. Used for collision detection.
+ * @property {number} yCenter Mid y coordinate. Used for collision detection.
+ * @property {number} tile Number of tile that center of sprite is in. Used for collision detection.
  * @returns {Entity} Entity object
  */
 var Entity = function (s, r, c) {
@@ -27,9 +31,13 @@ var Entity = function (s, r, c) {
    * Initialize all properties for generic game entity
    */
   this.sprite = s;
+  this.itemNum = 0;
   this.x = c;
   this.y = r;
   this.visible = true;
+  this.xCenter = 0;
+  this.yCenter = 0;
+  this.tile = -1;
 }
 
 /**
@@ -53,6 +61,14 @@ Entity.prototype.render = function () {
   /** @memberOf Entity */
   if (this.visible === true) {
 	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+	//get the center points of the sprite
+	this.xCenter = this.x + ((Resources.get(this.sprite).width) / 2);
+	this.yCenter = this.y + ((Resources.get(this.sprite).height) / 2);
+	// calculate which row and column the center point of the sprite is in
+	this.tile = Math.floor(this.xCenter / xSpacing) + Math.floor((this.yCenter - ySpacing) / ySpacing) * 5;
+	//ctx.fillRect(this.xCenter, this.yCenter,5,5);
+	ctx.fillText(this.tile,this.xCenter,this.yCenter);
+	
   }
 }
 
@@ -103,8 +119,6 @@ Item.prototype.update = function (dt) {
   var secondsDelay = 0;
   /** Number of seconds to display Item */
   var secondsDelay2 = 0;
-  /** Item number to display */
-  var itemNum = 0;
   /** Random number used to determine which item to display */
   var ranNum = Math.random();
   /** Random X position */
@@ -147,36 +161,30 @@ Item.prototype.update = function (dt) {
 	  this.collect = true;	// assume you can collect the item
 	  switch (true) {
 		case ranNum < .30:
-		  itemNum = 0;
-		  player.blueGems += 1;
+		  this.itemNum = 0;
 		  break;
 		case ranNum < .60:
-		  itemNum = 1;
-		  player.greenGems += 1;
+		  this.itemNum = 1;
 		  break;
 		case ranNum < .90:
-		  itemNum = 2;
-		  player.orangeGems += 1;
+		  this.itemNum = 2;
 		  break;
 		case ranNum < .92:
-		  itemNum = 3;
-		  player.keys += 1;
+		  this.itemNum = 3;
 		  break;
 		case ranNum < .94:
-		  itemNum = 4;
-		  player.hearts += 1;
+		  this.itemNum = 4;
 		  break;
 		case ranNum < .97:
-		  itemNum = 5;
-		  player.stars += 1;
+		  this.itemNum = 5;
 		  break;
 		case ranNum < 1:
-		  itemNum = 6;
+		  this.itemNum = 6;
 		  this.collect = false;	  // can't collect rocks
 		  break;
 	  }
 
-	  this.sprite = items[itemNum];	  // set sprite
+	  this.sprite = items[this.itemNum];	  // set sprite
 	  this.x = itemX;				  // set X
 	  this.y = itemY;				  // set Y
 	  this.visible = true;			  // set visibility
@@ -283,6 +291,9 @@ Player.prototype.handleInput = function (key) {
   /**
    * @memberOf Player
    */
+  if (gamePaused && key !== "pause") {
+	  return;
+  }
   switch (key) {
 	case "up":
 	  this.y -= ySpacing;
@@ -307,6 +318,10 @@ Player.prototype.handleInput = function (key) {
 	  if (this.x >= (5 * xSpacing)) {
 		this.x -= xSpacing;
 	  }
+	  break;
+  case "pause":
+	  // toggle game paused state
+	  gamePaused = !gamePaused;
 	  break;
   }
 }
@@ -337,6 +352,12 @@ var xSpacing = 101;
 var ySpacing = 83;
 
 /**
+ * 
+ * @type Boolean
+ * @description Used to indicate if the game is paused
+ */
+var gamePaused = false;
+/**
  * @type Number
  * @description Loop variable
  */
@@ -363,7 +384,6 @@ var item = new Item('images/star.png', 4 * ySpacing, 2 * xSpacing);
  * Start with hidden object
  */
 item.visible = false;
-alert(player.sprite);
 
 /**
  * 
@@ -380,7 +400,8 @@ document.addEventListener('keydown', function (e) {
 	87: 'up', //w
 	83: 'down', //a
 	65: 'left', //s
-	68: 'right'	//d
+	68: 'right',//d
+	80: 'pause' //p
 
   };
 

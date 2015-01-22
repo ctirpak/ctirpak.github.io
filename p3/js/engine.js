@@ -33,30 +33,34 @@ var Engine = (function (global) {
 	 * and handles properly calling the update and render methods.
 	 */
 	function main() {
-		/* Get our time delta information which is required if your game
-		 * requires smooth animation. Because everyone's computer processes
-		 * instructions at different speeds we need a constant value that
-		 * would be the same for everyone (regardless of how fast their
-		 * computer is) - hurray time!
-		 */
-		var now = Date.now(),
-				dt = (now - lastTime) / 1000.0;
+		// run loop only if game is not paused
 
-		/* Call our update/render functions, pass along the time delta to
-		 * our update function since it may be used for smooth animation.
-		 */
-		update(dt);
-		render();
+			/* Get our time delta information which is required if your game
+			 * requires smooth animation. Because everyone's computer processes
+			 * instructions at different speeds we need a constant value that
+			 * would be the same for everyone (regardless of how fast their
+			 * computer is) - hurray time!
+			 */
+			var now = Date.now(),
+					dt = (now - lastTime) / 1000.0;
 
-		/* Set our lastTime variable which is used to determine the time delta
-		 * for the next time this function is called.
-		 */
-		lastTime = now;
+			/* Call our update/render functions, pass along the time delta to
+			 * our update function since it may be used for smooth animation.
+			 */
+		if (!gamePaused) {
+			update(dt);
+		}
+			render();
 
-		/* Use the browser's requestAnimationFrame function to call this
-		 * function again as soon as the browser is able to draw another frame.
-		 */
-		win.requestAnimationFrame(main);
+			/* Set our lastTime variable which is used to determine the time delta
+			 * for the next time this function is called.
+			 */
+			lastTime = now;
+
+			/* Use the browser's requestAnimationFrame function to call this
+			 * function again as soon as the browser is able to draw another frame.
+			 */
+			win.requestAnimationFrame(main);
 	}
 	;
 
@@ -99,43 +103,73 @@ var Engine = (function (global) {
 		item.update();
 	}
 	/**
-	 * 
-	 * @param {type} x X pos
-	 * @param {type} y Y pos
-	 * @param {type} r Right side
-	 * @param {type} b Bottom Side
-	 * @param {type} x2 X2 pos
-	 * @param {type} y2 Y2 pos
-	 * @param {type} r2 Right2 side
-	 * @param {type} b2 Bottom2 side
-	 * @returns {Boolean} True if 
-	 */
-	function collides(x, y, r, b, x2, y2, r2, b2) {
-		return !(r <= x2 || x > r2 ||
-				b <= y2 || y > b2);
-	}
-
-	/**
+	 * Checks to see if the player and object are in the same tile
 	 * 
 	 * @returns {undefined}
 	 */
 	function checkCollisions() {
-		var playerRight = player.x + Resources.get(player.sprite).width;
-		var playerBottom = player.y + Resources.get(player.sprite).height;
-		if(item.visible) {
-			itemRight = item.x + Resources.get(item.sprite).width;
-			itemBottom = item.y + Resources.get(item.sprite).height;
-			if(collides(player.x, player.y,playerRight,playerBottom,item.x, item.y, itemRight,itemBottom)) {
-				alert("You got a " + item.sprite);
-				alert(player.x + ", " + player.y + ", " + playerRight + ", " + playerBottom + "; " + item.x + ", " + item.y + ", " + itemRight + ", " + itemBottom)
-			};
-			//console.log(player.x + ", " + player.y + ", " + playerRight + ", " + playerBottom);
-			//console.log(item.x + ", " + item.y + ", " + itemRight + ", " + itemBottom);
-			//console.log(collides(player.x, player.y,playerRight,playerBottom,item.x, item.y, itemRight,itemBottom));
-			//console.log(collides(player.x, player.y,playerRight,playerBottom,item.x, item.y, itemRight,itemBottom));
-			//console.log(collides(player.x, player.y,playerRight,playerBottom,item.x, item.y, itemRight,itemBottom));
-			//console.log(collides(player.x, player.y,playerRight,playerBottom,item.x, item.y, itemRight,itemBottom));
-			
+		// check to see if player got an item
+		if (item.visible) {
+			if (player.tile === item.tile &&
+					player.tile !== -1) {
+				//alert("You got a " + item.sprite + playerRight + ", " + playerBottom + ", " + playerRight + ", " + playerBottom + "; " + item.x + ", " + item.y + ", " + itemRight + ", " + itemBottom)
+				switch (item.itemNum) {
+					case 0:
+						player.blueGems += 1;
+						player.score += 25;
+						item.visible = false;
+						break;
+					case 1:
+						player.greenGems += 1;
+						player.score += 25;
+						item.visible = false;
+						break;
+					case 2:
+						player.orangeGems += 1;
+						player.score += 25;
+						item.visible = false;
+						break;
+					case 3:
+						player.keys += 1;
+						player.score += 75;
+						item.visible = false;
+						break;
+					case 4:
+						player.hearts += 1;
+						player.score += 100;
+						item.visible = false;
+						break;
+					case 5:
+						player.stars += 1;
+						player.score += 125;
+						item.visible = false;
+						break;
+				}
+			}
+			;
+		}
+		// check to see if a player got hit by a bug
+		if ((player.visible === true) &&
+				player.tile !== -1) {
+			allEnemies.forEach(function (enemy) {
+				if (enemy.tile === player.tile) {
+					player.y = 5 * ySpacing;
+					player.x = 2 * xSpacing;
+					if (player.hearts > 1) {
+						player.hearts -= 1;
+						player.score -= 100;
+					} else {
+						// game over
+					}
+					return true;
+				}
+			});
+			// check to see if player made it to the top
+			if (player.tile < 5) {
+				player.y = 5 * ySpacing;
+				player.x = 2 * xSpacing;
+				player.score += 100;
+			}
 		}
 	}
 	/* This function initially draws the "game level", it will then call
@@ -185,10 +219,10 @@ var Engine = (function (global) {
 	function renderScore() {
 		// Score
 		ctx.fillStyle = "rgb(250, 250, 250)";
-		ctx.font = "14px Helvetica";
+		ctx.font = "13px Helvetica";
 		ctx.textAlign = "left";
 		ctx.textBaseline = "top";
-		ctx.fillText("Hearts: " + player.hearts + "  Blue Gems: " + player.blueGems + "  Green Gems: " + player.greenGems + "  Orange Gems: " + player.orangeGems + "  Stars: " + player.stars + "  Keys: " + player.keys + "  Score: " + player.score, 0 * xSpacing, 6.75 * ySpacing);
+		ctx.fillText("Hearts: " + player.hearts + "  Gems: Blue " + player.blueGems + "  Green " + player.greenGems + "  Orange " + player.orangeGems + "  Stars: " + player.stars + "  Keys: " + player.keys + "  Score: " + player.score, 0 * xSpacing, 6.75 * ySpacing);
 
 	}
 	/* This function is called by the render function and is called on each game
