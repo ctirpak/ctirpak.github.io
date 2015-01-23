@@ -77,6 +77,10 @@ Entity.prototype.render = function () {
 	}
 }
 
+/** ----------------------------------------------------------------- */
+/** ----------------------------------------------------------------- */
+/** ----------------------------------------------------------------- */
+
 /**
  * @class Item
  * @description Item objct. Subclass of Entity. Holds all the items that appear in the game
@@ -153,7 +157,7 @@ Item.prototype.update = function (dt) {
 		if (this.dateNext < new Date()) {
 			// get random amount of seconds
 			secondsDelay = Math.floor((Math.random() * 2));
-			secondsDelay2 = Math.floor((Math.random() * 5));
+			secondsDelay2 = Math.floor((Math.random() * 2) + gameLevel / 8);
 
 			// get time and add X seconds to determine how long the Item will be visible
 			this.dateExpires = new Date(new Date().getTime() + (3 + secondsDelay2) * 1000);
@@ -166,27 +170,26 @@ Item.prototype.update = function (dt) {
 			// displayed ~2% of the time
 			this.collect = true;	// assume you can collect the item
 			switch (true) {
-				case ranNum < .30:
+				case ranNum < .28:
 					this.itemNum = 0;
 					break;
-				case ranNum < .60:
+				case ranNum < .53:
 					this.itemNum = 1;
 					break;
-				case ranNum < .90:
+				case ranNum < .80:
 					this.itemNum = 2;
 					break;
-				case ranNum < .92:
+				case ranNum < .85:
 					this.itemNum = 3;
 					break;
-				case ranNum < .94:
+				case ranNum < .90:
 					this.itemNum = 4;
 					break;
-				case ranNum < .97:
+				case ranNum < .95:
 					this.itemNum = 5;
 					break;
 				case ranNum < 1:
 					this.itemNum = 6;
-					this.collect = false;	  // can't collect rocks
 					break;
 			}
 
@@ -201,9 +204,82 @@ Item.prototype.render = function () {
 	//call the entity.render() function
 	Entity.prototype.render.call(this);
 	if (this.visible) {
+		ctx.fillStyle = "rgb(0, 0, 0)";
+		ctx.font = "16px Helvetica";
+		ctx.textAlign = "left";
+		ctx.textBaseline = "top";
+
 		ctx.fillText(this.timeLeft, this.xCenter - 7, this.yCenter - 12);
 	}
 }
+
+/** ----------------------------------------------------------------- */
+/** ----------------------------------------------------------------- */
+/** ----------------------------------------------------------------- */
+
+var Message = function (s, r, c) {
+	/** 
+	 * @memberOf Message
+	 * Used to display timed messages on canvas
+	 * update properties and call base class constructor
+	 */
+	this.dateExpires = new Date();
+	this.Text = ""; // message to display
+	Entity.call(this, s, r, c, "message");
+}
+
+/** 
+ * Set Prototype
+ * @memberOf Message
+ */
+Message.prototype = Object.create(Entity.prototype);
+/**
+ * Set Constructor
+ * @memberOf Message
+ */
+Message.constructor = Message;
+
+/**
+ * Update the Item position, type and visibility. Generates random numbers to
+ * calculate how long an Item will be visible, and which Item will be displayed.
+ * @param {number} dt Time delta since last update. Ensures game runs
+ * at the same speed on all computers. Not applicable to the Item() object.
+ */
+Message.prototype.update = function (dt) {
+	/** @memberOf Message
+	 */
+	/** Number of seconds to wait before displaying a new Item */
+
+	// check to see if the item should still be displayed
+	if ((this.dateExpires < new Date()) &&
+			(!gameOver)) {
+		this.visible = false;	  // hide message
+	}
+
+}
+Message.prototype.render = function () {
+	/**
+	 * @memberOf Message
+	 */
+	// DO NOT call the entity.render() function
+	if (this.visible) {
+		ctx.fillStyle = "rgb(255, 200, 0)";
+		ctx.font = "18px Helvetica";
+		ctx.textAlign = "left";
+		ctx.textBaseline = "top";
+		ctx.fillText(this.Text, xSpacing * 2.7, (ySpacing * 6.7) - 12);
+	}
+}
+Message.prototype.showText = function (s) {
+	this.Text = s;
+	this.dateExpires = new Date(new Date().getTime() + 3 * 1000);
+	this.visible = true;			  // set visibility
+}
+
+/** ----------------------------------------------------------------- */
+/** ----------------------------------------------------------------- */
+/** ----------------------------------------------------------------- */
+
 /**
  * @class Enemy
  * @description Enemy object. Subclass of Entity. Enemies that appear in the game
@@ -220,8 +296,9 @@ var Enemy = function (s, r, c) {
 	 * @memberOf Enemy
 	 * Updates speed and calls base class constructor
 	 */
-	this.minSpeed = 50;
-	this.speed = (200 - (Math.floor((Math.random() * 200) + 1))) + this.minSpeed;	  // generate random number for speed
+	this.addSpeed = 20 * gameLevel;
+	this.minSpeed = 50 * ((gameLevel / 8) + 1);
+	this.speed = (this.addSpeed - (Math.floor((Math.random() * this.addSpeed) + 1))) + this.minSpeed;	  // generate random number for speed
 	Entity.call(this, s, r, c, "enemy");
 };
 /**
@@ -249,12 +326,19 @@ Enemy.prototype.update = function (dt) {
 	if (this.x > canvas.width) {
 		// set to left side of canvas, off screen
 		this.x = 0 - Resources.get(this.sprite).width;
+		this.addSpeed = 20 * gameLevel;
+		this.minSpeed = 50 * ((gameLevel / 8) + 1);
+
 		// get new speed
-		this.speed = (200 - (Math.floor((Math.random() * 200) + 1))) + this.minSpeed;
+		this.speed = (this.addSpeed - (Math.floor((Math.random() * this.addSpeed) + 1))) + this.minSpeed;
 	}
 	// causes verticle movement/jitter
 	// this.y = this.y + ((50 - (Math.floor((Math.random() * 100) + 1))) * dt);
 };
+
+/** ----------------------------------------------------------------- */
+/** ----------------------------------------------------------------- */
+/** ----------------------------------------------------------------- */
 
 /**
  * Player object. Subclass of Entity
@@ -307,9 +391,17 @@ Player.prototype.handleInput = function (key) {
 	/**
 	 * @memberOf Player
 	 */
+	if (gameOver && key === "restart") {
+		gameOver = false;
+		resetKeyPressed = true;
+	}
+	if (gameOver && key !== "restart") {
+		return;
+	}
 	if (gamePaused && key !== "pause") {
 		return;
 	}
+
 	switch (key) {
 		case "up":
 			this.y -= ySpacing;
@@ -341,6 +433,10 @@ Player.prototype.handleInput = function (key) {
 			break;
 	}
 }
+
+/** ----------------------------------------------------------------- */
+/** ----------------------------------------------------------------- */
+/** ----------------------------------------------------------------- */
 
 /**
  * 
@@ -376,10 +472,11 @@ var items = [
 	'images/Star.png',
 	'images/Rock.png'
 ];
+/** Name of items */
 var itemNames = [
 	'Blue Gem',
 	'Green Gem',
-	'Orange Gem',
+	'Gold Gem',
 	'Key',
 	'Heart',
 	'Star',
@@ -391,6 +488,24 @@ var itemNames = [
  * @description Used to indicate if the game is paused
  */
 var gamePaused = false;
+/**
+ * 
+ * @type Boolean
+ * @description Used to identify if the game is over
+ */
+var gameOver = true;
+/**
+ * 
+ * @type Boolean
+ * @description Used to track if game needs to be reset
+ */
+var resetKeyPressed = false;
+/**
+ * 
+ * @type Number
+ * @description Used to control game difficulty
+ */
+var gameLevel = 1;
 /**
  * @type Number
  * @description Loop variable
@@ -418,7 +533,12 @@ var item = new Item('images/star.png', 4 * ySpacing, 2 * xSpacing);
  * Start with hidden object
  */
 item.visible = false;
-
+/**
+ * 
+ * @type Message
+ * @description Create message object for displaying messages on the canvas
+ */
+var msg = new Message("Welcome!", ySpacing * 6.7 - 12, xSpacing * 3);
 /**
  * 
  * @param {type} param1
@@ -435,7 +555,8 @@ document.addEventListener('keydown', function (e) {
 		83: 'down', //a
 		65: 'left', //s
 		68: 'right', //d
-		80: 'pause' //p
+		80: 'pause', //p
+		82: 'restart' //r
 
 	};
 
