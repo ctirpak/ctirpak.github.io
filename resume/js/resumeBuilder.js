@@ -2,7 +2,7 @@ var bio = {
 	"name": "Chris Tirpak",
 	"role": "Web Application Developer",
 	"contacts": {
-		"mobile": "<a href='#'>908-512-6356</a>",
+		"mobile": "<a href='#'></a>",
 		"email": "<a href='mailto:ctirpak1@gmail.com?Subject=About%20your%20resume...'>ctirpak1@gmail.com</a>",
 		"twitter": "<a href='https://twitter.com/c_tirpak'>@c_tirpak</a>",
 		"LinkedIn": "<a href='http://www.linkedin.com/in/christirpak'>Chris Tirpak</a>",
