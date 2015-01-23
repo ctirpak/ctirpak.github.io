@@ -152,7 +152,7 @@ var Engine = (function (global) {
 		}
 
 
-		showMessage("xxxx");//You got a " + itemNames[item.itemNum] + "!");
+		showMessage("You got a " + itemNames[item.itemNum] + "!");
 	  }
 	}
 	// check to see if player made it to the top
@@ -167,7 +167,7 @@ var Engine = (function (global) {
 			player.tile !== -1) {
 	  allEnemies.forEach(function (enemy) {
 		if (enemy.tile === player.tile) {
-		  showMessage("yyyyy");//enemy.tile + ":" + player.tile + "::" + enemy.x + ":" + player.x);
+		  showMessage(enemy.tile + ":" + player.tile + "::" + enemy.x + ":" + player.x);
 		  player.y = 5 * ySpacing;
 		  player.x = 2 * xSpacing;
 		  if (player.hearts > 1) {
@@ -183,19 +183,19 @@ var Engine = (function (global) {
   }
 
   function showMessage(m) {
-	var y = canvas.width / 2;
-	var x = canvas.height / 2;
+	var y = 100;//canvas.width / 2;
+	var x = 100;//canvas.height / 2;
 	var dt1 = new Date(new Date().getTime() + 2 * 1000);  // wait before continuing
 
-	ctx.fillStyle = "rgb(0, 0, 0)";
+	ctx.fillStyle = "rgb(200, 200, 200)";
 	ctx.font = "24px Helvetica";
 	ctx.textAlign = "left";
 	ctx.textBaseline = "top";
-	ctx.fillText(m, x, y);
 
-//	do {
-//	  dt1 = new Date();
-//	} while (new Date() < dt1);
+	do {
+	  dt1 = new Date();
+	ctx.fillText(m, x, y);
+	} while (new Date() < dt1);
 
 
 
