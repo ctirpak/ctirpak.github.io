@@ -431,6 +431,21 @@ Player.prototype.handleInput = function (key) {
 			// toggle game paused state
 			gamePaused = !gamePaused;
 			break;
+		case "1":
+			this.sprite = 'images/char-boy.png';
+			break;
+		case "2":
+			this.sprite = 'images/char-cat-girl.png';
+			break;
+		case "3":
+			this.sprite = 'images/char-horn-girl.png';
+			break;
+		case "4":
+			this.sprite = 'images/char-pink-girl.png';
+			break;
+		case "5":
+			this.sprite = 'images/char-princess-girl.png';
+			break;
 	}
 }
 
@@ -539,6 +554,8 @@ item.visible = false;
  * @description Create message object for displaying messages on the canvas
  */
 var msg = new Message("Welcome!", ySpacing * 6.7 - 12, xSpacing * 3);
+
+var keyAllowed = true; // used to prevent auto repeated key down events.
 /**
  * 
  * @param {type} param1
@@ -546,20 +563,34 @@ var msg = new Message("Welcome!", ySpacing * 6.7 - 12, xSpacing * 3);
  * @description Event listener for keydown even. Passes keys to player.handleInput()
  */
 document.addEventListener('keydown', function (e) {
-	var allowedKeys = {
-		37: 'left', //arrow keys
-		38: 'up', //arrow keys
-		39: 'right', //arrow keys
-		40: 'down', //arrow keys
-		87: 'up', //w
-		83: 'down', //a
-		65: 'left', //s
-		68: 'right', //d
-		80: 'pause', //p
-		82: 'restart' //r
+	if (keyAllowed) {
+		keyAllowed = false; // set it to false until keyup event sets it to true
+		var allowedKeys = {
+			37: 'left', //arrow keys
+			38: 'up', //arrow keys
+			39: 'right', //arrow keys
+			40: 'down', //arrow keys
+			87: 'up', //w
+			83: 'down', //a
+			65: 'left', //s
+			68: 'right', //d
+			80: 'pause', //p
+			82: 'restart', //r
+			49: '1', //1
+			50: '2', //2
+			51: '3', //3
+			52: '4', //4
+			53: '5' //5
 
-	};
+		};
 
-	player.handleInput(allowedKeys[e.keyCode]);
+		player.handleInput(allowedKeys[e.keyCode]);
+	}
+});
+/**
+ * @description Key up event listener. used to prevent auto repeating keydown events
+ */
+document.addEventListener('keyup', function (e) {
+	keyAllowed = true; // set it to true so keydown can trigger
 });
 
