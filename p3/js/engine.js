@@ -152,7 +152,7 @@ var Engine = (function (global) {
 						break;
 					case 6:
 						player.stones += 1;
-						player.score -= 125 + Math.floor(item.timeLeft * 1.5);
+						player.score += 125 + Math.floor(item.timeLeft * 1.5);
 						item.visible = false;
 						break;
 				}
@@ -169,16 +169,19 @@ var Engine = (function (global) {
 			player.score += 100;
 			player.cross += 1;
 			gameLevel += .6;
-			msg.showText("You made it!!");
+			player.inPlay = false;
+			var timeBonus = Math.floor((new Date() - player.timeInPlay) / 100);
+			msg.showText("You made it!! +" + timeBonus);
 		}
 		// check to see if a player got hit by a bug
 		if ((player.visible === true) &&
 				player.tile !== -1) {
 			allEnemies.forEach(function (enemy) {
 				if (enemy.tile === player.tile) {
-					msg.showText("OUCH!");
+					msg.showText("OUCH! -100");
 					player.y = 5 * ySpacing;
 					player.x = 2 * xSpacing;
+					player.inPlay = false;
 					if (player.hearts > 1) {
 						player.hearts -= 1;
 						player.score -= 100;
@@ -238,6 +241,7 @@ var Engine = (function (global) {
 
 		renderScore();
 		renderEntities();
+		renderInstructions();
 
 		// add visual effect to canvas if the game is over
 		if (gameOver) {
@@ -257,8 +261,8 @@ var Engine = (function (global) {
 	}
 	function renderScore() {
 		var i; // index number of items
-		var y = (ySpacing * 6.7); // y locatino of score
-		var x = 0; // x locatino of score
+		var y = (ySpacing * 6.7); // y location of score
+		var x = 0; // x location of score
 		var xGap = 53; // gap between score items
 		var textGap = 25; // gap between item and text
 		// Score
@@ -304,6 +308,35 @@ var Engine = (function (global) {
 		 'images/Heart.png',
 		 'images/Star.png',
 		 */
+	}
+	/**
+	 * 
+	 * @returns {undefined}
+	 * @description adds instructions to canvas
+	 */
+	function renderInstructions() {
+		var y = (ySpacing * 6.7); // y locatino of directions
+		var x = 10; // x location
+		var yGap = 15; // gap between rows
+		// Score
+		ctx.fillStyle = "rgb(0, 0, 0)";
+		ctx.font = "bold 13px Helvetica";
+		ctx.textAlign = "left";
+		ctx.textBaseline = "top";
+
+		// draw instructions
+		y += 20;
+		ctx.fillText("How to play:", x, y);
+		y += yGap;
+		ctx.fillText("Move your player to the water without getting hit. Collect the items. You'll get", x, y);
+		y += yGap;
+		ctx.fillText("an extra bonus the quicker you collect the items and the longer you stay alive!", x, y);
+		y += yGap;
+		ctx.fillText("Arrow keys or WASD to move", x, y);
+		y += yGap;
+		ctx.fillText("P to pause the game, number 1 through 5 to change your character", x, y);
+		y += yGap;
+		ctx.fillText("R to start a new game after your game is over", x, y);
 	}
 	/* This function is called by the render function and is called on each game
 	 * tick. It's purpose is to then call the render functions you have defined

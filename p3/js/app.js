@@ -356,6 +356,9 @@ Enemy.prototype.update = function (dt) {
  * @property {number} orangeGems Orange gems collected
  * @property {number} stars Stars collected
  * @property {number} stones Stones collected
+ * @property {number} cross Number of times player reached water
+ * @property {boolean} inPlay True if player in play area 
+ * @property {object} timeInPlay Time that player first entered play area
  * @returns {Player} Player object
  * 
  */
@@ -373,6 +376,8 @@ var Player = function (s, r, c) {
 	this.stars = 0;
 	this.stones = 0;
 	this.cross = 0;
+	this.inPlay = false;
+	this.timeInPlay = new Date();
 	Entity.call(this, s, r, c, "player");
 }
 
@@ -448,7 +453,19 @@ Player.prototype.handleInput = function (key) {
 			break;
 	}
 }
-
+Player.prototype.update = function (dt) {
+	/** @memberOf Item
+	 */
+	/** checks to see if player is in play area */
+	if ((this.tile < 25) &&
+			(this.inPlay === false)) {
+		this.inPlay = true;
+		this.timeInPlay = new Date();
+	}
+	if (this.tile >= 25) {
+		this.inPlay = false;
+	}
+}
 /** ----------------------------------------------------------------- */
 /** ----------------------------------------------------------------- */
 /** ----------------------------------------------------------------- */
