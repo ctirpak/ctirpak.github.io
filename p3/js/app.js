@@ -1,3 +1,10 @@
+/*
+ * 		Front End Web Developer
+ *		Project 3
+ *			Video Game
+ *		Chris Tirpak
+ */
+
 /**
  * 
  * @fileOverview app.js contains all the objects used in the game.

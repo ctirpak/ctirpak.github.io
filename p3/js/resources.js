@@ -1,3 +1,9 @@
+/*
+ * 		Front End Web Developer
+ *		Project 3
+ *			Video Game
+ *		Chris Tirpak
+ */
 /**
  * @fileOverview Resources.js: This is simple an image loading utility.
  * It eases the process of loading image files so that they can be used

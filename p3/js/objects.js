@@ -1,3 +1,9 @@
+/*
+ * 		Front End Web Developer
+ *		Project 3
+ *			Video Game
+ *		Chris Tirpak
+ */
 /**
  * fileOverview test file to understand how objects and inheritance works
  */

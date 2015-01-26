@@ -1,3 +1,10 @@
+/*
+ * 		Front End Web Developer
+ *		Project 3
+ *			Video Game
+ *		Chris Tirpak
+ */
+
 /**
  * @fileOverview Engine.js: This file provides the game loop functionality
  * (update entities and render), draws the initial game board on the screen,
