@@ -473,6 +473,18 @@ Player.prototype.update = function (dt) {
 		this.inPlay = false;
 	}
 }
+Player.prototype.render = function () {
+	//call the entity.render() function
+	Entity.prototype.render.call(this);
+	if (this.inPlay) {
+		ctx.fillStyle = "rgb(0, 0, 0)";
+		ctx.font = "24px Helvetica";
+		ctx.textAlign = "left";
+		ctx.textBaseline = "top";
+
+		ctx.fillText(Math.floor((new Date() - player.timeInPlay) / 100), (xSpacing / 2) * 4.7, (ySpacing / 2) * 2);
+	}
+}
 /** ----------------------------------------------------------------- */
 /** ----------------------------------------------------------------- */
 /** ----------------------------------------------------------------- */

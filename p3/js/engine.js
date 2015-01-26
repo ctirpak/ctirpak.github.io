@@ -180,6 +180,7 @@ var Engine = (function (global) {
 			player.inPlay = false;
 			var timeBonus = Math.floor((new Date() - player.timeInPlay) / 100);
 			msg.showText("You made it!! +" + timeBonus);
+			player.score += timeBonus;
 		}
 		// check to see if a player got hit by a bug
 		if ((player.visible === true) &&
