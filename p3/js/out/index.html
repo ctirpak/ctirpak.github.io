@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Index</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Index</h1>
+    
+    
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section>
+    
+<header>
+    <h2>
+    app.js
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+            <div class="description">app.js contains all the objects used in the game.
+This includes the generic Entity() object which is used as the base
+class for the Enemy(), Player(), and Item() objects. <br><br>
+The enemy, player and item objects are also created</div>
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    <dt class="tag-version">Version:</dt>
+    <dd class="tag-version"><ul class="dummy"><li>1.0</li></ul></dd>
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Chris Tirpak</li>
+        </ul>
+    </dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="app.js.html">app.js</a>, <a href="app.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+
+
+<section>
+    
+<header>
+    <h2>
+    engine.js
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+            <div class="description">Engine.js: This file provides the game loop functionality
+(update entities and render), draws the initial game board on the screen,
+and then calls the update and render methods on your player and enemy
+objects (defined in your app.js).
+
+A game engine works by drawing the entire game screen over and over, kind of
+like a flipbook you may have created as a kid. When your player moves across
+the screen, it may look like just that image/character is moving or being
+drawn but that is not the case. What's really happening is the entire "scene"
+is being drawn over and over, presenting the illusion of animation.
+
+This engine is available globally via the Engine variable and it also makes
+the canvas' context (ctx) object globally available to make writing app.js
+a little simpler to work with.</div>
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="engine.js.html">engine.js</a>, <a href="engine.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+
+
+<section>
+    
+<header>
+    <h2>
+    resources.js
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+            <div class="description">Resources.js: This is simple an image loading utility.
+It eases the process of loading image files so that they can be used
+within your game. It also includes a simple "caching" layer so it 
+will reuse cached images if you attempt to load the same image multiple times.</div>
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="resources.js.html">resources.js</a>, <a href="resources.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Enemy.html">Enemy</a></li><li><a href="Entity.html">Entity</a></li><li><a href="Item.html">Item</a></li><li><a href="Player.html">Player</a></li></ul><h3>Global</h3><ul><li><a href="global.html#allEnemies">allEnemies</a></li><li><a href="global.html#gameLevel">gameLevel</a></li><li><a href="global.html#gameOver">gameOver</a></li><li><a href="global.html#gamePaused">gamePaused</a></li><li><a href="global.html#item">item</a></li><li><a href="global.html#itemNames">itemNames</a></li><li><a href="global.html#items">items</a></li><li><a href="global.html#Message">Message</a></li><li><a href="global.html#msg">msg</a></li><li><a href="global.html#player">player</a></li><li><a href="global.html#resetKeyPressed">resetKeyPressed</a></li><li><a href="global.html#xSpacing">xSpacing</a></li><li><a href="global.html#ySpacing">ySpacing</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Sun Jan 25 2015 19:38:53 GMT-0500 (EST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

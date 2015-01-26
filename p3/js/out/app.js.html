@@ -1,8 +1,35 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: app.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: app.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>/**
  * 
  * @fileOverview app.js contains all the objects used in the game.
  * This includes the generic Entity() object which is used as the base
- * class for the Enemy(), Player(), and Item() objects. <br><br>
+ * class for the Enemy(), Player(), and Item() objects. &lt;br>&lt;br>
  * The enemy, player and item objects are also created
  * @author Chris Tirpak
  * @version 1.0
@@ -29,7 +56,7 @@
 var Entity = function (s, r, c, i) {
 	/**
 	 * @memberOf Entity
-	 * Constructor of Entity<br><br>
+	 * Constructor of Entity&lt;br>&lt;br>
 	 * Initialize all properties for generic game entity
 	 */
 	this.sprite = s;
@@ -69,7 +96,7 @@ Entity.prototype.render = function () {
 		this.yCenter = this.y + ((Resources.get(this.sprite).height) / 2);
 		// calculate which row and column the center point of the sprite is in
 		if ((this.xCenter > canvas.width) ||
-				(this.x < 0)) {
+				(this.x &lt; 0)) {
 			this.tile = -1;
 		} else {
 			this.tile = Math.floor(this.xCenter / xSpacing) + Math.floor((this.yCenter - ySpacing) / ySpacing) * 5;
@@ -140,7 +167,7 @@ Item.prototype.update = function (dt) {
 	var t1 = new Date();
 
 	// check to see if the item should still be displayed
-	if (this.dateExpires < new Date()) {
+	if (this.dateExpires &lt; new Date()) {
 		this.visible = false;	  // hide item
 	}
 
@@ -154,7 +181,7 @@ Item.prototype.update = function (dt) {
 	// if no item is visible
 	if (this.visible === false) {
 		//check to see if a new item can be displayed
-		if (this.dateNext < new Date()) {
+		if (this.dateNext &lt; new Date()) {
 			// get random amount of seconds
 			secondsDelay = Math.floor((Math.random() * 2));
 			secondsDelay2 = Math.floor((Math.random() * 2) + gameLevel / 8);
@@ -170,25 +197,25 @@ Item.prototype.update = function (dt) {
 			// displayed ~2% of the time
 			this.collect = true;	// assume you can collect the item
 			switch (true) {
-				case ranNum < .28:
+				case ranNum &lt; .28:
 					this.itemNum = 0;
 					break;
-				case ranNum < .53:
+				case ranNum &lt; .53:
 					this.itemNum = 1;
 					break;
-				case ranNum < .80:
+				case ranNum &lt; .80:
 					this.itemNum = 2;
 					break;
-				case ranNum < .85:
+				case ranNum &lt; .85:
 					this.itemNum = 3;
 					break;
-				case ranNum < .90:
+				case ranNum &lt; .90:
 					this.itemNum = 4;
 					break;
-				case ranNum < .95:
+				case ranNum &lt; .95:
 					this.itemNum = 5;
 					break;
-				case ranNum < 1:
+				case ranNum &lt; 1:
 					this.itemNum = 6;
 					break;
 			}
@@ -251,7 +278,7 @@ Message.prototype.update = function (dt) {
 	/** Number of seconds to wait before displaying a new Item */
 
 	// check to see if the item should still be displayed
-	if ((this.dateExpires < new Date()) &&
+	if ((this.dateExpires &lt; new Date()) &&
 			(!gameOver)) {
 		this.visible = false;	  // hide message
 	}
@@ -410,7 +437,7 @@ Player.prototype.handleInput = function (key) {
 	switch (key) {
 		case "up":
 			this.y -= ySpacing;
-			if (this.y < 0) {
+			if (this.y &lt; 0) {
 				this.y += ySpacing;
 			}
 			break;
@@ -422,7 +449,7 @@ Player.prototype.handleInput = function (key) {
 			break;
 		case "left":
 			this.x -= xSpacing;
-			if (this.x < 0) {
+			if (this.x &lt; 0) {
 				this.x += xSpacing;
 			}
 			break;
@@ -457,7 +484,7 @@ Player.prototype.update = function (dt) {
 	/** @memberOf Item
 	 */
 	/** checks to see if player is in play area */
-	if ((this.tile < 25) &&
+	if ((this.tile &lt; 25) &&
 			(this.inPlay === false)) {
 		this.inPlay = true;
 		this.timeInPlay = new Date();
@@ -537,7 +564,7 @@ var resetKeyPressed = false;
 var gameLevel = 1;
 
 // create enemy array
-for (var x = 0; x < 4; x++) {
+for (var x = 0; x &lt; 4; x++) {
 	oneEnemy = new Enemy('images/enemy-bug.png', (x + 1) * ySpacing, -101);
 	allEnemies.push(oneEnemy);
 }
@@ -606,3 +633,26 @@ document.addEventListener('keyup', function (e) {
 	keyAllowed = true; // set it to true so keydown can trigger
 });
 
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Enemy.html">Enemy</a></li><li><a href="Entity.html">Entity</a></li><li><a href="Item.html">Item</a></li><li><a href="Player.html">Player</a></li></ul><h3>Global</h3><ul><li><a href="global.html#allEnemies">allEnemies</a></li><li><a href="global.html#gameLevel">gameLevel</a></li><li><a href="global.html#gameOver">gameOver</a></li><li><a href="global.html#gamePaused">gamePaused</a></li><li><a href="global.html#item">item</a></li><li><a href="global.html#itemNames">itemNames</a></li><li><a href="global.html#items">items</a></li><li><a href="global.html#Message">Message</a></li><li><a href="global.html#msg">msg</a></li><li><a href="global.html#player">player</a></li><li><a href="global.html#resetKeyPressed">resetKeyPressed</a></li><li><a href="global.html#xSpacing">xSpacing</a></li><li><a href="global.html#ySpacing">ySpacing</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Sun Jan 25 2015 19:38:53 GMT-0500 (EST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

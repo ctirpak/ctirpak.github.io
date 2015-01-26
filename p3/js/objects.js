@@ -1,14 +1,18 @@
 /**
- * @class car
- * @description Generic Car class
- * @param {string} n Name of car
- * @property {string} name Location of car
- * @property {number} loc Location of car
- * @returns {car}
+ * fileOverview test file to understand how objects and inheritance works
+ */
+
+/**
+ * class car
+ * description Generic Car class
+ * param {string} n Name of car
+ * property {string} name Location of car
+ * property {number} loc Location of car
+ * returns {car}
  */
 var car = function (n) {
 	/**
-	 * @memberOf car
+	 * memberOf car
 	 */
 	this.name = n;
 	this.loc = 0;
@@ -19,53 +23,53 @@ var car = function (n) {
  */
 car.prototype.move = function () {
 	/**
-	 * @memberOf car
+	 * memberOf car
 	 */
 	this.loc += 1;
 	console.log(this.name + ".move: " + this.loc);
 }
 
 /**
- * @class truck
- * @description extends car class. trucks move at the same speed as cars.
- * @augments car
- * @param {string} n Name of truck
- * @returns {truck}
+ * class truck
+ * description extends car class. trucks move at the same speed as cars.
+ * augments car
+ * param {string} n Name of truck
+ * returns {truck}
  */
 var truck = function (n) {
 	/**
-	 * @memberOf truck
+	 * memberOf truck
 	 */
 	car.call(this, n);
 }
 /**
- * @memberOf truck
+ * memberOf truck
  */
 truck.prototype = Object.create(car.prototype);
 /**
- * @memberOf truck
+ * memberOf truck
  */
 truck.constructor = truck;
 
 /**
- * @class van
- * @description Extends car class. Vans move at the speed of a car, plus an additional 2.
- * @augments car
- * @param {string} n Name of van
- * @returns {van}
+ * class van
+ * description Extends car class. Vans move at the speed of a car, plus an additional 2.
+ * augments car
+ * param {string} n Name of van
+ * returns {van}
  */
 var van = function (n) {
 	/**
-	 * @memberOf van
+	 * memberOf van
 	 */
 	car.call(this, n);
 }
 /**
- * @memberOf van
+ * memberOf van
  */
 van.prototype = Object.create(car.prototype);
 /**
- * @memberOf van
+ * memberOf van
  */
 van.constructor = van;
 /**
@@ -73,7 +77,7 @@ van.constructor = van;
  */
 van.prototype.move = function () {
 	/**
-	 * @memberOf van
+	 * memberOf van
 	 */
 	car.prototype.move.call(this);
 	this.loc += 2;
