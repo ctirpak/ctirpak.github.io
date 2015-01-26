@@ -1,6 +1,8 @@
 #**Killer Bugs**
 is an HTML5 Canvas game. [Click here to play the game](http://ctirpak.github.io/p3/index.html), or open your web browser and navigate to http://ctirpak.github.io/p3/index.html
 
+Technical documentation [can be found here](http://ctirpak.github.io/p3/js/out/index.html)
+
 ##**How to play**
 ---
 The object of the game is to score as many points as possible. To do this, you must move your character across the screen and reach the water without getting killed by the bugs. There are several items that will appear which will give you additional points or lives.
