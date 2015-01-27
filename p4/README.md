@@ -9,6 +9,8 @@ To get started, check out the repository, inspect the code,
 * Resized/Recompressed images into the smallest size possible without sacrificing quality
 * Created appropriately sized images where needed, such as thumbnails
 * Added media attribute to <link> tag for CSS import, to indicate screen or print
+* Moved thumnail images to be hosted locally (these appear on index.html)
+* Added async to google analytics js
 
 ### Getting started
 
