@@ -4,6 +4,12 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 
 To get started, check out the repository, inspect the code,
 
+### Optimization Steps
+* Starting page scores for speed: 28/100 Mobile, 30/100 Desktop
+* Resized/Recompressed images into the smallest size possible without sacrificing quality
+* Created appropriately sized images where needed, such as thumbnails
+
+
 ### Getting started
 
 Some useful tips to help you get started:
