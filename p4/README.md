@@ -8,7 +8,7 @@ To get started, check out the repository, inspect the code,
 * Starting page scores for speed: 28/100 Mobile, 30/100 Desktop
 * Resized/Recompressed images into the smallest size possible without sacrificing quality
 * Created appropriately sized images where needed, such as thumbnails
-
+* Added media attribute to <link> tag for CSS import, to indicate screen or print
 
 ### Getting started
 
