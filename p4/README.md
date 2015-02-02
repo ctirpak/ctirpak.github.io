@@ -19,6 +19,12 @@ To get started, check out the repository, inspect the code,
 ### Other fixes
 * Added closing div tag above closing body tag in index.html
 
+### pizza.html JavaScript Optimization
+* Need to achieve 60fps while scrolling
+* Need < 5ms to resize pizzas
+  * Rewrite of changePizzaSizes() function to remove unnecessary function calls, and variable calculation within loops
+  * Rewrite of updatePositions() 
+
 ### Final Speed Results
 * index.html: 92/100 (m) 92 (d)
 * project-2048.html: 93/94 (m) 93 (d)
