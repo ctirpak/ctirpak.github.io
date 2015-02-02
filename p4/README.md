@@ -17,7 +17,7 @@ To get started, check out the repository, inspect the code,
 * Minified js
 
 ### Other fixes
-* Added closing </div> tag above closing </body> tag in index.html
+* Added closing div tag above closing body tag in index.html
 
 ### Final Speed Results
 * index.html: 92/100 (m) 92 (d)
