@@ -11,6 +11,15 @@ To get started, check out the repository, inspect the code,
 * Added media attribute to <link> tag for CSS import, to indicate screen or print
 * Moved thumnail images to be hosted locally (these appear on index.html)
 * Added async to google analytics js
+* Added screen and print options to media attributes in <link> tags
+* Moved Google analytics function to its own js file and linked it with async attribute
+
+### Other fixes
+* Added closing </div> tag above closing </body> tag in index.html
+
+
+Original project information:
+===
 
 ### Getting started
 
