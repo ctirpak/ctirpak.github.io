@@ -5,7 +5,7 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 To get started, check out the repository, inspect the code,
 
 ### Optimization Steps
-* Starting page scores for speed: 28/100 Mobile, 30/100 Desktop
+* Starting page scores for index.html: 28/100 Mobile, 30/100 Desktop
 * Resized/Recompressed images into the smallest size possible without sacrificing quality
 * Created appropriately sized images where needed, such as thumbnails
 * Added media attribute to <link> tag for CSS import, to indicate screen or print
@@ -18,6 +18,12 @@ To get started, check out the repository, inspect the code,
 ### Other fixes
 * Added closing </div> tag above closing </body> tag in index.html
 
+### Final Speed Results
+* index.html: 92
+* project-2048.html: 94
+* project-webperf.html: 94
+* project-mobile.html: 94
+* views/pizza.html: 
 
 Original project information:
 ===
