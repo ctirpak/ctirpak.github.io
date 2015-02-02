@@ -13,6 +13,7 @@ To get started, check out the repository, inspect the code,
 * Added async to google analytics js
 * Added screen and print options to media attributes in <link> tags
 * Moved Google analytics function to its own js file and linked it with async attribute
+* Added js to load css file after page has loaded
 
 ### Other fixes
 * Added closing </div> tag above closing </body> tag in index.html
