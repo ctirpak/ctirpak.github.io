@@ -7,7 +7,20 @@
 	<meta name="author" content=" FILL ME IN ">
 	<title>Cameron Pittman: Portfolio</title>
 
+    <script>
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = 'css/style.css';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+    </script>
+	<!--
 	<link href="css/style.css" rel="stylesheet" media="screen">
+	-->
 	<link href="css/print.css" rel="stylesheet" media="print">
 
 	<script async src="js/ga.js"></script>
