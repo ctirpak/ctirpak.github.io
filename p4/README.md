@@ -20,11 +20,15 @@ To get started, check out the repository, inspect the code,
 * Added closing </div> tag above closing </body> tag in index.html
 
 ### Final Speed Results
-* index.html: 92
-* project-2048.html: 94
-* project-webperf.html: 94
-* project-mobile.html: 94
-* views/pizza.html: 
+* index.html: 92/100 (m) 92 (d)
+* project-2048.html: 93/94 (m) 93 (d)
+* project-webperf.html: 94/94 (m) 93 (d)
+* project-mobile.html: 94/95 (m) 93 (d)
+* views/pizza.html: 96/96 (m) 93 (d)
+
+(m) - mobile
+(d) - desktop
+Speeds for mobile show scores for speed and user experience
 
 Original project information:
 ===
