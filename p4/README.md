@@ -20,10 +20,13 @@ To get started, check out the repository, inspect the code,
 * Added closing div tag above closing body tag in index.html
 
 ### pizza.html JavaScript Optimization
-* Need to achieve 60fps while scrolling
-* Need < 5ms to resize pizzas
-  * Rewrite of changePizzaSizes() function to remove unnecessary function calls, and variable calculation within loops
-  * Rewrite of updatePositions() 
+* 60+ fps while scrolling
+* <5ms to resize pizzas
+  * Remove unnecessary function calls, and variable calculation within loops
+	* Rewrite of changePizzaSizes()
+	* Rewrite of updatePositions() 
+  * Reduce the number of background pizzas from 200 to 20
+  * Resized background pizza image and removed CSS styling that set the width and height
 
 ### Final Speed Results
 * index.html: 92/100 (m) 92 (d)
