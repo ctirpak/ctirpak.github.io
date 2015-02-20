@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Enemy</title>
+    <title>JSDoc: Class: Message</title>
     
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Class: Enemy</h1>
+    <h1 class="page-title">Class: Message</h1>
     
     
 
@@ -27,7 +27,7 @@
     
 <header>
     <h2>
-    Enemy
+    Message
     </h2>
     
 </header>  
@@ -39,7 +39,7 @@
     
         
 <dt>
-    <h4 class="name" id="Enemy"><span class="type-signature"></span>new Enemy<span class="signature">(s, r, c)</span><span class="type-signature"> &rarr; {<a href="Enemy.html">Enemy</a>}</span></h4>
+    <h4 class="name" id="Message"><span class="type-signature"></span>new Message<span class="signature">(s, r, c)</span><span class="type-signature"> &rarr; {<a href="Message.html">Message</a>}</span></h4>
     
     
 </dt>
@@ -47,7 +47,7 @@
     
     
     <div class="description">
-        Enemy object. Subclass of Entity. Enemies that appear in the game
+        Used to display timed messages on canvas
     </div>
     
 
@@ -87,7 +87,7 @@
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">type</span>
 
 
             
@@ -97,7 +97,7 @@
             
             
             
-            <td class="description last">name of sprite</td>
+            <td class="description last"></td>
         </tr>
 	
 	
@@ -110,7 +110,7 @@
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">type</span>
 
 
             
@@ -120,7 +120,7 @@
             
             
             
-            <td class="description last">row number for location of sprite</td>
+            <td class="description last"></td>
         </tr>
 	
 	
@@ -133,7 +133,7 @@
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">type</span>
 
 
             
@@ -143,7 +143,7 @@
             
             
             
-            <td class="description last">column number for location of sprite</td>
+            <td class="description last"></td>
         </tr>
 	
 	
@@ -153,80 +153,6 @@
     
     
 <dl class="details">
-    
-        
-        <h5 class="subsection-title">Properties:</h5>
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>minSpeed</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">Sets the minimum speed of the enemies</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>speed</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">Sets teh current speed of the enemies</td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
     
         
     
@@ -248,7 +174,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line291">line 291</a>
+        <a href="app.js.html">app.js</a>, <a href="app.js.html#line227">line 227</a>
     </li></ul></dd>
     
     
@@ -272,10 +198,6 @@
     <h5>Returns:</h5>
     
             
-<div class="param-desc">
-    Enemy object
-</div>
-
 
 
 <dl>
@@ -284,7 +206,7 @@
 	</dt>
 	<dd>
 		
-<span class="param-type"><a href="Enemy.html">Enemy</a></span>
+<span class="param-type"><a href="Message.html">Message</a></span>
 
 
 	</dd>
@@ -298,12 +220,6 @@
     
     </div>
     
-    
-        <h3 class="subsection-title">Extends</h3>
-        
-        <ul>
-            <li><a href="global.html#Entity">Entity</a></li>
-        </ul>
     
     
     
@@ -327,7 +243,7 @@
 <dd>
     
     <div class="description">
-        Set constructor
+        Set Constructor
     </div>
     
     
@@ -356,7 +272,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line321">line 321</a>
+        <a href="app.js.html">app.js</a>, <a href="app.js.html#line250">line 250</a>
     </li></ul></dd>
     
     
@@ -387,12 +303,6 @@
 <dd>
     
     
-    <div class="description">
-        Draws the sprite on the screen at the x and y coordinates 
-if it should be visible
-Uses Resources.get() method to return image object
-    </div>
-    
 
     
     
@@ -409,11 +319,6 @@ Uses Resources.get() method to return image object
     
 
     
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="global.html#Entity#render">Entity#render</a>
-    </li></dd>
-    
     
     
     
@@ -428,7 +333,7 @@ Uses Resources.get() method to return image object
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line70">line 70</a>
+        <a href="app.js.html">app.js</a>, <a href="app.js.html#line271">line 271</a>
     </li></ul></dd>
     
     
@@ -464,7 +369,8 @@ Uses Resources.get() method to return image object
     
     
     <div class="description">
-        Update the Enemy position. Generates a random number for the speed.
+        Update the Item position, type and visibility. Generates random numbers to
+calculate how long an Item will be visible, and which Item will be displayed.
     </div>
     
 
@@ -515,7 +421,7 @@ Uses Resources.get() method to return image object
             
             
             <td class="description last">Time delta since last update. Ensures game runs
-at the same speed on all computers.</td>
+at the same speed on all computers. Not applicable to the Item() object.</td>
         </tr>
 	
 	
@@ -546,7 +452,7 @@ at the same speed on all computers.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line330">line 330</a>
+        <a href="app.js.html">app.js</a>, <a href="app.js.html#line259">line 259</a>
     </li></ul></dd>
     
     

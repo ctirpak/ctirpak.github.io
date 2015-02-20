@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Entity</title>
+    <title>JSDoc: Class: Item</title>
     
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Class: Entity</h1>
+    <h1 class="page-title">Class: Item</h1>
     
     
 
@@ -27,7 +27,7 @@
     
 <header>
     <h2>
-    Entity
+    Item
     </h2>
     
 </header>  
@@ -39,7 +39,7 @@
     
         
 <dt>
-    <h4 class="name" id="Entity"><span class="type-signature"></span>new Entity<span class="signature">(s, r, c, i)</span><span class="type-signature"> &rarr; {<a href="Entity.html">Entity</a>}</span></h4>
+    <h4 class="name" id="Item"><span class="type-signature"></span>new Item<span class="signature">(s, r, c)</span><span class="type-signature"> &rarr; {<a href="global.html#Item">Item</a>}</span></h4>
     
     
 </dt>
@@ -47,7 +47,7 @@
     
     
     <div class="description">
-        Generic game entity. Superclass of objects in game (enemy, player, item)
+        Item objct. Subclass of Entity. Holds all the items that appear in the game
     </div>
     
 
@@ -147,29 +147,6 @@
         </tr>
 	
 	
-	
-        <tr>
-            
-                <td class="name"><code>i</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">name of object</td>
-        </tr>
-	
-	
 	</tbody>
 </table>
     
@@ -204,13 +181,13 @@
 	
         <tr>
             
-                <td class="name"><code>sprite</code></td>
+                <td class="name"><code>dateExpires</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -220,20 +197,20 @@
             
             
             
-            <td class="description last">Path to image file for this object</td>
+            <td class="description last">Date (time) of when sprite is no longer visible</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>itemNum</code></td>
+                <td class="name"><code>dateNext</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">object</span>
 
 
             
@@ -243,60 +220,14 @@
             
             
             
-            <td class="description last">Item number</td>
+            <td class="description last">Date (time) of when new sprite can appear</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>x</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">Horizontal position of sprite</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>y</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">Verticle position of sprite</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>visible</code></td>
+                <td class="name"><code>collect</code></td>
             
             
             <td class="type">
@@ -312,14 +243,14 @@
             
             
             
-            <td class="description last">Identifies visibility of object</td>
+            <td class="description last">Indicates if item can be collected</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>xCenter</code></td>
+                <td class="name"><code>timeLeft</code></td>
             
             
             <td class="type">
@@ -335,76 +266,7 @@
             
             
             
-            <td class="description last">Mid x coordinate. Used for collision detection.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>yCenter</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">Mid y coordinate. Used for collision detection.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>tile</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">Number of tile that center of sprite is in. Used for collision detection.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">Type of object</td>
+            <td class="description last">number of seconds left before item is no longer visible</td>
         </tr>
 	
 	
@@ -432,7 +294,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line3">line 3</a>
+        <a href="app.js.html">app.js</a>, <a href="app.js.html#line91">line 91</a>
     </li></ul></dd>
     
     
@@ -457,7 +319,7 @@
     
             
 <div class="param-desc">
-    Entity object
+    Item object
 </div>
 
 
@@ -468,7 +330,7 @@
 	</dt>
 	<dd>
 		
-<span class="param-type"><a href="Entity.html">Entity</a></span>
+<span class="param-type"><a href="global.html#Item">Item</a></span>
 
 
 	</dd>
@@ -483,6 +345,11 @@
     </div>
     
     
+        <h3 class="subsection-title">Extends</h3>
+        
+        <ul>
+            <li><a href="global.html#Entity">Entity</a></li>
+        </ul>
     
     
     
@@ -492,6 +359,115 @@
     
     
     
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="constructor"><span class="type-signature">&lt;static> </span>constructor<span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Set Constructor
+    </div>
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="app.js.html">app.js</a>, <a href="app.js.html#line125">line 125</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="this.dateExpires"><span class="type-signature">&lt;static> </span>this.dateExpires<span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="app.js.html">app.js</a>, <a href="app.js.html#line109">line 109</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
     
     
     
@@ -529,6 +505,11 @@ Uses Resources.get() method to return image object
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="global.html#Entity#render">Entity#render</a>
+    </li></dd>
+    
     
     
     
@@ -543,7 +524,7 @@ Uses Resources.get() method to return image object
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line63">line 63</a>
+        <a href="app.js.html">app.js</a>, <a href="app.js.html#line70">line 70</a>
     </li></ul></dd>
     
     
@@ -579,8 +560,8 @@ Uses Resources.get() method to return image object
     
     
     <div class="description">
-        Update the entity's position. Update code resides in sub classes
-of enemy and player
+        Update the Item position, type and visibility. Generates random numbers to
+calculate how long an Item will be visible, and which Item will be displayed.
     </div>
     
 
@@ -631,7 +612,7 @@ of enemy and player
             
             
             <td class="description last">Time delta since last update. Ensures game runs
-at the same speed on all computers</td>
+at the same speed on all computers. Not applicable to the Item() object.</td>
         </tr>
 	
 	
@@ -662,7 +643,7 @@ at the same speed on all computers</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line53">line 53</a>
+        <a href="app.js.html">app.js</a>, <a href="app.js.html#line133">line 133</a>
     </li></ul></dd>
     
     
@@ -703,13 +684,13 @@ at the same speed on all computers</td>
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Enemy.html">Enemy</a></li><li><a href="Entity.html">Entity</a></li><li><a href="Item.html">Item</a></li><li><a href="Player.html">Player</a></li></ul><h3>Global</h3><ul><li><a href="global.html#allEnemies">allEnemies</a></li><li><a href="global.html#gameLevel">gameLevel</a></li><li><a href="global.html#gameOver">gameOver</a></li><li><a href="global.html#gamePaused">gamePaused</a></li><li><a href="global.html#item">item</a></li><li><a href="global.html#itemNames">itemNames</a></li><li><a href="global.html#items">items</a></li><li><a href="global.html#Message">Message</a></li><li><a href="global.html#msg">msg</a></li><li><a href="global.html#player">player</a></li><li><a href="global.html#resetKeyPressed">resetKeyPressed</a></li><li><a href="global.html#XSPACING">XSPACING</a></li><li><a href="global.html#YSPACING">YSPACING</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Enemy.html">Enemy</a></li><li><a href="global.html#Entity">Entity</a></li><li><a href="global.html#Item">Item</a></li><li><a href="Message.html">Message</a></li><li><a href="Player.html">Player</a></li></ul><h3>Global</h3><ul><li><a href="global.html#allEnemies">allEnemies</a></li><li><a href="global.html#gameLevel">gameLevel</a></li><li><a href="global.html#gameOver">gameOver</a></li><li><a href="global.html#gamePaused">gamePaused</a></li><li><a href="global.html#item">item</a></li><li><a href="global.html#ITEMNAMES">ITEMNAMES</a></li><li><a href="global.html#ITEMS">ITEMS</a></li><li><a href="global.html#msg">msg</a></li><li><a href="global.html#player">player</a></li><li><a href="global.html#resetKeyPressed">resetKeyPressed</a></li><li><a href="global.html#XSPACING">XSPACING</a></li><li><a href="global.html#YSPACING">YSPACING</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Sun Jan 25 2015 19:38:53 GMT-0500 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Fri Feb 20 2015 10:58:50 GMT-0500 (EST)
 </footer>
 
 <script> prettyPrint(); </script>

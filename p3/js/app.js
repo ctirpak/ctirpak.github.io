@@ -33,12 +33,12 @@
  * @property {string} name Type of object
  * @returns {Entity} Entity object
  */
+/**
+ \	 * Constructor of Entity<br><br>
+ * Initialize all properties for generic game entity
+ */
 var Entity = function (s, r, c, i) {
-	/**
-	 * @memberOf Entity
-	 * Constructor of Entity<br><br>
-	 * Initialize all properties for generic game entity
-	 */
+	/** @memberOf Entity */
 	this.sprite = s;
 	this.itemNum = 0;
 	this.x = c;
@@ -101,11 +101,11 @@ Entity.prototype.render = function () {
  * @property {number} timeLeft number of seconds left before item is no longer visible
  * @returns {Item} Item object
  */
+/** 
+ * update properties and call base class constructor
+ */
 var Item = function (s, r, c) {
-	/** 
-	 * @memberOf Item
-	 * update properties and call base class constructor
-	 */
+	/** @memberOf Item */
 	this.dateExpires = new Date();
 	this.dateNext = new Date(new Date().getTime() + 5 * 1000);  // wait before displaying the first item
 	this.collect = false;
@@ -224,12 +224,15 @@ Item.prototype.render = function () {
 /** ----------------------------------------------------------------- */
 /** ----------------------------------------------------------------- */
 
+/**
+ * @class Message
+ * @description Used to display timed messages on canvas
+ * @param {type} s
+ * @param {type} r
+ * @param {type} c
+ * @returns {Message}
+ */
 var Message = function (s, r, c) {
-	/** 
-	 * @memberOf Message
-	 * Used to display timed messages on canvas
-	 * update properties and call base class constructor
-	 */
 	this.dateExpires = new Date();
 	this.Text = ''; // message to display
 	Entity.call(this, s, r, c, 'message');
@@ -247,16 +250,14 @@ Message.prototype = Object.create(Entity.prototype);
 Message.constructor = Message;
 
 /**
+ * 
  * Update the Item position, type and visibility. Generates random numbers to
  * calculate how long an Item will be visible, and which Item will be displayed.
  * @param {number} dt Time delta since last update. Ensures game runs
  * at the same speed on all computers. Not applicable to the Item() object.
  */
 Message.prototype.update = function (dt) {
-	/** @memberOf Message
-	 */
-	/** Number of seconds to wait before displaying a new Item */
-
+	/** @memberOf Message */
 	// check to see if the item should still be displayed
 	if ((this.dateExpires < new Date()) &&
 			(!gameOver)) {
@@ -264,10 +265,10 @@ Message.prototype.update = function (dt) {
 	}
 
 };
+/**
+ * @memberOf Message
+ */
 Message.prototype.render = function () {
-	/**
-	 * @memberOf Message
-	 */
 	// DO NOT call the entity.render() function
 	if (this.visible) {
 		ctx.fillStyle = 'rgb(255, 200, 0)';
