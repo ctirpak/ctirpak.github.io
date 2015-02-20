@@ -468,6 +468,7 @@ Player.prototype.update = function (dt) {
 		this.inPlay = true;
 		this.timeInPlay = new Date();
 	} else
+	if (this.tile >= 25)
 		this.inPlay = false;
 };
 Player.prototype.render = function () {
