@@ -126,7 +126,7 @@ var Engine = (function (global) {
 		if (item.visible) {
 			if (player.tile === item.tile &&
 					player.tile !== -1) {
-				//alert("You got a " + item.sprite + playerRight + ", " + playerBottom + ", " + playerRight + ", " + playerBottom + "; " + item.x + ", " + item.y + ", " + itemRight + ", " + itemBottom)
+				//alert('You got a ' + item.sprite + playerRight + ', ' + playerBottom + ', ' + playerRight + ', ' + playerBottom + '; ' + item.x + ', ' + item.y + ', ' + itemRight + ', ' + itemBottom)
 				switch (item.itemNum) {
 					case 0:
 						player.blueGems += 1;
@@ -166,20 +166,20 @@ var Engine = (function (global) {
 				}
 
 
-				msg.showText("You got a " + itemNames[item.itemNum] + "! +" + Math.floor(item.timeLeft * 1.5));
+				msg.showText('You got a ' + ITEMNAMES[item.itemNum] + '! +' + Math.floor(item.timeLeft * 1.5));
 			}
 		}
 		// check to see if player made it to the top
 		if ((player.tile < 5) &&
 				(player.tile >= 0)) {
-			player.y = 5 * ySpacing;
-			player.x = 2 * xSpacing;
+			player.y = 5 * YSPACING;
+			player.x = 2 * XSPACING;
 			player.score += 100;
 			player.cross += 1;
 			gameLevel += .6;
 			player.inPlay = false;
 			var timeBonus = Math.floor((new Date() - player.timeInPlay) / 100);
-			msg.showText("You made it!! +" + timeBonus);
+			msg.showText('You made it!! +' + timeBonus);
 			player.score += timeBonus;
 		}
 		// check to see if a player got hit by a bug
@@ -187,9 +187,9 @@ var Engine = (function (global) {
 				player.tile !== -1) {
 			allEnemies.forEach(function (enemy) {
 				if (enemy.tile === player.tile) {
-					msg.showText("OUCH! -100");
-					player.y = 5 * ySpacing;
-					player.x = 2 * xSpacing;
+					msg.showText('OUCH! -100');
+					player.y = 5 * YSPACING;
+					player.x = 2 * XSPACING;
 					player.inPlay = false;
 					if (player.hearts > 1) {
 						player.hearts -= 1;
@@ -217,7 +217,7 @@ var Engine = (function (global) {
 		/* This array holds the relative URL to the image used
 		 * for that particular row of the game level.
 		 */
-		var rowImages = [
+		var ROWIMAGES = [
 			'images/water-block.png', // Top row is water
 			'images/stone-block.png', // Row 1 of 3 of stone
 			'images/stone-block.png', // Row 2 of 3 of stone
@@ -226,16 +226,16 @@ var Engine = (function (global) {
 			'images/grass-block.png',    // Row 2 of 2 of grass
 			'images/grass-block-2.png'    // instructions row
 		],
-				numRows = 7,
-				numCols = 5,
+				NUMROWS = 7,
+				NUMCOLS = 5,
 				row, col;
 
 		/* Loop through the number of rows and columns we've defined above
-		 * and, using the rowImages array, draw the correct image for that
+		 * and, using the ROWIMAGES array, draw the correct image for that
 		 * portion of the "grid"
 		 */
-		for (row = 0; row < numRows; row++) {
-			for (col = 0; col < numCols; col++) {
+		for (row = 0; row < NUMROWS; row++) {
+			for (col = 0; col < NUMCOLS; col++) {
 				/* The drawImage function of the canvas' context element
 				 * requires 3 parameters: the image to draw, the x coordinate
 				 * to start drawing and the y coordinate to start drawing.
@@ -243,7 +243,7 @@ var Engine = (function (global) {
 				 * so that we get the benefits of caching these images, since
 				 * we're using them over and over.
 				 */
-				ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
+				ctx.drawImage(Resources.get(ROWIMAGES[row]), col * 101, row * 83);
 			}
 		}
 
@@ -269,45 +269,45 @@ var Engine = (function (global) {
 
 	}
 	function renderScore() {
-		var i; // index number of items
-		var y = (ySpacing * 6.7); // y location of score
+		var i; // index number of ITEMS
+		var y = (YSPACING * 6.7); // y location of score
 		var x = 0; // x location of score
-		var xGap = 53; // gap between score items
-		var textGap = 25; // gap between item and text
+		var XGAP = 53; // gap between score items
+		var TEXTGAP = 25; // gap between item and text
 		// Score
-		ctx.fillStyle = "rgb(0, 0, 0)";
-		ctx.font = "13px Helvetica";
-		ctx.textAlign = "left";
-		ctx.textBaseline = "top";
+		ctx.fillStyle = 'rgb(0, 0, 0)';
+		ctx.font = '13px Helvetica';
+		ctx.textAlign = 'left';
+		ctx.textBaseline = 'top';
 
-		// draw items
-		for (var i in items) {
-			ctx.drawImage(Resources.get(items[i]), x, y, ySpacing / 4, xSpacing / 4);
-			x += xGap;
+		// draw ITEMS
+		for (var i in ITEMS) {
+			ctx.drawImage(Resources.get(ITEMS[i]), x, y, YSPACING / 4, XSPACING / 4);
+			x += XGAP;
 		}
 		// draw scores
 		x = 0;
 		y += 8; // tweak y to show in the correct place
-		x += textGap;
+		x += TEXTGAP;
 		ctx.fillText(player.blueGems, x, y);
-		x += xGap;
+		x += XGAP;
 		ctx.fillText(player.greenGems, x, y);
-		x += xGap;
+		x += XGAP;
 		ctx.fillText(player.orangeGems, x, y);
-		x += xGap;
+		x += XGAP;
 		ctx.fillText(player.keys, x, y);
-		x += xGap;
+		x += XGAP;
 		ctx.fillText(player.hearts, x, y);
-		x += xGap;
+		x += XGAP;
 		ctx.fillText(player.stars, x, y);
-		x += xGap;
+		x += XGAP;
 		ctx.fillText(player.stones, x, y);
 		x = 0;
 		y -= 20;
-		ctx.fillText("SCORE: " + player.score, x, y);
-		x += xGap * 2;
-		//ctx.fillText("Trips made: " + player.cross + "  Level: " + Math.floor(gameLevel), x, y);
-		ctx.fillText("Level: " + Math.floor(gameLevel), x, y);
+		ctx.fillText('SCORE: ' + player.score, x, y);
+		x += XGAP * 2;
+		//ctx.fillText('Trips made: ' + player.cross + '  Level: ' + Math.floor(gameLevel), x, y);
+		ctx.fillText('Level: ' + Math.floor(gameLevel), x, y);
 
 
 		/**
@@ -324,28 +324,28 @@ var Engine = (function (global) {
 	 * @description adds instructions to canvas
 	 */
 	function renderInstructions() {
-		var y = (ySpacing * 6.7); // y locatino of directions
+		var y = (YSPACING * 6.7); // y locatino of directions
 		var x = 10; // x location
-		var yGap = 15; // gap between rows
+		var YGAP = 15; // gap between rows
 		// Score
-		ctx.fillStyle = "rgb(0, 0, 0)";
-		ctx.font = "bold 13px Helvetica";
-		ctx.textAlign = "left";
-		ctx.textBaseline = "top";
+		ctx.fillStyle = 'rgb(0, 0, 0)';
+		ctx.font = 'bold 13px Helvetica';
+		ctx.textAlign = 'left';
+		ctx.textBaseline = 'top';
 
 		// draw instructions
 		y += 20;
-		ctx.fillText("How to play:", x, y);
-		y += yGap;
-		ctx.fillText("Move your player to the water without getting hit. Collect the items. You'll get", x, y);
-		y += yGap;
-		ctx.fillText("an extra bonus the quicker you collect the items and the longer you stay alive!", x, y);
-		y += yGap;
-		ctx.fillText("Arrow keys or WASD to move", x, y);
-		y += yGap;
-		ctx.fillText("P to pause the game, number 1 through 5 to change your character", x, y);
-		y += yGap;
-		ctx.fillText("R to start a new game after your game is over", x, y);
+		ctx.fillText('How to play:', x, y);
+		y += YGAP;
+		ctx.fillText('Move your player to the water without getting hit. Collect the items. You will get', x, y);
+		y += YGAP;
+		ctx.fillText('an extra bonus the quicker you collect the items and the longer you stay alive!', x, y);
+		y += YGAP;
+		ctx.fillText('Arrow keys or WASD to move', x, y);
+		y += YGAP;
+		ctx.fillText('P to pause the game, number 1 through 5 to change your character', x, y);
+		y += YGAP;
+		ctx.fillText('R to start a new game after your game is over', x, y);
 	}
 	/* This function is called by the render function and is called on each game
 	 * tick. It's purpose is to then call the render functions you have defined
@@ -379,9 +379,9 @@ var Engine = (function (global) {
 		player.stones = 0;
 		player.score = 0;
 		player.cross = 0;
-		player.x = 2 * xSpacing;
-		player.y = 5 * ySpacing;
-		msg.showText("Welcome!");
+		player.x = 2 * XSPACING;
+		player.y = 5 * YSPACING;
+		msg.showText('Welcome!');
 		gameOver = false;
 		resetKeyPressed = false;
 		gameLevel = 1;

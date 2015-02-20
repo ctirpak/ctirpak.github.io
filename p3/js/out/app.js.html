@@ -99,7 +99,7 @@ Entity.prototype.render = function () {
 				(this.x &lt; 0)) {
 			this.tile = -1;
 		} else {
-			this.tile = Math.floor(this.xCenter / xSpacing) + Math.floor((this.yCenter - ySpacing) / ySpacing) * 5;
+			this.tile = Math.floor(this.xCenter / XSPACING) + Math.floor((this.yCenter - YSPACING) / YSPACING) * 5;
 		}
 	}
 }
@@ -294,7 +294,7 @@ Message.prototype.render = function () {
 		ctx.font = "18px Helvetica";
 		ctx.textAlign = "left";
 		ctx.textBaseline = "top";
-		ctx.fillText(this.Text, xSpacing * 2.7, (ySpacing * 6.7) - 12);
+		ctx.fillText(this.Text, XSPACING * 2.7, (YSPACING * 6.7) - 12);
 	}
 }
 Message.prototype.showText = function (s) {
@@ -436,27 +436,27 @@ Player.prototype.handleInput = function (key) {
 
 	switch (key) {
 		case "up":
-			this.y -= ySpacing;
+			this.y -= YSPACING;
 			if (this.y &lt; 0) {
-				this.y += ySpacing;
+				this.y += YSPACING;
 			}
 			break;
 		case "down":
-			this.y += ySpacing;
-			if (this.y >= (6 * ySpacing)) {
-				this.y -= ySpacing;
+			this.y += YSPACING;
+			if (this.y >= (6 * YSPACING)) {
+				this.y -= YSPACING;
 			}
 			break;
 		case "left":
-			this.x -= xSpacing;
+			this.x -= XSPACING;
 			if (this.x &lt; 0) {
-				this.x += xSpacing;
+				this.x += XSPACING;
 			}
 			break;
 		case "right":
-			this.x += xSpacing;
-			if (this.x >= (5 * xSpacing)) {
-				this.x -= xSpacing;
+			this.x += XSPACING;
+			if (this.x >= (5 * XSPACING)) {
+				this.x -= XSPACING;
 			}
 			break;
 		case "pause":
@@ -511,13 +511,13 @@ var oneEnemy;
  * @type Number
  * @description Width (spacing) between each background tile
  */
-var xSpacing = 101;
+var XSPACING = 101;
 /**
  * 
  * @type Number
  * @description Height (spacing) between each background tile
  */
-var ySpacing = 83;
+var YSPACING = 83;
 /** List of items that can be displayed */
 var items = [
 	'images/Gem Blue.png',
@@ -565,7 +565,7 @@ var gameLevel = 1;
 
 // create enemy array
 for (var x = 0; x &lt; 4; x++) {
-	oneEnemy = new Enemy('images/enemy-bug.png', (x + 1) * ySpacing, -101);
+	oneEnemy = new Enemy('images/enemy-bug.png', (x + 1) * YSPACING, -101);
 	allEnemies.push(oneEnemy);
 }
 
@@ -574,7 +574,7 @@ for (var x = 0; x &lt; 4; x++) {
  * @type Player
  * @description Create player object
  */
-var player = new Player('images/char-boy.png', 5 * ySpacing, 2 * xSpacing);
+var player = new Player('images/char-boy.png', 5 * YSPACING, 2 * XSPACING);
 //player.setPos(5 * 83, 101 * 2);
 
 /**
@@ -582,7 +582,7 @@ var player = new Player('images/char-boy.png', 5 * ySpacing, 2 * xSpacing);
  * @type Item
  * @description Create item object
  */
-var item = new Item('images/star.png', 4 * ySpacing, 2 * xSpacing);
+var item = new Item('images/star.png', 4 * YSPACING, 2 * XSPACING);
 /**
  * Start with hidden object
  */
@@ -592,7 +592,7 @@ item.visible = false;
  * @type Message
  * @description Create message object for displaying messages on the canvas
  */
-var msg = new Message("Welcome!", ySpacing * 6.7 - 12, xSpacing * 3);
+var msg = new Message("Welcome!", YSPACING * 6.7 - 12, XSPACING * 3);
 
 var keyAllowed = true; // used to prevent auto repeated key down events.
 /**
@@ -643,7 +643,7 @@ document.addEventListener('keyup', function (e) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Enemy.html">Enemy</a></li><li><a href="Entity.html">Entity</a></li><li><a href="Item.html">Item</a></li><li><a href="Player.html">Player</a></li></ul><h3>Global</h3><ul><li><a href="global.html#allEnemies">allEnemies</a></li><li><a href="global.html#gameLevel">gameLevel</a></li><li><a href="global.html#gameOver">gameOver</a></li><li><a href="global.html#gamePaused">gamePaused</a></li><li><a href="global.html#item">item</a></li><li><a href="global.html#itemNames">itemNames</a></li><li><a href="global.html#items">items</a></li><li><a href="global.html#Message">Message</a></li><li><a href="global.html#msg">msg</a></li><li><a href="global.html#player">player</a></li><li><a href="global.html#resetKeyPressed">resetKeyPressed</a></li><li><a href="global.html#xSpacing">xSpacing</a></li><li><a href="global.html#ySpacing">ySpacing</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Enemy.html">Enemy</a></li><li><a href="Entity.html">Entity</a></li><li><a href="Item.html">Item</a></li><li><a href="Player.html">Player</a></li></ul><h3>Global</h3><ul><li><a href="global.html#allEnemies">allEnemies</a></li><li><a href="global.html#gameLevel">gameLevel</a></li><li><a href="global.html#gameOver">gameOver</a></li><li><a href="global.html#gamePaused">gamePaused</a></li><li><a href="global.html#item">item</a></li><li><a href="global.html#itemNames">itemNames</a></li><li><a href="global.html#items">items</a></li><li><a href="global.html#Message">Message</a></li><li><a href="global.html#msg">msg</a></li><li><a href="global.html#player">player</a></li><li><a href="global.html#resetKeyPressed">resetKeyPressed</a></li><li><a href="global.html#XSPACING">XSPACING</a></li><li><a href="global.html#YSPACING">YSPACING</a></li></ul>
 </nav>
 
 <br clear="both">

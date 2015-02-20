@@ -22,8 +22,8 @@ var car = function (n) {
 	 */
 	this.name = n;
 	this.loc = 0;
-	console.log("constructor: " + this.name);
-}
+	console.log('constructor: ' + this.name);
+};
 /**
  * Increments location by 1
  */
@@ -32,8 +32,8 @@ car.prototype.move = function () {
 	 * memberOf car
 	 */
 	this.loc += 1;
-	console.log(this.name + ".move: " + this.loc);
-}
+	console.log(this.name + '.move: ' + this.loc);
+};
 
 /**
  * class truck
@@ -47,7 +47,7 @@ var truck = function (n) {
 	 * memberOf truck
 	 */
 	car.call(this, n);
-}
+};
 /**
  * memberOf truck
  */
@@ -69,7 +69,7 @@ var van = function (n) {
 	 * memberOf van
 	 */
 	car.call(this, n);
-}
+};
 /**
  * memberOf van
  */
@@ -87,8 +87,8 @@ van.prototype.move = function () {
 	 */
 	car.prototype.move.call(this);
 	this.loc += 2;
-	console.log(this.name + ".move: " + this.loc);
-}
+	console.log(this.name + '.move: ' + this.loc);
+};
 
 var c = new car('car1');
 var t = new truck('truck1');

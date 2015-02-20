@@ -48,7 +48,7 @@ var Entity = function (s, r, c, i) {
 	this.yCenter = 0;
 	this.tile = -1;
 	this.name = i;
-}
+};
 
 /**
  * Update the entity's position. Update code resides in sub classes
@@ -60,7 +60,7 @@ var Entity = function (s, r, c, i) {
 Entity.prototype.update = function (dt) {
 	/** @memberOf Entity */
 
-}
+};
 
 /**
  * Draws the sprite on the screen at the x and y coordinates 
@@ -79,10 +79,10 @@ Entity.prototype.render = function () {
 				(this.x < 0)) {
 			this.tile = -1;
 		} else {
-			this.tile = Math.floor(this.xCenter / xSpacing) + Math.floor((this.yCenter - ySpacing) / ySpacing) * 5;
+			this.tile = Math.floor(this.xCenter / XSPACING) + Math.floor((this.yCenter - YSPACING) / YSPACING) * 5;
 		}
 	}
-}
+};
 
 /** ----------------------------------------------------------------- */
 /** ----------------------------------------------------------------- */
@@ -98,7 +98,7 @@ Entity.prototype.render = function () {
  * @property {object} dateExpires Date (time) of when sprite is no longer visible
  * @property {object} dateNext Date (time) of when new sprite can appear
  * @property {boolean} collect Indicates if item can be collected
- * @param {number} timeLeft number of seconds left before item is no longer visible
+ * @property {number} timeLeft number of seconds left before item is no longer visible
  * @returns {Item} Item object
  */
 var Item = function (s, r, c) {
@@ -110,8 +110,8 @@ var Item = function (s, r, c) {
 	this.dateNext = new Date(new Date().getTime() + 5 * 1000);  // wait before displaying the first item
 	this.collect = false;
 	this.timeLeft = 0;
-	Entity.call(this, s, r, c, "item");
-}
+	Entity.call(this, s, r, c, 'item');
+};
 
 /** 
  * Set Prototype
@@ -200,25 +200,25 @@ Item.prototype.update = function (dt) {
 					break;
 			}
 
-			this.sprite = items[this.itemNum];	  // set sprite
+			this.sprite = ITEMS[this.itemNum];	  // set sprite
 			this.x = itemX;				  // set X
 			this.y = itemY;				  // set Y
 			this.visible = true;			  // set visibility
 		}
 	}
-}
+};
 Item.prototype.render = function () {
 	//call the entity.render() function
 	Entity.prototype.render.call(this);
 	if (this.visible) {
-		ctx.fillStyle = "rgb(0, 0, 0)";
-		ctx.font = "16px Helvetica";
-		ctx.textAlign = "left";
-		ctx.textBaseline = "top";
+		ctx.fillStyle = 'rgb(0, 0, 0)';
+		ctx.font = '16px Helvetica';
+		ctx.textAlign = 'left';
+		ctx.textBaseline = 'top';
 
 		ctx.fillText(this.timeLeft, this.xCenter - 7, this.yCenter - 12);
 	}
-}
+};
 
 /** ----------------------------------------------------------------- */
 /** ----------------------------------------------------------------- */
@@ -231,9 +231,9 @@ var Message = function (s, r, c) {
 	 * update properties and call base class constructor
 	 */
 	this.dateExpires = new Date();
-	this.Text = ""; // message to display
-	Entity.call(this, s, r, c, "message");
-}
+	this.Text = ''; // message to display
+	Entity.call(this, s, r, c, 'message');
+};
 
 /** 
  * Set Prototype
@@ -263,25 +263,25 @@ Message.prototype.update = function (dt) {
 		this.visible = false;	  // hide message
 	}
 
-}
+};
 Message.prototype.render = function () {
 	/**
 	 * @memberOf Message
 	 */
 	// DO NOT call the entity.render() function
 	if (this.visible) {
-		ctx.fillStyle = "rgb(255, 200, 0)";
-		ctx.font = "18px Helvetica";
-		ctx.textAlign = "left";
-		ctx.textBaseline = "top";
-		ctx.fillText(this.Text, xSpacing * 2.7, (ySpacing * 6.7) - 12);
+		ctx.fillStyle = 'rgb(255, 200, 0)';
+		ctx.font = '18px Helvetica';
+		ctx.textAlign = 'left';
+		ctx.textBaseline = 'top';
+		ctx.fillText(this.Text, XSPACING * 2.7, (YSPACING * 6.7) - 12);
 	}
-}
+};
 Message.prototype.showText = function (s) {
 	this.Text = s;
 	this.dateExpires = new Date(new Date().getTime() + 3 * 1000);
 	this.visible = true;			  // set visibility
-}
+};
 
 /** ----------------------------------------------------------------- */
 /** ----------------------------------------------------------------- */
@@ -306,7 +306,7 @@ var Enemy = function (s, r, c) {
 	this.addSpeed = 20 * gameLevel;
 	this.minSpeed = 50 * ((gameLevel / 8) + 1);
 	this.speed = (this.addSpeed - (Math.floor((Math.random() * this.addSpeed) + 1))) + this.minSpeed;	  // generate random number for speed
-	Entity.call(this, s, r, c, "enemy");
+	Entity.call(this, s, r, c, 'enemy');
 };
 /**
  * Set prototype
@@ -385,8 +385,8 @@ var Player = function (s, r, c) {
 	this.cross = 0;
 	this.inPlay = false;
 	this.timeInPlay = new Date();
-	Entity.call(this, s, r, c, "player");
-}
+	Entity.call(this, s, r, c, 'player');
+};
 
 /**
  * Set prototype
@@ -403,63 +403,62 @@ Player.prototype.handleInput = function (key) {
 	/**
 	 * @memberOf Player
 	 */
-	if (gameOver && key === "restart") {
+	if (gameOver && key === 'restart') {
 		gameOver = false;
 		resetKeyPressed = true;
-	}
-	if (gameOver && key !== "restart") {
+	} else if (gameOver && key !== 'restart') {
 		return;
 	}
-	if (gamePaused && key !== "pause") {
+	if (gamePaused && key !== 'pause') {
 		return;
 	}
 
 	switch (key) {
-		case "up":
-			this.y -= ySpacing;
+		case 'up':
+			this.y -= YSPACING;
 			if (this.y < 0) {
-				this.y += ySpacing;
+				this.y += YSPACING;
 			}
 			break;
-		case "down":
-			this.y += ySpacing;
-			if (this.y >= (6 * ySpacing)) {
-				this.y -= ySpacing;
+		case 'down':
+			this.y += YSPACING;
+			if (this.y >= (6 * YSPACING)) {
+				this.y -= YSPACING;
 			}
 			break;
-		case "left":
-			this.x -= xSpacing;
+		case 'left':
+			this.x -= XSPACING;
 			if (this.x < 0) {
-				this.x += xSpacing;
+				this.x += XSPACING;
 			}
 			break;
-		case "right":
-			this.x += xSpacing;
-			if (this.x >= (5 * xSpacing)) {
-				this.x -= xSpacing;
+		case 'right':
+			this.x += XSPACING;
+			if (this.x >= (5 * XSPACING)) {
+				this.x -= XSPACING;
 			}
 			break;
-		case "pause":
+		case 'pause':
 			// toggle game paused state
 			gamePaused = !gamePaused;
 			break;
-		case "1":
+		case '1':
 			this.sprite = 'images/char-boy.png';
 			break;
-		case "2":
+		case '2':
 			this.sprite = 'images/char-cat-girl.png';
 			break;
-		case "3":
+		case '3':
 			this.sprite = 'images/char-horn-girl.png';
 			break;
-		case "4":
+		case '4':
 			this.sprite = 'images/char-pink-girl.png';
 			break;
-		case "5":
+		case '5':
 			this.sprite = 'images/char-princess-girl.png';
 			break;
 	}
-}
+};
 Player.prototype.update = function (dt) {
 	/** @memberOf Item
 	 */
@@ -468,23 +467,21 @@ Player.prototype.update = function (dt) {
 			(this.inPlay === false)) {
 		this.inPlay = true;
 		this.timeInPlay = new Date();
-	}
-	if (this.tile >= 25) {
+	} else
 		this.inPlay = false;
-	}
-}
+};
 Player.prototype.render = function () {
 	//call the entity.render() function
 	Entity.prototype.render.call(this);
 	if (this.inPlay) {
-		ctx.fillStyle = "rgb(0, 0, 0)";
-		ctx.font = "24px Helvetica";
-		ctx.textAlign = "left";
-		ctx.textBaseline = "top";
+		ctx.fillStyle = 'rgb(0, 0, 0)';
+		ctx.font = '24px Helvetica';
+		ctx.textAlign = 'left';
+		ctx.textBaseline = 'top';
 
-		ctx.fillText(Math.floor((new Date() - player.timeInPlay) / 100), (xSpacing / 2) * 4.7, (ySpacing / 2) * 2);
+		ctx.fillText(Math.floor((new Date() - player.timeInPlay) / 100), (XSPACING / 2) * 4.7, (YSPACING / 2) * 2);
 	}
-}
+};
 /** ----------------------------------------------------------------- */
 /** ----------------------------------------------------------------- */
 /** ----------------------------------------------------------------- */
@@ -503,15 +500,15 @@ var oneEnemy;
  * @type Number
  * @description Width (spacing) between each background tile
  */
-var xSpacing = 101;
+var XSPACING = 101;
 /**
  * 
  * @type Number
  * @description Height (spacing) between each background tile
  */
-var ySpacing = 83;
-/** List of items that can be displayed */
-var items = [
+var YSPACING = 83;
+/** List of ITEMS that can be displayed */
+var ITEMS = [
 	'images/Gem Blue.png',
 	'images/Gem Green.png',
 	'images/Gem Orange.png',
@@ -520,8 +517,8 @@ var items = [
 	'images/Star.png',
 	'images/Rock.png'
 ];
-/** Name of items */
-var itemNames = [
+/** Name of ITEMS */
+var ITEMNAMES = [
 	'Blue Gem',
 	'Green Gem',
 	'Gold Gem',
@@ -557,7 +554,7 @@ var gameLevel = 1;
 
 // create enemy array
 for (var x = 0; x < 4; x++) {
-	oneEnemy = new Enemy('images/enemy-bug.png', (x + 1) * ySpacing, -101);
+	oneEnemy = new Enemy('images/enemy-bug.png', (x + 1) * YSPACING, -101);
 	allEnemies.push(oneEnemy);
 }
 
@@ -566,7 +563,7 @@ for (var x = 0; x < 4; x++) {
  * @type Player
  * @description Create player object
  */
-var player = new Player('images/char-boy.png', 5 * ySpacing, 2 * xSpacing);
+var player = new Player('images/char-boy.png', 5 * YSPACING, 2 * XSPACING);
 //player.setPos(5 * 83, 101 * 2);
 
 /**
@@ -574,7 +571,7 @@ var player = new Player('images/char-boy.png', 5 * ySpacing, 2 * xSpacing);
  * @type Item
  * @description Create item object
  */
-var item = new Item('images/star.png', 4 * ySpacing, 2 * xSpacing);
+var item = new Item('images/star.png', 4 * YSPACING, 2 * XSPACING);
 /**
  * Start with hidden object
  */
@@ -584,13 +581,11 @@ item.visible = false;
  * @type Message
  * @description Create message object for displaying messages on the canvas
  */
-var msg = new Message("Welcome!", ySpacing * 6.7 - 12, xSpacing * 3);
+var msg = new Message('Welcome!', YSPACING * 6.7 - 12, XSPACING * 3);
 
 var keyAllowed = true; // used to prevent auto repeated key down events.
 /**
  * 
- * @param {type} param1
- * @param {type} param2
  * @description Event listener for keydown even. Passes keys to player.handleInput()
  */
 document.addEventListener('keydown', function (e) {
