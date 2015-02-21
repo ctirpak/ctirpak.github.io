@@ -202,17 +202,15 @@ function getAdj(x) {
 	case "scientific":
 	  var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological",
 		"innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar",
-		"extinct", "galactic"]
+		"extinct", "galactic"];
 	  return scientific;
 	default:
 	  var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological",
 		"innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar",
-		"extinct", "galactic"]
+		"extinct", "galactic"];
 	  return scientific;
-  }
-  ;
-}
-;
+  };
+};
 
 // Pulls noun out of array using random number sent from generator
 function getNoun(y) {
@@ -281,10 +279,8 @@ function getNoun(y) {
 		"quasar", "blackHole", "warpDrive", "laser", "orbit", "gears", "molecule", "electron", "neutrino", "proton", "experiment", "photon", "apparatus",
 		"universe", "gravity", "darkMatter", "constellation", "circuit", "asteroid"];
 	  return scifi;
-  }
-  ;
-}
-;
+  };
+};
 
 var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
 var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
@@ -297,46 +293,44 @@ function generator(adj, noun) {
   var randomNoun = parseInt(Math.random() * nouns.length);
   var name = "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
   return name;
-}
-;
+};
 
 // Chooses random adjective and random noun
 function randomName() {
   var randomNumberAdj = parseInt(Math.random() * adjectives.length);
   var randomNumberNoun = parseInt(Math.random() * nouns.length);
   return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
-}
-;
+};
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
 var selectRandomMeat = function () {
   var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * pizzaIngredients.meats.length))];
   return randomMeat;
-}
+};
 
 var selectRandomNonMeat = function () {
   var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * pizzaIngredients.nonMeats.length))];
   return randomNonMeat;
-}
+};
 
 var selectRandomCheese = function () {
   var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * pizzaIngredients.cheeses.length))];
   return randomCheese;
-}
+};
 
 var selectRandomSauce = function () {
   var randomSauce = pizzaIngredients.sauces[Math.floor((Math.random() * pizzaIngredients.sauces.length))];
   return randomSauce;
-}
+};
 
 var selectRandomCrust = function () {
   var randomCrust = pizzaIngredients.crusts[Math.floor((Math.random() * pizzaIngredients.crusts.length))];
   return randomCrust;
-}
+};
 
 var ingredientItemizer = function (string) {
   return "<li>" + string + "</li>";
-}
+};
 
 // Returns a string with random pizza ingredients nested inside <li> tags
 var makeRandomPizza = function () {
@@ -362,7 +356,7 @@ var makeRandomPizza = function () {
   pizza = pizza + ingredientItemizer(selectRandomCrust());
 
   return pizza;
-}
+};
 
 // returns a DOM element for each pizza
 var pizzaElementGenerator = function (i) {
@@ -402,14 +396,17 @@ var pizzaElementGenerator = function (i) {
   pizzaContainer.appendChild(pizzaDescriptionContainer);
 
   return pizzaContainer;
-}
+};
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function (size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
-
+  
   // Changes the value for the size of the pizza above the slider
-  //removed function call
+  //
+  //removed function
+  //changed return to break in switch/case
+  //
   switch (size) {
 	case "1":
 	  document.querySelector("#pizzaSize").innerHTML = "Small";
@@ -423,6 +420,9 @@ var resizePizzas = function (size) {
 	default:
 	  console.log("bug in changeSliderLabel");
   }
+  //
+  // removed function call to changeSliderLabel(size)
+  //
 
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   // revised to remove function call
@@ -433,7 +433,10 @@ var resizePizzas = function (size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-	var pizzas = document.querySelectorAll(".randomPizzaContainer");
+	//
+	// changed querySelectorAll to getElementsByClassName
+	//var pizzas = document.querySelectorAll(".randomPizzaContainer");
+	var pizzas = document.getElementsByClassName(".randomPizzaContainer");
 
 	var pizzasLen = pizzas.length;
 	var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
@@ -441,6 +444,10 @@ var resizePizzas = function (size) {
 
 	// TODO: change to 3 sizes? no more xl?
 	// Changes the slider value to a percent width
+  //
+  //removed function
+  //changed return to break in switch/case
+  //
 	switch (size) {
 	  case "1":
 		var dx = (0.25 - oldsize) * windowwidth;
@@ -469,7 +476,7 @@ var resizePizzas = function (size) {
   window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
   var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
   console.log("Time to resize pizzas: " + timeToResize[0].duration + "ms");
-}
+};
 
 window.performance.mark("mark_start_generating"); // collect timing data
 
@@ -506,21 +513,29 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-
-  var items = document.querySelectorAll('.mover');
+  
+  // changed querySelectorAll to getElementsByClassName
+  //var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('.mover');
+  //
+  // several items optimized
+  // since the Sin() function repeats itself every 5 items, their values are calculated and stored once (for all 5 phases), rather than being recalculated each time through the loop.
+  //
+  // the for loop has also been changed to increment by 5 and will set the position of 5 pizzas at a time
+  //
   var st = document.body.scrollTop / 1250;
   var phases = [(items[0].basicLeft + Math.sin(st + 0) * 100) + 'px',
-				(items[1].basicLeft + Math.sin(st + 1) * 100) + 'px',
-				(items[2].basicLeft + Math.sin(st + 2) * 100) + 'px',
-				(items[3].basicLeft + Math.sin(st + 3) * 100) + 'px',
-				(items[4].basicLeft + Math.sin(st + 4) * 100) + 'px'];
-var itemsLen = items.length;
-  for (var i = 0; i < itemsLen; i+=5) {
+	(items[1].basicLeft + Math.sin(st + 1) * 100) + 'px',
+	(items[2].basicLeft + Math.sin(st + 2) * 100) + 'px',
+	(items[3].basicLeft + Math.sin(st + 3) * 100) + 'px',
+	(items[4].basicLeft + Math.sin(st + 4) * 100) + 'px'];
+  var itemsLen = items.length;
+  for (var i = 0; i < itemsLen; i += 5) {
 	items[i].style.left = phases[0];
-	items[i+1].style.left = phases[1];
-	items[i+2].style.left = phases[2];
-	items[i+3].style.left = phases[3];
-	items[i+4].style.left = phases[4];
+	items[i + 1].style.left = phases[1];
+	items[i + 2].style.left = phases[2];
+	items[i + 3].style.left = phases[3];
+	items[i + 4].style.left = phases[4];
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -538,12 +553,16 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function () {
-  var cols = 5;
+  var cols = 5; //reduce the number of columns from 8 to 5
   var s = 256;
+  // reduce the number of pizzas to render from 200 to 20
   for (var i = 0; i < 20; i++) {
 	var elem = document.createElement('img');
 	elem.className = 'mover';
 	elem.src = "images/pizzasmall.png";
+	// 
+	// removed the sizing of the pizzas since the images are already the correct size
+	// 
 	//elem.style.height = "100px";
 	//elem.style.width = "73.333px";
 	elem.basicLeft = (i % cols) * s;
