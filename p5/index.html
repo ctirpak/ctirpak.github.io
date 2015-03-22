@@ -1,37 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Your Moving Companion</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-    <form id="form-container" class="form-container">
-        <label for="street">Street: </label><input type="text" id="street" value="">
-        <label for="city">City: </label><input type="text" id="city" value="">
-        <button id="submit-btn">Submit</button>
-    </form>
-
-    <hr>
-
-    <h2 id="greeting" class="greeting">Where do you want to live?</h2>
-
-
-    <div class="wikipedia-container">
-        <h3 id="wikipedia-header">Relevant Wikipedia Links</h3>
-        <ul id="wikipedia-links">Type in an address above and find relevant Wikipedia articles here!</ul>
-    </div>
+	<head>
+		<meta charset="UTF-8">
+		<title>Neighborhood Map</title>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="jquery-ui-1.11.4/jquery-ui.min.css">
+		<link rel="stylesheet" href="jquery-ui-1.11.4/jquery-ui.theme.min.css">
+	</head>
+	<body>
+		<div id="search" title="Search">
+			<form id="search-form" class="form-container">
+				<label for="street">Street: </label><input type="text" id="street" value="">
+				<label for="city">City: </label><input type="text" id="city" value="">
+				<button id="submit-btn">Submit</button>
+			</form>
+			<div id="prior-search-terms">
+				<h3>History</h3>
+				<div id="history-items"></div>
+			</div>
+		</div>
 
 
-    <div class="nytimes-container">
-        <h3 id="nytimes-header">New York Times Articles</h3>
-        <ul id="nytimes-articles" class="article-list">What's going on in your new city? Enter an address and hit submit and the NY Times will tell you here!</ul>
-    </div>
+		<div class="wikipedia-container">
+			<h3 id="wikipedia-header">Relevant Wikipedia Links</h3>
+			<ul id="wikipedia-links">Type in an address above and find relevant Wikipedia articles here!</ul>
+		</div>
 
-    <script src="js/jquery-1.11.2.min.js"></script>
-    <script src="js/knockout-3.3.0.js"></script>
-	<script type="text/javascript" src="http://www.panoramio.com/wapi/wapi.js?v=1"></script>
-    <script src="js/script.js"></script>
-</body>
+
+		<div class="nytimes-container">
+			<h3 id="nytimes-header">New York Times Articles</h3>
+			<ul id="nytimes-articles" class="article-list">What's going on in your new city? Enter an address and hit submit and the NY Times will tell you here!</ul>
+		</div>
+		<div id="map-canvas"></div>
+
+		
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="jquery-ui-1.11.4/jquery-ui.min.js"></script>
+		<script src="js/knockout-3.3.0.js"></script>
+		<script type="text/javascript" src="http://www.panoramio.com/wapi/wapi.js?v=1"></script>
+		<script type="text/javascript"
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtDD_2NQQ4lv6LX_LAO75QP3oT0zryEco">
+		</script>
+
+		<script src="js/script.js"></script>
+
+
+	</body>
 </html>

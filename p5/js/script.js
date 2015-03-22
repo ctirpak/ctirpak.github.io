@@ -24,7 +24,7 @@ function loadData() {
 	fullAddress = $('#street').val() + $('#city').val();
 	fullURL = '<img class="bgimg" src="' + streetURL + '&location=' + fullAddress + '">';
 	// console.log(fullURL);
-	$body.append(fullURL);
+	//$body.append(fullURL);
 	// YOUR CODE GOES HERE!
 	$.extend(nytParams, {'q': fullAddress});
 	// NY Times request
@@ -49,24 +49,25 @@ function loadData() {
 	});
 
 	// wikipedia request
-	
-	var wikiRequestTimeout = setTimeout(function() {
+
+	var wikiRequestTimeout = setTimeout(function () {
 		$wikiElem.text('failed to get wikipedia resources');
 	}, 8000);
-	
+
 	var wikiURL = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + fullAddress + '&format=json&callback=wikiCallback';
 	$.ajax({
 		url: wikiURL,
 		dataType: 'jsonp',
-		success: function(response) {
+		success: function (response) {
 			console.log(response);
 			var articleList = response[1];
-			
+
 			for (var x = 0; x < articleList.length; x++) {
 				var articleStr = articleList[x];
 				var url = 'http://en.wikipedia.org/wiki/' + articleStr;
 				$wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
-			};
+			}
+			;
 			clearTimeout(wikiRequestTimeout);
 		}
 	});
@@ -75,6 +76,35 @@ function loadData() {
 }
 ;
 
-$('#form-container').submit(loadData);
+$('#search-form').submit(loadData);
+
+$("#search").dialog({
+	closeOnEscape: false
+});
+
+$("#prior-search-terms").accordion({
+	collapsible: true
+});
+
+function initialize() {
+	var mapOptions = {
+		location: 'lambertville nj',
+		//center: {lat: -34.397, lng: 150.644},
+		zoom: 8,
+		styles: [{
+				"stylers": [
+					{"saturation": -85},
+					{"gamma": 0.43},
+					{"lightness": -11}
+				]
+			}]
+	};
+	var map = new google.maps.Map(document.getElementById('map-canvas'),
+			mapOptions);
+}
+
+initialize();
+
+//google.maps.event.addDomListener(window, 'load', initialize);
 
 // loadData();
