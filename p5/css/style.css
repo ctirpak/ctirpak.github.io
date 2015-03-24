@@ -8,6 +8,17 @@ html, body, #map-canvas {
     padding: 0;
 }
 
+#map-canvas {
+	width: 90%;
+	float: right;
+}
+
+
+#results {
+	width: 10%;
+	float: left;
+}
+
 /* this removes the close button from the title bar of the dialog box */
 .ui-dialog-titlebar-close {
     visibility: hidden;
