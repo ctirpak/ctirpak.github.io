@@ -10,7 +10,8 @@ function loadData() {
 	"api-key": "aeacc24cfc3061cdd0c6bba97bbba8ed:5:71450941",
 	"fl": "headline,snippet,web_url"
     };
-
+    var historyCount = parseInt($('#history-count').text()) + 1;
+    console.log(historyCount);
 
     // clear out old data before new request
     $wikiElem.text("");
@@ -21,6 +22,7 @@ function loadData() {
     $.extend(nytParams, {'q': fullAddress});
 
     $('#history-items').append('<li>' + fullAddress + '</li>');
+    $('#history-count').text(historyCount);
 
 
     // NY Times request
