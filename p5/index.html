@@ -14,10 +14,10 @@
 				</form>
 			</div>
 			<div id="results">
-				<h3>History (<span id="history-count"></span>)</h3>
-				<div class="history-container">
-					<ul id="history-items"></ul>
-				</div>
+				<h3>Items</h3>
+			<ul id="item-list" data-bind="foreach: itemList">
+				<li data-bind="text: name, click: $parent.setCurrentItem"></li>
+			</ul>
 			</div>
 			<div id="map-canvas"></div>
 

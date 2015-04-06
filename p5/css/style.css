@@ -14,24 +14,7 @@ html, body, #map-canvas {
 }
 
 
-#results {
+#items {
 	width: 10%;
 	float: left;
-}
-
-/* this removes the close button from the title bar of the dialog box */
-.ui-dialog-titlebar-close {
-    visibility: hidden;
-}
-
-.wikipedia-container {
-
-}
-
-.nytimes-container {
-
-}
-
-.history-container {
-    height: 150px;
 }
