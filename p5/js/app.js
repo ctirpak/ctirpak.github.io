@@ -31,29 +31,43 @@ var model = {
 			'infoContent': null
 		},
 		{
-			'address': 'Somerset NJ',
-			'title': 'Somerset NJ',
+			'address': 'Santorini, Greece',
+			'title': 'Santorini',
 			'marker': null,
 			'infowindow': null,
 			'infoContent': null
 		},
 		{
-			'address': 'Piscataway NJ',
-			'title': 'Piscataway NJ',
+			'address': 'Mykonos, Greece',
+			'title': 'Mykonos',
 			'marker': null,
 			'infowindow': null,
 			'infoContent': null
 		},
 		{
-			'address': 'East Brunswick NJ',
-			'title': 'East Brunswick NJ',
+			'address': 'Muir Woods National Monument',
+			'title': 'Muir Woods National Monument',
 			'marker': null,
 			'infowindow': null,
 			'infoContent': null
 		},
 		{
-			'address': 'Bridgewater NJ',
-			'title': 'Bridgewater NJ',
+			'address': 'Grand Canyon National Park',
+			'title': 'Grand Canyon National Park',
+			'marker': null,
+			'infowindow': null,
+			'infoContent': null
+		},
+		{
+			'address': 'Las Vegas',
+			'title': 'Las Vegas',
+			'marker': null,
+			'infowindow': null,
+			'infoContent': null
+		},
+		{
+			'address': 'San Francisco',
+			'title': 'San Francisco',
 			'marker': null,
 			'infowindow': null,
 			'infoContent': null
@@ -102,19 +116,26 @@ var viewModel = function () {
 			url: wikiURL,
 			dataType: 'jsonp',
 			success: function(response) {
-				console.log(response);
+				//console.log(response);
 				//store the list of articles
 				var articleList = response[1];
 				//store the artile summaries
 				var articleSummary = response[2];
 				//store the article URLs
 				var articleURLs = response[3];
+				/*
+				//store the first article and build the html that will be displayed in the infowindow
+				oneItem.infoContent = oneItem.infoContent + '<h3><a href="'  + articleURLs[0] + '" target="_blank">' + articleList[0] + '</a></h3><p>' + articleSummary[0] + '</p>';
+				*/
 				//loop through each article and build the html that will be displayed in the infowindow
 				for (var x = 0; x < articleList.length; x++) {
 					oneItem.infoContent = oneItem.infoContent + '<h3><a href="'  + articleURLs[x] + '" target="_blank">' + articleList[x] + '</a></h3><p>' + articleSummary[x] + '</p>';
 				};
 				//clear the timeout function if the request was successful
 				clearTimeout(wikiRequestTimeout);
+			},
+			error: function (xhr, status) {
+				oneItem.infoContent = '<h3>No WikiPedia information returned for ' + oneItem.title + '</h3><p>Additional information:</p><p>' + xhr + '</p><p>' + status + '</p>';
 			}
 		});
 		//geocode location into latLng
@@ -137,8 +158,15 @@ var viewModel = function () {
 				//add click event listener to marker
 				//centers map and displays info
 				google.maps.event.addListener(oneItem.marker, 'click', function() {
+					//close all open infowindows
+					model.places.forEach(function(item) {
+						item.infowindow.close();						
+					});
+					//set zoom level
 					model.map.setZoom(12);
+					//center map
 					model.map.setCenter(oneItem.marker.getPosition());
+					//open the infowindow
 					oneItem.infowindow.open(model.map, oneItem.marker);
 				});
 				//console.log(oneItem);
@@ -162,6 +190,9 @@ var viewModel = function () {
 		newItem.marker().setAnimation(google.maps.Animation.DROP);
 		//center google map on selected items marker
 		model.map.setCenter(newItem.marker().getPosition());
+		//open the infowindow
+		//trigger the click event
+		google.maps.event.trigger(newItem.marker(), 'click');
 	};
 	//used to fileter list as user types in <input>
 	//triggered by keyup event
@@ -178,6 +209,10 @@ var viewModel = function () {
 			noresult = 1;
 			//remove no results message
 			$('.no-results-found').remove();
+			//remove formatting
+			$('#item-list > li').each(function() {
+				$(this).html($(this).text());
+			});
 		//else serach term entered
 		} else {
 			//loop through each item to see if there's a match
@@ -190,12 +225,16 @@ var viewModel = function () {
 				if (match >= 0) {
 					//show the item
 					$(this).show();
+					//add highlighing to the part of the text that matched the search result
+					$(this).html($(this).text().slice(0,match) + '<span class="highlight">' + $(this).text().slice(match,match + valThis.length) + '</span>' + $(this).text().slice(match + valThis.length,$(this).text().length));
 					noresult = 1;
 					$('.no-results-found').remove();
 				//else no match
 				} else {
 					//hide the item
 					$(this).hide();
+					//remove highlighting
+					$(this).html($(this).text());
 				}
 			});
 		};
