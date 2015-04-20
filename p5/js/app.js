@@ -97,7 +97,7 @@ var Item = function (data) {
 
 var viewModel = function () {
 	//capture reference to parent of inner scope items
-	that = this;
+	var that = this;
 	//create new google map and save it to the model
 	model.map = new google.maps.Map($('#map-canvas')[0], model.mapOptions);
 	//create new geocoder object to be used to translate location address to latLng
@@ -141,7 +141,7 @@ var viewModel = function () {
 				//loop through each article and build the html that will be displayed in the infowindow
 				for (var x = 0; x < articleList.length; x++) {
 					oneItem.infoContent = oneItem.infoContent + '<h3><a href="'  + articleURLs[x] + '" target="_blank">' + articleList[x] + '</a></h3><p>' + articleSummary[x] + '</p>';
-				};
+				}
 				//clear the timeout function if the request was successful
 				clearTimeout(wikiRequestTimeout);
 			},
@@ -248,7 +248,7 @@ var viewModel = function () {
 					$(this).html($(this).text());
 				}
 			});
-		};
+		}
 		//if no matches found, display message
 		if (noresult === 0) {
 			$('.no-results-found').remove();
@@ -258,5 +258,5 @@ var viewModel = function () {
 };
 
 //initiate knockout with viewModel
-ko.applyBindings(new viewModel);
+ko.applyBindings(new viewModel());
 
