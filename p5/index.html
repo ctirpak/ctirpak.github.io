@@ -7,32 +7,25 @@
 		<link rel="stylesheet" href="jquery-ui-1.11.4/jquery-ui.min.css">
     </head>
     <body>
-			<div id="search" title="Search" style="width: 100%">
+		<div id="results">
+			<div id="search" title="Search">
 				<form id="search-form" class="form-container">
-					<label for="search">Search: </label>
 					<input type="text" id="search-for" placeholder="Search for..." value="" data-bind="textInput: searchFor, event: { keyup: filterList}">
 				</form>
 			</div>
-			<div id="results">
-				<h3>Items</h3>
 			<ul id="item-list" data-bind="foreach: itemList">
 				<li data-bind="text: address, click: $parent.setCurrentItem"></li>
 			</ul>
 			<ul id="empty-list">
 			</ul>
-			</div>
-			<div id="map-canvas"></div>
+		</div>
 
-
-
-
+		<div id="map-canvas"></div>
 
 		<script src="js/jquery-1.11.2.min.js"></script>
 		<script src="jquery-ui-1.11.4/jquery-ui.min.js"></script>
 		<script src="js/knockout-3.3.0.js"></script>
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtDD_2NQQ4lv6LX_LAO75QP3oT0zryEco"></script>
-		<script src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
-		<script src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
 
 		<script src="js/app.js"></script>
 

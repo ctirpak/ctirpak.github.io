@@ -1,3 +1,6 @@
+// Chris Tirpak
+// project 5
+
 // this is the model for the data
 var model = {
 	// map options are used to set initial default values and styles
@@ -23,27 +26,6 @@ var model = {
 	//infowindow: google maps infoWindow object
 	//infoContent: html string to be displayed in infoWindow
 	'places': [
-		{
-			'address': '620 Crossroads Blvd cary nc',
-			'title': 'Epic Games',
-			'marker': null,
-			'infowindow': null,
-			'infoContent': null
-		},
-		{
-			'address': 'Santorini, Greece',
-			'title': 'Santorini',
-			'marker': null,
-			'infowindow': null,
-			'infoContent': null
-		},
-		{
-			'address': 'Mykonos, Greece',
-			'title': 'Mykonos',
-			'marker': null,
-			'infowindow': null,
-			'infoContent': null
-		},
 		{
 			'address': 'Muir Woods National Monument',
 			'title': 'Muir Woods National Monument',
@@ -71,7 +53,36 @@ var model = {
 			'marker': null,
 			'infowindow': null,
 			'infoContent': null
+		},
+		{
+			'address': 'Acropolis, Athens Greece',
+			'title': 'Acropolis',
+			'marker': null,
+			'infowindow': null,
+			'infoContent': null
+		},
+		{
+			'address': 'Empire State Building',
+			'title': 'Empire State Building',
+			'marker': null,
+			'infowindow': null,
+			'infoContent': null
+		},
+		{
+			'address': 'World Trade Center',
+			'title': 'World Trade Center',
+			'marker': null,
+			'infowindow': null,
+			'infoContent': null
+		},
+		{
+			'address': 'Mount Lycabettus',
+			'title': 'Mount Lycabettus',
+			'marker': null,
+			'infowindow': null,
+			'infoContent': null
 		}
+		
 	]
 };
 
