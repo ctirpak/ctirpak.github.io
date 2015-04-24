@@ -31,7 +31,7 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-		it('have URL', function() {
+		it('have URLs', function() {
 			$.each(allFeeds, function(index, value) {
 				//check that it's defined
 				expect(value.url).toBeDefined();
@@ -45,7 +45,7 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-		it('have name', function() {
+		it('have names', function() {
 			$.each(allFeeds, function(index, value) {
 				//check that it's defined
 				expect(value.name).toBeDefined();
@@ -64,11 +64,20 @@ $(function() {
 	describe('The menu', function() {
 		
 
-        /* TODO: Write a test that ensures the menu element is
+        /* Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
-         */
+		 * 
+		 * clicking on the menu icon toggles the class .menu-hidden on the 
+		 * <body> element the CSS for this class affects the .menu class only,
+		 * and performs a translate3d action on the x axis to hide the menu. 
+		 */
+		it('is hidden', function() {
+			$('body').each(function(index, element) {
+				expect($(element).attr('class')).toBe('menu-hidden');
+			});
+		});
 
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
