@@ -2,6 +2,8 @@
 
 This project uses [Jasmine](http://jasmine.github.io/) to test a web-based application that reads RSS feeds.
 
+To run this project, open the index.html file. Each of the test cases will run and the results will be displayed at the bottom of the page.
+
 ### Passing Test Cases Written:
 
 1. Write a test that loops through each feed in the allFeeds object and ensures it has a URL defined and that the URL is not empty.
