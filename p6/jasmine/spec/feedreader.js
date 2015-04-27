@@ -81,56 +81,105 @@ $(function () {
 					expect($(element).attr('class')).toBe('menu-hidden');
 				});
 			});
-			it('has x axis that is less than zero', function () {
-				//check to see that the right side of the menu is not visible i.e. <=0
-				expect($('.menu')[0].getBoundingClientRect().right <= 0).toBeTruthy();
+			it('has left x axis that is less than zero', function () {
+				//check to see that the left side of the menu is not visible i.e. < 0
+				expect($('.menu')[0].getBoundingClientRect().left < 0).toBeTruthy();
 			});
 		});
 
-		/* TODO: Write a test that ensures the menu changes
+		/* Write a test that ensures the menu changes
 		 * visibility when the menu icon is clicked. This test
 		 * should have two expectations: does the menu display when
 		 * clicked and does it hide when clicked again.
 		 */
 		describe('changes visibility when clicked', function() {
-			beforeEach( function() {
-				//trigger the click event
-				$('.menu-icon-link').trigger('click');
-				console.log($('#menu')[0].getBoundingClientRect());
-			});
+			var leftMenuVisible;
 			
-			it('displays when clicked', function () {
-				//assume that the menu is hidden by default 
-				//check to see if the right edge of the menu is not visible i.e. <= 0
-				expect($('#menu')[0].getBoundingClientRect().right <= 0).toBeTruthy();
+			/* since the menu should be hidden initially, one click on the menu
+			 * icon will show the menu
+			 * 
+			 * there is a transition delay with the display of the menu. testing
+			 * requires the use of a setTimeout function to add a delay before
+			 * checking the position of the menu. without this delay, the testing
+			 * functions return a false failure.
+			 * 
+			 * there is no afterEach() function, so the state of the menu
+			 * remains until the next expectation
+			 */
+			
+			beforeEach(function(done) {
+				//click the menu icon
+				$('.menu-icon-link').trigger('click');
+				//need to pause to allow transition to complete before checking
+				//its position
+				setTimeout(function() {
+					//check if left of bounding rectangle is 0
+					leftMenuVisible = $('#menu')[0].getBoundingClientRect().left === 0;
+					done();
+				},300);
+			});
+
+			it('shows when clicked', function () {
+				//check to see if the left edge of the menu is visible i.e. = 0
+				expect(leftMenuVisible).toBeTruthy();
 			});
 	
 			it('hides when clicked again', function () {
-				//check to see if the right edge of the menu is visible i.e. > 0
-				expect($('#menu')[0].getBoundingClientRect().right > 0).toBeTruthy();
+				//check to see if the left edge of the menu is not visible i.e. < 0
+				expect(leftMenuVisible).toBeFalsy();
 			});
 		});
 	});
+	
 	/* Write a new test suite named "Initial Entries" */
 	describe('Initial Entries', function () {
 
-		/* TODO: Write a test that ensures when the loadFeed
+		/* Write a test that ensures when the loadFeed
 		 * function is called and completes its work, there is at least
 		 * a single .entry element within the .feed container.
 		 * Remember, loadFeed() is asynchronous so this test wil require
 		 * the use of Jasmine's beforeEach and asynchronous done() function.
 		 */
+		beforeEach(function(done) {
+			//pass the done function as a callback to the loadFeed function so
+			//that it is run after the feed has been loaded
+			loadFeed(0,done);
+		});
+
+		it('has at least one entry in the feed container', function() {
+			//check the length of the array for the .entry children of .feed
+			expect($('.feed .entry').length > 0).toBeTruthy();
+		});
 
 	});
 
-	/* TODO: Write a new test suite named "New Feed Selection" */
+	/* Write a new test suite named "New Feed Selection" */
 	describe('New Feed Selection', function () {
-
-		/* TODO: Write a test that ensures when a new feed is loaded
+		var x = 0;
+		var oldContent;
+		
+		/* Write a test that ensures when a new feed is loaded
 		 * by the loadFeed function that the content actually changes.
 		 * Remember, loadFeed() is asynchronous.
 		 */
-
+		
+		afterAll(function() {
+			//load the first feed after testing is done
+			loadFeed(0);
+		});
+		
+		it('content should change when a new feed is loaded', function(done) {
+			loadFeed(0,done);
+			//check the length of the array for the .entry children of .feed
+			expect($('.feed .entry').length > 0).toBeTruthy();
+		
+			for(x=0;x < allFeeds.length; x++) {
+				oldContent = $('.feed .entry');
+				loadFeed(x,done);
+				expect($('.feed .entry') === oldContent).toBeFalsy();
+			}
+		});
+		loadFeed(0);
 	});
 
 }());
