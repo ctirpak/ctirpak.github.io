@@ -9,6 +9,7 @@ To run this project, open the [index.html](http://ctirpak.github.io/p6) file. Ea
 This project contains a number of test cases that are used to validate various functionality of the project.
 
 The test cases validate that:
+
 1. the allFeeds object has URLs and Names and are not empty.
 2. the menu element is hidden by default.
 3. the menu changes visibility when the menu icon is clicked.
