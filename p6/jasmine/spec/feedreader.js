@@ -155,31 +155,43 @@ $(function () {
 
 	/* Write a new test suite named "New Feed Selection" */
 	describe('New Feed Selection', function () {
-		var x = 0;
-		var oldContent;
-		
 		/* Write a test that ensures when a new feed is loaded
 		 * by the loadFeed function that the content actually changes.
 		 * Remember, loadFeed() is asynchronous.
 		 */
-		
-		afterAll(function() {
-			//load the first feed after testing is done
-			loadFeed(0);
-		});
-		
-		it('content should change when a new feed is loaded', function(done) {
+		var oldContent;
+		var x;
+
+		//get the old content
+		beforeEach(function(done) {
+			//pass the done function as a callback to the loadFeed function so
+			//that it is run after the feed has been loaded
 			loadFeed(0,done);
-			//check the length of the array for the .entry children of .feed
-			expect($('.feed .entry').length > 0).toBeTruthy();
-		
-			for(x=0;x < allFeeds.length; x++) {
-				oldContent = $('.feed .entry');
-				loadFeed(x,done);
-				expect($('.feed .entry') === oldContent).toBeFalsy();
-			}
+			oldContent = $('.feed').html();
 		});
-		loadFeed(0);
+		it('content should change when a new feed is loaded', function(done) {
+			//loop through each of the feeds to load
+			for(x=1; x < (allFeeds.length - 1); x++) {
+				loadFeed(x,done);
+				expect($('.feed').html() != oldContent).toBeTruthy();
+				//console.log(oldContent);
+				//console.log($('.feed').html());
+			}
+		});		
+/*
+		it('content should change when a feed 1 is loaded', function(done) {
+			loadFeed(0,done);
+			expect($('.feed').html() != oldContent).toBeTruthy();
+		});
+		it('content should change when a feed 2 is loaded', function(done) {
+			loadFeed(2,done);
+			expect($('.feed').html() != oldContent).toBeTruthy();
+		});
+		it('content should change when a feed 3 is loaded', function(done) {
+			loadFeed(3,done);
+			expect($('.feed').html() != oldContent).toBeTruthy();
+		});
+*/
 	});
 
 }());
