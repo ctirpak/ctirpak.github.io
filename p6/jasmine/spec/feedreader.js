@@ -160,38 +160,34 @@ $(function () {
 		 * Remember, loadFeed() is asynchronous.
 		 */
 		var oldContent;
-		var x;
 
 		//get the old content
 		beforeEach(function(done) {
 			//pass the done function as a callback to the loadFeed function so
 			//that it is run after the feed has been loaded
-			loadFeed(0,done);
+			//start with the last feed first
+			loadFeed(1,done);
 			oldContent = $('.feed').html();
+			//console.log($('.feed').html());
 		});
-		it('content should change when a new feed is loaded', function(done) {
-			//loop through each of the feeds to load
-			for(x=1; x < (allFeeds.length - 1); x++) {
-				loadFeed(x,done);
-				expect($('.feed').html() != oldContent).toBeTruthy();
-				//console.log(oldContent);
-				//console.log($('.feed').html());
-			}
-		});		
-/*
-		it('content should change when a feed 1 is loaded', function(done) {
+		it('content should change when feed 0 is loaded', function(done) {
 			loadFeed(0,done);
 			expect($('.feed').html() != oldContent).toBeTruthy();
+			//console.log($('.feed').html());
+			//console.log(oldContent);
 		});
-		it('content should change when a feed 2 is loaded', function(done) {
+		it('content should change when feed 2 is loaded', function(done) {
 			loadFeed(2,done);
 			expect($('.feed').html() != oldContent).toBeTruthy();
+			//console.log($('.feed').html());
+			//console.log(oldContent);
 		});
-		it('content should change when a feed 3 is loaded', function(done) {
+		it('content should change when feed 3 is loaded', function(done) {
 			loadFeed(3,done);
 			expect($('.feed').html() != oldContent).toBeTruthy();
+			//console.log($('.feed').html());
+			//console.log(oldContent);
 		});
-*/
 	});
 
 }());
