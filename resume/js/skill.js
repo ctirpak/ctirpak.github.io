@@ -1,6 +1,6 @@
 function initchart() {
 	var data = {
-		_proficiency: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		_proficiency: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 		children: null,
 		value: 0,
 		key: "",
@@ -177,14 +177,14 @@ var chart = function (d3) {
 			},
 	g = 500 - rect.left - rect.right,
 			h = 300 - rect.top - rect.bottom,
-			i = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+			i = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017],
 			j = d3.scale.linear().range([0, g]),
 			k = d3.scale.linear().range([h, 0]),
 			bottomtick = d3
 			.svg
 			.axis()
 			.scale(j)
-			.tickValues([2000, 2004, 2009, 2014])
+			.tickValues([2000, 2004, 2009, 2014, 2017])
 			.tickFormat(d3.format(".0f"))
 			.tickPadding(10)
 			.tickSize(0)

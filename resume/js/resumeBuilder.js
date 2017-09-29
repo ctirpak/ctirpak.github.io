@@ -10,32 +10,32 @@ var model = {
 			"github": "<a href='https://github.com/ctirpak'>github.com/ctirpak</a>",
 			"location": "Apex, NC"
 		},
-		"welcomeMsg": "8+ years of experience managing IT projects and building custom applications and tools that increase productivity and efficiency by eliminating manual processes and provide innovative, intuitive and effortless solutions.",
-		"skills": ["HTML5", "JavaScript", "jQuery", "SharePoint", "MS SQL Server", "ASP.NET", "Visual Basic for Applications (VBA)", "Git", "Java", "C/C++", "Visual Basic"],
+		"welcomeMsg": "27+ years of distinguished work experience delivering creative solutions to solve complex problems by managing and building custom tools that are innovative, intuitive and effortless, which facilitate productivity and efficiency by eliminating manual work efforts",
+		"skills": ["MS SQL Server","MS SSIS","ColdFusion","Java","HTML5/CSS3", "JavaScript", "jQuery", "SharePoint","Visual Studio","ASP.NET","Visual Basic for Applications (VBA)", "Git", "C/C++", "Visual Basic","Jasmine.js"],
 		"pictureURL": "images/skull.jpg"
 	},
 	work: {
 		"jobs": [
 			{
 				"employer": "AT&T",
-				"position": "Sr Consultant Sys Integration - Business Solutions Group",
+				"position": "Sr Consultant Sys Integration – Business Solutions Group, Technology Development",
 				"years": "2008 - Present",
 				"location": "Raleigh, NC",
-				"description": "Operational Effectiveness. Analyze existing organizational processes, identify areas for improvement and provide solutions that increase productivity and grow revenue for organization of 500+ employees. Deployed seven applications over the past five years which reduced project cycle time by 25%, resulting in faster revenue realization. New versions of three applications are released each quarter. Collaborate with users to gather requirements, create and maintain project timelines, share coding responsibilities with three developers, and follow SDLC methodologies for management of projects.  Use of HTML5, JavaScript, JQuery, SQL Server, SharePoint Designer, ASP.NET, VBA, Microsoft Access, Microsoft Excel, Visual Basic."
+				"description": "Analyze existing organizational processes, identify areas for improvement and provide solutions that increase productivity and grow revenue for organization of 500+ employees. Deployed seven applications over the past five years which reduced project cycle time, resulting in faster revenue generation. New versions of three applications are released each quarter. Collaborate with users to gather requirements, create and maintain project timelines, manage development team and share coding responsibilities with three developers.  Use of HTML5, JavaScript, JQuery, SQL Server, SharePoint Designer, ASP.NET, VBA, Java, Microsoft Excel, Visual Basic."
 			},
 			{
 				"employer": "AT&T",
 				"position": "Manager - Business Marketing - Wireless",
 				"years": "2006 - 2007",
 				"location": "Piscataway, NJ",
-				"description": "Maintain average monthly inventory levels of 3,000 wireless devices and 10,000 Voice over IP (VoIP) telephone adapters for customer sales.  Create budgets, manage inventory, validate purchase orders and pay invoices. Developed three VBA applications to automate weekly database updates and generate monthly reports."
+				"description": "Manage inventory levels of 3,000 wireless devices and 10,000 Voice over IP (VoIP) telephone adapters for customer sales.  Create forecasts, manage inventory, validate purchase orders and pay invoices. Developed three applications (in MS Outlook, MS Excel and MS Access) to automate weekly database updates and generate monthly reports."
 			},
 			{
 				"employer": "AT&T",
 				"position": "Staff Manager - Consumer Operations Solutions and Transformation",
 				"years": "1998 - 2006",
 				"location": "Piscataway, NJ",
-				"description": "Manage $600M annual budget for telecom billing, and supervise three employees. Fine-tune budget based on business strategy, track monthly results and determine root cause of variances, prepare monthly financial packages and provide read out to upper management. Perform “what if” analysis to determine impact of contractual changes."
+				"description": "Supervise team of three employees to Manage $600M annual budget for telecom billing. Create forecasts based on business strategy, track monthly results and determine root cause of variances, prepare monthly financial packages and provide status to upper management. Perform “what if” analysis to determine impact of contractual changes."
 			},
 			{
 				"employer": "AT&T",
@@ -49,45 +49,50 @@ var model = {
 				"position": "Associate Manager - LEC Billing Financial Management",
 				"years": "1987 - 1997",
 				"location": "Somerset, NJ",
-				"description": "Associate Manager (1993 to 1997) – LEC Billing Financial Management. Manage $1.1M annual budget for over 1,000 Local Exchange Companies (LECs) and Independent Companies (ICOs) for telecom services. Reports Clerk (1987 to 1993) – Responsible for input and payment of 25 monthly LEC bills."
+				"description": "Associate Manager (1993 to 1997) – LEC Billing Financial Management. Manage $1.1M annual budget for over 1,000 Local Exchange Companies (LECs) and Independent Companies (ICOs) for telecom services Reports Clerk (1987 to 1993) – Responsible for analysis and payment of 25 monthly LEC bills."
 			}
 		]
 	},
 	projects: {
 		"project": [
 			{
+				"title": "Predictive Volume Analysis",
+				"dates": "2017 to present",
+				"description": "This Microsoft SQL Server Integration Services package runs as a scheduled agent job that automatically retrieves data from a Teradata Enterprise Data Warehouse. Data is loaded into SQL Server tables and processed using Stored Procedures. This data is used to help predict future revenue declines for legacy telecom products.",
+			},
+			{
 				"title": "Work Intake Front Door",
 				"dates": "2009 to present",
-				"description": "SharePoint 2010 site used as a client-facing tool for the submission of 125 monthly work requests, with a user base of 250+. Extensive use of workflows, JavaScript, jQuery, VBScript and SQL Server.",
-				"images": ["images/fd1.jpeg", "images/fd2.jpeg"]
+				"description": "SharePoint web site used as a client-facing portal for the submission of project work requests, with a user base of 250+ employees and over 125 work requests submitted each month. Site customization includes SQL Server data retrieval and storage, dynamic forms, form completion and validation, and email notifications. Client side functionality uses SharePoint workflows and jQuery. SQL Server connectivity enabled with use of VB Script and Visual Basic."
+				/*,
+				"images": ["images/fd1.jpeg", "images/fd2.jpeg"]*/
 			},
 			{
-				"title": "Project Tool",
-				"dates": "2011 to present",
-				"description": "Excel VBA application used to create project artifacts such as scope documentation, system requirements, business scenarios, test cases, and change requests. New versions released each quarter, automatically pushed to 500+ users. VBA and SQL Server.",
-				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]
-			},
-			{
-				"title": "Project Repository",
-				"dates": "2011 to present",
-				"description": "Excel VBA application used with the Project Tool application. Uses SQL database to store Project Tool components for re-use. 500+ users with 100+ components added per month.",
-				"images": ["images/dasl1.jpeg", "images/dasl2.jpeg"]
+				"title": "Bootstrap Table",
+				"dates": "2015 to present",
+				"description": "jQuery plugin that turns an ordinary HTML table into a Bootstrap-styled table. This plugin adds sorting, searching, drill down navigation, and download/export of data.",
 			},
 			{
 				"title": "Code Calculator",
 				"dates": "2014 to present",
-				"description": "ASP.NET web application generates unique product tracking codes for 150 monthly sales orders. Includes data validation, HTML5, jQuery, SQL Server stored procedures.",
-				"images": ["images/voltage1.jpeg", "images/voltage2.jpeg"]
+				"description": "ASP.NET web application that generates unique product tracking codes based on user input for 150 sales orders per month. Client side web page uses HTML5, CSS3 and jQuery to enable interactive features and form validation. Server side VB Script establishes SQL Server database connection, executes queries and stored procedures."
+				/*,
+				"images": ["images/voltage1.jpeg", "images/voltage2.jpeg"]*/
 			},
 			{
 				"title": "Project Status",
 				"dates": "2014 to present",
-				"description": "Excel VBA application which provides status and search functionality for 300+ projects. Creates an interface between Excel and SQL Server.",
-				"images": ["images/heart1.jpeg", "images/heart2.jpeg"]
+				"description": "Excel VBA application which provides status and search functionality for 300+ projects. Creates an interface between Excel and SQL Server."
+				/*,
+				"images": ["images/heart1.jpeg", "images/heart2.jpeg"]*/
+			},
+			{
+				"title": "Requirements Tool",
+				"dates": "2011 to present",
+				"description": "Excel VBA application used to manage project artifacts such as scope documentation, system requirements, business scenarios, test cases, and change requests. SQL Server connectivity enables reuse and storage of data. Software is automatically updated and pushed to 500+ users as needed."
+				/*,
+				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			}
-
-
-
 		]
 
 	},
@@ -191,7 +196,6 @@ var view = {
 		this.addMap();
 		this.hideEmptySections();
 		this.addEvents();
-		this.initMap();
 	},
 	bioDisplay: function () {
 		var bio = controller.getBio();
@@ -331,190 +335,6 @@ var view = {
 			$(this).removeClass('transition');
 		});
 
-	},
-	initMap: function () {
-		/*
-		 This is the fun part. Here's where we generate the custom Google Map for the website.
-		 See the documentation below for more details.
-		 https://developers.google.com/maps/documentation/javascript/reference
-		 */
-		var map;    // declares a global map variable
-
-
-		/*
-		 Start here! initializeMap() is called when page is loaded.
-		 */
-		function initializeMap() {
-
-			var locations;
-
-			var mapOptions = {
-				disableDefaultUI: true
-			};
-
-			// This next line makes `map` a new Google Map JavaScript Object and attaches it to
-			// <div id="map">, which is appended as part of an exercise late in the course.
-			map = new google.maps.Map(document.querySelector('#map'), mapOptions);
-
-
-			/*
-			 locationFinder() returns an array of every location string from the JSONs
-			 written for bio, education, and work.
-			 */
-			var locationInfo = [];
-
-			function locationFinder() {
-
-				// initializes an empty array
-				var locations = [];
-				var uniqueLocations = [];
-
-				// adds the single location property from bio to the locations array
-				locations.push(model.bio.contacts.location);
-				locationInfo.push({
-					"loc": model.bio.contacts.location,
-					"content": model.bio.name
-				});
-
-
-				// iterates through school locations and appends each location to
-				// the locations array
-				for (var school in model.education.schools) {
-					locations.push(model.education.schools[school].location);
-					locationInfo.push({
-						"loc": model.education.schools[school].location,
-						"content": model.education.schools[school].name
-					});
-				}
-
-				// iterates through work locations and appends each location to
-				// the locations array
-				for (var job in model.work.jobs) {
-					locations.push(model.work.jobs[job].location);
-					locationInfo.push({
-						"loc": model.work.jobs[job].location,
-						"content": model.work.jobs[job].employer + ": " + model.work.jobs[job].years
-					});
-				}
-
-				//remove the duplicates from the array using jQuery
-				$.each(locations, function (i, el) {
-					if ($.inArray(el, uniqueLocations) === -1)
-						uniqueLocations.push(el);
-				});
-
-				return uniqueLocations;
-			}
-
-			/*
-			 createMapMarker(placeData) reads Google Places search results to create map pins.
-			 placeData is the object returned from search results containing information
-			 about a single location.
-			 */
-			function createMapMarker(placeData) {
-
-				// The next lines save location data from the search result object to local variables
-				var lat = placeData.geometry.location.k;  // latitude from the place service
-				var lon = placeData.geometry.location.D;  // longitude from the place service
-				var name = placeData.formatted_address;   // name of the place from the place service
-				var bounds = window.mapBounds;            // current boundaries of the map window
-
-				// marker is an object with additional data about the pin for a single location
-				var marker = new google.maps.Marker({
-					map: map,
-					position: placeData.geometry.location,
-					title: name
-				});
-
-				// infoWindows are the little helper windows that open when you click
-				// or hover over a pin on a map. They usually contain more information
-				// about a location.
-				var locInfo = '<div class="info-window">';
-				var loc1 = placeData.name;
-				for (var info in locationInfo) {
-					var loc2 = locationInfo[info].loc.split(", ")[0];
-					if (loc1.slice(0, loc2.length) === loc2) {
-						locInfo = locInfo + name + ": " + locationInfo[info].content + "<br>";
-					}
-				}
-				locInfo = locInfo + "</div>";
-
-				var infoWindow = new google.maps.InfoWindow({
-					content: locInfo,
-					maxHeight: 200
-
-				});
-
-				// hmmmm, I wonder what this is about...
-				google.maps.event.addListener(marker, 'click', function () {
-					// your code goes here!
-					infoWindow.open(map, marker);
-				});
-
-				// this is where the pin actually gets added to the map.
-				// bounds.extend() takes in a map location object
-				bounds.extend(new google.maps.LatLng(lat, lon));
-				// fit the map to the new marker
-				map.fitBounds(bounds);
-				// center the map
-				map.setCenter(bounds.getCenter());
-			}
-
-			/*
-			 callback(results, status) makes sure the search returned results for a location.
-			 If so, it creates a new map marker for that location.
-			 */
-			function callback(results, status) {
-				if (status === google.maps.places.PlacesServiceStatus.OK) {
-					createMapMarker(results[0]);
-				}
-			}
-
-			/*
-			 pinPoster(locations) takes in the array of locations created by locationFinder()
-			 and fires off Google place searches for each location
-			 */
-			function pinPoster(locations) {
-
-				// creates a Google place search service object. PlacesService does the work of
-				// actually searching for location data.
-				var service = new google.maps.places.PlacesService(map);
-
-				// Iterates through the array of locations, creates a search object for each location
-				for (place in locations) {
-
-					// the search request object
-					var request = {
-						query: locations[place]
-					};
-
-					// Actually searches the Google Maps API for location data and runs the callback 
-					// function with the search results after each search.
-					service.textSearch(request, callback);
-				}
-			}
-
-			// Sets the boundaries of the map based on pin locations
-			window.mapBounds = new google.maps.LatLngBounds();
-
-			// locations is an array of location strings returned from locationFinder()
-			locations = locationFinder();
-
-			// pinPoster(locations) creates pins on the map for each location in
-			// the locations array
-			pinPoster(locations);
-
-		};
-
-		// Calls the initializeMap() function when the page loads
-		window.addEventListener('load', initializeMap);
-
-		// Vanilla JS way to listen for resizing of the window 
-		// and adjust map bounds
-		window.addEventListener('resize', function (e) {
-			// Make sure the map bounds get updated on page resize
-			map.fitBounds(mapBounds);
-		});
 	}
 };
 
