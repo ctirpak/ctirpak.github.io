@@ -1,4 +1,4 @@
-// Chris Tirpak
+
 // project 5
 
 // this is the model for the data
