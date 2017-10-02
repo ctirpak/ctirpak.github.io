@@ -3,7 +3,7 @@ var model = {
 		"name": "Chris Tirpak",
 		"role": "Web Application Developer",
 		"contacts": {
-			"mobile": "<a href='#'></a>",
+			"mobile": "<a></a>",
 			"email": "<a href='mailto:ctirpak1@gmail.com?Subject=About%20your%20resume...'>ctirpak1@gmail.com</a>",
 			"twitter": "<a href='https://twitter.com/c_tirpak'>@c_tirpak</a>",
 			"LinkedIn": "<a href='http://www.linkedin.com/in/christirpak'>Chris Tirpak</a>",
@@ -147,28 +147,28 @@ var model = {
 		HTMLskillsStart: "<h3 id='skillsH3'>Skills at a Glance:</h3><ul id='skills' class='flex-box'></ul>",
 		HTMLskills: "<li class='flex-item'><span class='white-text'>%data%</span></li>",
 		HTMLworkStart: "<div class='work-entry'></div>",
-		HTMLworkEmployer: "<a href='#'>%data%",
+		HTMLworkEmployer: "<a>%data%",
 		HTMLworkTitle: " - %data%</a>",
 		HTMLworkDates: "<div class='date-text'>%data%</div>",
 		HTMLworkLocation: "<div class='location-text'>%data%</div>",
 		HTMLworkDescription: "<p><br>%data%</p>",
 		HTMLprojectStart: "<div class='project-entry'></div>",
-		HTMLprojectTitle: "<a href='#'>%data%</a>",
+		HTMLprojectTitle: "<a>%data%</a>",
 		HTMLprojectDates: "<div class='date-text'>%data%</div>",
 		HTMLprojectDescription: "<p><br>%data%</p>",
 		HTMLprojectImage: "<img class='proj-img img-zoom' alt='project picture' src='%data%'>",
 		HTMLschoolStart: "<div class='education-entry'></div>",
-		HTMLschoolName: "<a href='#'>%data%",
+		HTMLschoolName: "<a>%data%",
 		HTMLschoolDegree: " -- %data%</a>",
 		HTMLschoolDates: "<div class='date-text'>%data%</div>",
 		HTMLschoolLocation: "<div class='location-text'>%data%</div>",
 		HTMLschoolMajor: "<em><br>Major: %data%</em>",
 		HTMLschoolDescription: "<p><br>%data%</p>",
 		HTMLonlineClasses: "<h3>Online Classes</h3>",
-		HTMLonlineTitle: "<a href='#'>%data%",
+		HTMLonlineTitle: "<a>%data%",
 		HTMLonlineSchool: " - %data%</a>",
 		HTMLonlineDates: "<div class='date-text'>%data%</div>",
-		HTMLonlineURL: "<br><a href='#'>%data%</a>"
+		HTMLonlineURL: "<br><a>%data%</a>"
 
 	}
 };
