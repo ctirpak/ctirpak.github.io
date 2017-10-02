@@ -96,7 +96,7 @@ var model = {
 			{
 				"title": "Killer Bugs",
 				"dates": "2014 to present",
-				"description": "HTML Canvas video game <a href='http://ctirpak.github.io/p3/index.html' target='_blank'>hosted on Github</a>"
+				"description": "HTML Canvas video game <a href='http://ctirpak.github.io/p3/index.html' target='_blank' style='display: inline;'>hosted on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			}
