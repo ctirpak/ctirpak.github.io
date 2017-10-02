@@ -92,7 +92,17 @@ var model = {
 				"description": "Excel VBA application used to manage project artifacts such as scope documentation, system requirements, business scenarios, test cases, and change requests. SQL Server connectivity enables reuse and storage of data. Software is automatically updated and pushed to 500+ users as needed."
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
+			},
+			{
+				"title": "Killer Bugs",
+				"dates": "2014 to present",
+				"description": "HTML Canvas video game <a href='http://ctirpak.github.io/p3/index.html' target='_blank'>hosted on Github</a>"
+				/*,
+				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			}
+			
+			
+			
 		]
 
 	},
