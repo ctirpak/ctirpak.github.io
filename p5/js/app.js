@@ -132,7 +132,8 @@ var viewModel = function () {
 		var wikiURL = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + oneItem.title + '&format=json';
 		$.ajax({
 			url: wikiURL,
-			dataType: 'jsonp',
+			dataType: 'json',
+			type: 'POST',
 			headers: { 'Api-User-Agent': 'Map Application' },
 			success: function(response) {
 				//console.log(response);
