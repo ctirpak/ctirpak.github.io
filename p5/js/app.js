@@ -129,7 +129,7 @@ var viewModel = function () {
 		//wikipedia ajax request
 		//use the title of the marker as the search term
 		oneItem.infoContent='';
-		var wikiURL = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + oneItem.title + '&format=json';
+		var wikiURL = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + oneItem.title + '&format=json&callback=wikiCallback';
 		$.ajax({
 			url: wikiURL,
 			dataType: 'jsonp',
