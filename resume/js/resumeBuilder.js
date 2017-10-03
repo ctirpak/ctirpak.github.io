@@ -103,7 +103,14 @@ var model = {
 			{
 				"title": "Interactive Resume",
 				"dates": "2014 to present",
-				"description": "My resume on the web. Uses Model - View - Controller (MVC) archatecture. <a href='https://github.com/ctirpak/ctirpak.github.io/tree/master/resume' target='_blank' style='display: inline;'>Source code on Github</a>"
+				"description": "This resume on the web. Uses Model - View - Controller (MVC) archatecture. <a href='https://github.com/ctirpak/ctirpak.github.io/tree/master/resume' target='_blank' style='display: inline;'>Source code on Github</a>"
+				/*,
+				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
+			},
+			{
+				"title": "Sample Portfolio",
+				"dates": "2014 to present",
+				"description": "Work in progress sample portfolio, to be updated with projects listed here. <a href='http://ctirpak.github.io/p1/index.html' target='_blank' style='display: inline;'>Hosted on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			}
