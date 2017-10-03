@@ -117,7 +117,7 @@ var model = {
 			{
 				"title": "Neighborhood Map",
 				"dates": "2014 to present",
-				"description": "Searchable Google map webpage using knockout.js. <a href='http://ctirpak.github.io/p5/index.html' target='_blank' style='display: inline;'>Hosted on Github</a>"
+				"description": "Searchable Google map webpage using knockout.js. Pulls list of articles from Wikipedia for each marker. <a href='http://ctirpak.github.io/p5/index.html' target='_blank' style='display: inline;'>Hosted on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			}
