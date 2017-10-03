@@ -27,6 +27,13 @@ var model = {
 	//infoContent: html string to be displayed in infoWindow
 	'places': [
 		{
+			'address': 'SAS Institute Inc, SAS Campus Drive, Cary, NC',
+			'title': 'SAS Institute Inc',
+			'marker': null,
+			'infowindow': null,
+			'infoContent': null
+		},
+		{
 			'address': 'Muir Woods National Monument',
 			'title': 'Muir Woods National Monument',
 			'marker': null,
