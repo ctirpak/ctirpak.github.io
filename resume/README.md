@@ -1,3 +1,3 @@
-#Interactive Resume
+## Interactive Resume
 
-My resume. Implemented with Model - View - Controller (MVC) architecture
+My resume. Uses Model - View - Controller (MVC) architecture
