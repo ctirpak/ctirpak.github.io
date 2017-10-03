@@ -113,6 +113,13 @@ var model = {
 				"description": "Work in progress sample portfolio, to be updated with projects listed here. <a href='http://ctirpak.github.io/p1/index.html' target='_blank' style='display: inline;'>Hosted on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
+			},
+			{
+				"title": "Neighborhood Map",
+				"dates": "2014 to present",
+				"description": "Searchable Google map webpage using knockout.js. <a href='http://ctirpak.github.io/p5/index.html' target='_blank' style='display: inline;'>Hosted on Github</a>"
+				/*,
+				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			}
 			
 			
