@@ -99,6 +99,13 @@ var model = {
 				"description": "HTML Canvas video game <a href='http://ctirpak.github.io/p3/index.html' target='_blank' style='display: inline;'>hosted on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
+			},
+			{
+				"title": "Interactive Resume",
+				"dates": "2014 to present",
+				"description": "My resume on the web. Uses Model - View - Controller (MVC) archatecture. <a href='https://github.com/ctirpak/ctirpak.github.io/tree/master/resume' target='_blank' style='display: inline;'>Source code on Github</a>"
+				/*,
+				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			}
 			
 			
