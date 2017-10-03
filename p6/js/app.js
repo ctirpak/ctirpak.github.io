@@ -20,7 +20,11 @@ var allFeeds = [
     }, {
         name: 'Linear Digressions',
         url: 'http://feeds.feedburner.com/udacity-linear-digressions'
+    }, {
+        name: 'SAS',
+        url: 'https://blogs.sas.com/content/feed/'
     }
+    
 ];
 
 /* This function starts up our application. The Google Feed
