@@ -133,6 +133,8 @@ var viewModel = function () {
 		$.ajax({
 			url: wikiURL,
 			dataType: 'jsonp',
+			type: 'GET'
+			async: false,
 			headers: { 'Api-User-Agent': 'Map Application' },
 			success: function(response) {
 				//console.log(response);
