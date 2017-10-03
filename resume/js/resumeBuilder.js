@@ -120,6 +120,13 @@ var model = {
 				"description": "Searchable Google map webpage using knockout.js. Pulls list of articles from Wikipedia for each marker. <a href='http://ctirpak.github.io/p5/index.html' target='_blank' style='display: inline;'>Hosted on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
+			},
+			{
+				"title": "Feed Reader",
+				"dates": "2014 to present",
+				"description": "RSS Feed Reader. Uses jasmine.js JavaScript testing framework. <a href='http://ctirpak.github.io/p6/index.html' target='_blank' style='display: inline;'>Hosted on Github</a>"
+				/*,
+				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			}
 			
 			
