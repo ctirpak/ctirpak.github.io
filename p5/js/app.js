@@ -5,7 +5,7 @@
 var model = {
 	// map options are used to set initial default values and styles
 	mapOptions: {
-		center: {lat: 40.782, lng: -73.965},
+		center: {lat: 35.8287126, lng: -78.7692707},
 		zoom: 12,
 		styles: [{
 				"stylers": [
@@ -133,6 +133,7 @@ var viewModel = function () {
 		$.ajax({
 			url: wikiURL,
 			dataType: 'jsonp',
+			headers: { 'Api-User-Agent': 'Map Application' },
 			success: function(response) {
 				//console.log(response);
 				//store the list of articles
