@@ -70,7 +70,7 @@ var model = {
 			{
 				"title": "Bootstrap Table",
 				"dates": "2015 to present",
-				"description": "jQuery plugin that turns an ordinary HTML table into a Bootstrap-styled table. This plugin adds sorting, searching, drill down navigation, and download/export of data. <a href='https://github.com/ctirpak/bs-table' target='_blank' style='display: inline;'>Source code on Github</a>",
+				"description": "jQuery plugin that turns an ordinary HTML table into a Bootstrap-styled table. This plugin adds sorting, searching, drill down navigation, and download/export of data. <a href='https://github.com/ctirpak/bs-table' target='_blank' style='display: inline;'>Source code on Github</a>,  <a href='https://ctirpak.github.io/bs-table/index.html' target='_blank' style='display: inline;'>Demo on Github</a>",
 			},
 			{
 				"title": "Code Calculator",
