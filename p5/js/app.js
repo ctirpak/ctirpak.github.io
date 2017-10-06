@@ -134,7 +134,6 @@ var viewModel = function () {
 			url: wikiURL,
 			dataType: 'jsonp',
 			type: 'GET',
-			async: false,
 			headers: { 'Api-User-Agent': 'Map Application' },
 			success: function(response) {
 				//console.log(response);
@@ -154,51 +153,52 @@ var viewModel = function () {
 				}
 				//clear the timeout function if the request was successful
 				clearTimeout(wikiRequestTimeout);
-			},
+                                //geocode location into latLng
+                                //pass location address as first argument
+                                //second argument is callback to execute
+                                that.geocoder.geocode({'address': oneItem.address}, function (results, status) {
+                                        if (status == google.maps.GeocoderStatus.OK) {
+                                                //if status ok
+                                                //create new marker and save in model
+                                                //pass arguments of google map and location
+                                                oneItem.marker = new google.maps.Marker({
+                                                        map: model.map,
+                                                        position: results[0].geometry.location,
+                                                        title: oneItem.title
+                                                });
+                                                //create infowindow for marker
+                                                oneItem.infowindow = new google.maps.InfoWindow({
+                                                        content: oneItem.infoContent
+                                                });
+                                                //add click event listener to marker
+                                                //centers map and displays info
+                                                google.maps.event.addListener(oneItem.marker, 'click', function() {
+                                                        //close all open infowindows
+                                                        model.places.forEach(function(item) {
+                                                                item.infowindow.close();						
+                                                        });
+                                                        //set zoom level
+                                                        model.map.setZoom(12);
+                                                        //center map
+                                                        model.map.setCenter(oneItem.marker.getPosition());
+                                                        //open the infowindow
+                                                        oneItem.infowindow.open(model.map, oneItem.marker);
+                                                });
+                                                //console.log(oneItem);
+                                                //add to observable array
+                                                //new item is created that is observable
+                                                //for the address and google map marker
+                                                that.itemList.push(new Item(oneItem));
+                                        } else {
+                                                //something went wrong
+                                                alert('Geocode was not successful for [' + oneItem.address + '] the following reason: ' + status);
+                                                return null;
+                                        }
+                                });
+
+                        },
 			error: function (xhr, status) {
 				oneItem.infoContent = '<h3>No WikiPedia information returned for ' + oneItem.title + '</h3><p>Additional information:</p><p>' + xhr + '</p><p>' + status + '</p>';
-			}
-		});
-		//geocode location into latLng
-		//pass location address as first argument
-		//second argument is callback to execute
-		that.geocoder.geocode({'address': oneItem.address}, function (results, status) {
-			if (status == google.maps.GeocoderStatus.OK) {
-				//if status ok
-				//create new marker and save in model
-				//pass arguments of google map and location
-				oneItem.marker = new google.maps.Marker({
-					map: model.map,
-					position: results[0].geometry.location,
-					title: oneItem.title
-				});
-				//create infowindow for marker
-				oneItem.infowindow = new google.maps.InfoWindow({
-					content: oneItem.infoContent
-				});
-				//add click event listener to marker
-				//centers map and displays info
-				google.maps.event.addListener(oneItem.marker, 'click', function() {
-					//close all open infowindows
-					model.places.forEach(function(item) {
-						item.infowindow.close();						
-					});
-					//set zoom level
-					model.map.setZoom(12);
-					//center map
-					model.map.setCenter(oneItem.marker.getPosition());
-					//open the infowindow
-					oneItem.infowindow.open(model.map, oneItem.marker);
-				});
-				//console.log(oneItem);
-				//add to observable array
-				//new item is created that is observable
-				//for the address and google map marker
-				that.itemList.push(new Item(oneItem));
-			} else {
-				//something went wrong
-				alert('Geocode was not successful for [' + oneItem.address + '] the following reason: ' + status);
-				return null;
 			}
 		});
 	});
