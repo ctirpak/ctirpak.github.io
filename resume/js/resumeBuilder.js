@@ -20,35 +20,35 @@ var model = {
 				"employer": "AT&T",
 				"position": "Sr Consultant Sys Integration – Business Solutions Group, Technology Development",
 				"years": "2008 - Present",
-				"location": "Raleigh, NC",
+				"location": "",
 				"description": "Analyze existing organizational processes, identify areas for improvement and provide solutions that increase productivity and grow revenue for organization of 500+ employees. Deployed seven applications over the past five years which reduced project cycle time, resulting in faster revenue generation. New versions of three applications are released each quarter. Collaborate with users to gather requirements, create and maintain project timelines, manage development team and share coding responsibilities with three developers.  Use of HTML5, JavaScript, JQuery, SQL Server, SharePoint Designer, ASP.NET, VBA, Java, Microsoft Excel, Visual Basic."
 			},
 			{
 				"employer": "AT&T",
 				"position": "Manager - Business Marketing - Wireless",
 				"years": "2006 - 2007",
-				"location": "Piscataway, NJ",
+				"location": "",
 				"description": "Manage inventory levels of 3,000 wireless devices and 10,000 Voice over IP (VoIP) telephone adapters for customer sales.  Create forecasts, manage inventory, validate purchase orders and pay invoices. Developed three applications (in MS Outlook, MS Excel and MS Access) to automate weekly database updates and generate monthly reports."
 			},
 			{
 				"employer": "AT&T",
 				"position": "Staff Manager - Consumer Operations Solutions and Transformation",
 				"years": "1998 - 2006",
-				"location": "Piscataway, NJ",
+				"location": "",
 				"description": "Supervise team of three employees to Manage $600M annual budget for telecom billing. Create forecasts based on business strategy, track monthly results and determine root cause of variances, prepare monthly financial packages and provide status to upper management. Perform “what if” analysis to determine impact of contractual changes."
 			},
 			{
 				"employer": "AT&T",
 				"position": "Associate Manager - Local Service End-to-End Architecture",
 				"years": "1997 - 1998",
-				"location": "Piscataway, NJ",
+				"location": "",
 				"description": "Analyze system architecture to determine system and resource capacity needs for rollout of local telephone service for approximately 15 million customers. Determine feasibility and provide appropriate guidance. Create monthly forecasts. Manage team of developers to implement changes for custom application software."
 			},
 			{
 				"employer": "AT&T",
 				"position": "Associate Manager - LEC Billing Financial Management",
 				"years": "1987 - 1997",
-				"location": "Somerset, NJ",
+				"location": "",
 				"description": "Associate Manager (1993 to 1997) – LEC Billing Financial Management. Manage $1.1M annual budget for over 1,000 Local Exchange Companies (LECs) and Independent Companies (ICOs) for telecom services Reports Clerk (1987 to 1993) – Responsible for analysis and payment of 25 monthly LEC bills."
 			}
 		]
@@ -58,10 +58,10 @@ var model = {
 			{
 				"title": "Predictive Volume Analysis",
 				"dates": "2017 to present",
-				"description": "This Microsoft SQL Server Integration Services package runs as a scheduled agent job that automatically retrieves data from a Teradata Enterprise Data Warehouse. Data is loaded into SQL Server tables and processed using Stored Procedures. This data is used to help predict future revenue declines for legacy telecom products.",
+				"description": "This Microsoft SQL Server Integration Services package runs as a scheduled agent job that automatically retrieves data from a Teradata Enterprise Data Warehouse. Data is loaded into SQL Server tables and processed using Stored Procedures. This data is used to help predict future revenue declines for legacy telecom products."
 			},
 			{
-				"title": "Work Intake Front Door",
+				"title": "Work Intake",
 				"dates": "2009 to present",
 				"description": "SharePoint web site used as a client-facing portal for the submission of project work requests, with a user base of 250+ employees and over 125 work requests submitted each month. Site customization includes SQL Server data retrieval and storage, dynamic forms, form completion and validation, and email notifications. Client side functionality uses SharePoint workflows and jQuery. SQL Server connectivity enabled with use of VB Script and Visual Basic."
 				/*,
@@ -70,7 +70,7 @@ var model = {
 			{
 				"title": "Bootstrap Table",
 				"dates": "2015 to present",
-				"description": "jQuery plugin that turns an ordinary HTML table into a Bootstrap-styled table. This plugin adds sorting, searching, drill down navigation, and download/export of data. <a>Source code on Github</a>,  <a>Demo on Github</a>",
+				"description": "jQuery plugin that turns an ordinary HTML table into a Bootstrap-styled table. This plugin adds sorting, searching, drill down navigation, and download/export of data. <a>Source code on Github</a> <a>Demo on Github</a>"
 			},
 			{
 				"title": "Code Calculator",
