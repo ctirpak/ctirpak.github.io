@@ -1,14 +1,14 @@
 var model = {
 	bio: {
-		"name": "Chris Tirpak",
+		"name": "",
 		"role": "Web Application Developer",
 		"contacts": {
 			"mobile": "<a></a>",
-			"email": "<a href='mailto:ctirpak1@gmail.com?Subject=About%20your%20resume...'>ctirpak1@gmail.com</a>",
-			"twitter": "<a href='https://twitter.com/c_tirpak'>@c_tirpak</a>",
-			"LinkedIn": "<a href='http://www.linkedin.com/in/christirpak'>Chris Tirpak</a>",
-			"github": "<a href='https://github.com/ctirpak'>github.com/ctirpak</a>",
-			"location": "Apex, NC"
+			"email": "<a href=''></a>",
+			"twitter": "<a href=''></a>",
+			"LinkedIn": "<a href=''></a>",
+			"github": "<a href=''></a>",
+			"location": ""
 		},
 		"welcomeMsg": "27+ years of distinguished work experience delivering creative solutions to solve complex problems by managing and building custom tools that are innovative, intuitive and effortless, which facilitate productivity and efficiency by eliminating manual work efforts",
 		"skills": ["MS SQL Server","MS SSIS","ColdFusion","Java","HTML5/CSS3", "JavaScript", "jQuery", "SharePoint","Visual Studio","ASP.NET","Visual Basic for Applications (VBA)", "Git", "C/C++", "Visual Basic","Jasmine.js"],
@@ -70,7 +70,7 @@ var model = {
 			{
 				"title": "Bootstrap Table",
 				"dates": "2015 to present",
-				"description": "jQuery plugin that turns an ordinary HTML table into a Bootstrap-styled table. This plugin adds sorting, searching, drill down navigation, and download/export of data. <a href='https://github.com/ctirpak/bs-table' target='_blank' style='display: inline;'>Source code on Github</a>,  <a href='https://ctirpak.github.io/bs-table-demo/index.html' target='_blank' style='display: inline;'>Demo on Github</a>",
+				"description": "jQuery plugin that turns an ordinary HTML table into a Bootstrap-styled table. This plugin adds sorting, searching, drill down navigation, and download/export of data. <a href='' target='_blank' style='display: inline;'>Source code on Github</a>,  <a href='' target='_blank' style='display: inline;'>Demo on Github</a>",
 			},
 			{
 				"title": "Code Calculator",
@@ -96,35 +96,35 @@ var model = {
 			{
 				"title": "Killer Bugs",
 				"dates": "2014 to present",
-				"description": "HTML Canvas video game. <a href='http://ctirpak.github.io/p3/index.html' target='_blank' style='display: inline;'>Hosted on Github</a>"
+				"description": "HTML Canvas video game. <a href='' target='_blank' style='display: inline;'>Hosted on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			},
 			{
 				"title": "Interactive Resume",
 				"dates": "2014 to present",
-				"description": "This resume on the web. Uses Model - View - Controller (MVC) archatecture. <a href='https://github.com/ctirpak/ctirpak.github.io/tree/master/resume' target='_blank' style='display: inline;'>Source code on Github</a>"
+				"description": "This resume on the web. Uses Model - View - Controller (MVC) archatecture. <a href='' target='_blank' style='display: inline;'>Source code on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			},
 			{
 				"title": "Sample Portfolio",
 				"dates": "2014 to present",
-				"description": "Work in progress sample portfolio, to be updated with projects listed here. <a href='http://ctirpak.github.io/p1/index.html' target='_blank' style='display: inline;'>Hosted on Github</a>"
+				"description": "Work in progress sample portfolio, to be updated with projects listed here. <a href='' target='_blank' style='display: inline;'>Hosted on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			},
 			{
 				"title": "Neighborhood Map",
 				"dates": "2014 to present",
-				"description": "Searchable Google map webpage using knockout.js. Pulls list of articles from Wikipedia for each marker. <a href='http://ctirpak.github.io/p5/index.html' target='_blank' style='display: inline;'>Hosted on Github</a>"
+				"description": "Searchable Google map webpage using knockout.js. Pulls list of articles from Wikipedia for each marker. <a href='' target='_blank' style='display: inline;'>Hosted on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			},
 			{
 				"title": "Feed Reader",
 				"dates": "2014 to present",
-				"description": "RSS Feed Reader. Uses jasmine.js JavaScript testing framework. <a href='http://ctirpak.github.io/p6/index.html' target='_blank' style='display: inline;'>Hosted on Github</a>"
+				"description": "RSS Feed Reader. Uses jasmine.js JavaScript testing framework. <a href='' target='_blank' style='display: inline;'>Hosted on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			}
