@@ -4,10 +4,10 @@ var model = {
 		"role": "Web Application Developer",
 		"contacts": {
 			"mobile": "<a></a>",
-			"email": "<a href=''></a>",
-			"twitter": "<a href=''></a>",
-			"LinkedIn": "<a href=''></a>",
-			"github": "<a href=''></a>",
+			"email": "<a></a>",
+			"twitter": "<a></a>",
+			"LinkedIn": "<a></a>",
+			"github": "<a></a>",
 			"location": ""
 		},
 		"welcomeMsg": "27+ years of distinguished work experience delivering creative solutions to solve complex problems by managing and building custom tools that are innovative, intuitive and effortless, which facilitate productivity and efficiency by eliminating manual work efforts",
@@ -70,7 +70,7 @@ var model = {
 			{
 				"title": "Bootstrap Table",
 				"dates": "2015 to present",
-				"description": "jQuery plugin that turns an ordinary HTML table into a Bootstrap-styled table. This plugin adds sorting, searching, drill down navigation, and download/export of data. <a href='' target='_blank' style='display: inline;'>Source code on Github</a>,  <a href='' target='_blank' style='display: inline;'>Demo on Github</a>",
+				"description": "jQuery plugin that turns an ordinary HTML table into a Bootstrap-styled table. This plugin adds sorting, searching, drill down navigation, and download/export of data. <a>Source code on Github</a>,  <a>Demo on Github</a>",
 			},
 			{
 				"title": "Code Calculator",
@@ -96,35 +96,35 @@ var model = {
 			{
 				"title": "Killer Bugs",
 				"dates": "2014 to present",
-				"description": "HTML Canvas video game. <a href='' target='_blank' style='display: inline;'>Hosted on Github</a>"
+				"description": "HTML Canvas video game. <a>Hosted on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			},
 			{
 				"title": "Interactive Resume",
 				"dates": "2014 to present",
-				"description": "This resume on the web. Uses Model - View - Controller (MVC) archatecture. <a href='' target='_blank' style='display: inline;'>Source code on Github</a>"
+				"description": "This resume on the web. Uses Model - View - Controller (MVC) archatecture. <a>Source code on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			},
 			{
 				"title": "Sample Portfolio",
 				"dates": "2014 to present",
-				"description": "Work in progress sample portfolio, to be updated with projects listed here. <a href='' target='_blank' style='display: inline;'>Hosted on Github</a>"
+				"description": "Work in progress sample portfolio, to be updated with projects listed here. <a>Hosted on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			},
 			{
 				"title": "Neighborhood Map",
 				"dates": "2014 to present",
-				"description": "Searchable Google map webpage using knockout.js. Pulls list of articles from Wikipedia for each marker. <a href='' target='_blank' style='display: inline;'>Hosted on Github</a>"
+				"description": "Searchable Google map webpage using knockout.js. Pulls list of articles from Wikipedia for each marker. <a>Hosted on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			},
 			{
 				"title": "Feed Reader",
 				"dates": "2014 to present",
-				"description": "RSS Feed Reader. Uses jasmine.js JavaScript testing framework. <a href='' target='_blank' style='display: inline;'>Hosted on Github</a>"
+				"description": "RSS Feed Reader. Uses jasmine.js JavaScript testing framework. <a>Hosted on Github</a>"
 				/*,
 				"images": ["images/rasl1.jpeg", "images/rasl2.jpeg"]*/
 			}
